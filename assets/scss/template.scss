@@ -48,12 +48,10 @@ body {
 }
 
 #profile .network-icon {
-  margin-top: 0.5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-left: 0; // 혹시 모를 왼쪽 여백(패딩) 값 초기화
-  width: 100%; // 너비를 100%로 설정하여 중앙 정렬 기준을 명확하게 함
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important; // 텍스트 정렬도 확실하게 중앙으로
 }
 
 ul.network-icon .big-icon {
