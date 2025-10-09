@@ -49,9 +49,10 @@ body {
 
 #profile .network-icon {
   display: flex !important;
-  flex-direction: column !important;
+  flex-direction: row !important;      /* 아이콘을 가로로 배열합니다. */
+  justify-content: center !important; /* 가로로 배열된 아이콘들을 중앙에 놓습니다. */
   align-items: center !important;
-  text-align: center !important; // 텍스트 정렬도 확실하게 중앙으로
+  /* text-align은 flex에서 불필요하므로 빼도 괜찮습니다. */
 }
 
 ul.network-icon .big-icon {
