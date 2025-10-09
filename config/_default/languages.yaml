@@ -12,7 +12,7 @@ ko:
         url: '#about'
         weight: 1
       - name: 이력서
-        url: 'resume.pdf'
+        url: '/about/'
         weight: 2
       - name: 연락하기
         url: '/contact/'
@@ -30,7 +30,7 @@ en:
         url: '#about'
         weight: 1
       - name: Resumé
-        url: 'resume.pdf'
+        url: '/about/'
         weight: 2
       - name: Contact
         url: '/contact/'
