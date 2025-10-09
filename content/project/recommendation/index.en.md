@@ -1,5 +1,5 @@
 ---
-title: Cloths Recommendation Systems\ :\ Front-end
+title: "Cloths Recommendation Systems: Front-end"
 summary: Write about your project here...
 tags:
   - Front-end
