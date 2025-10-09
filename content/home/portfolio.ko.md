@@ -26,14 +26,14 @@ content:
   # To filter by a specific tag, set `tag` to an existing tag name.
   # To remove the toolbar, delete the entire `filter_button` block.
   filter_button:
-    - name: All
+    - name: 전체
       tag: '*'
-    - name: Machine Learning
-      tag: ML
+    - name: 객체 지향 프로그래밍
+      tag: 객지프
     - name: Computer Vision
       tag: CV
-    - name: NLP
-      tag: NLP
+    - name: 프론트엔드
+      tag: 프론트
 
 design:
   columns: '1'

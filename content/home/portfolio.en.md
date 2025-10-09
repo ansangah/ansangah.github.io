@@ -28,12 +28,12 @@ content:
   filter_button:
     - name: All
       tag: '*'
-    - name: Machine Learning
-      tag: ML
+    - name: Object-oriented programming
+      tag: OOP
     - name: Computer Vision
       tag: CV
-    - name: NLP
-      tag: NLP
+    - name: Front-end
+      tag: Front
 
 design:
   columns: '1'
