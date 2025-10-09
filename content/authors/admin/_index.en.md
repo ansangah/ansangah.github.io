@@ -66,8 +66,8 @@ social:
 #email: ""
 ---
 
-Alice Wu is a professor of artificial intelligence at the Stanford AI Lab. Her research interests include distributed robotics, mobile computing and programmable matter. She leads the Robotic Neurobiology group, which develops self-reconfiguring robots, systems of self-organizing robots, and mobile sensor networks.
+Sang-a Ahn is a third-year undergraduate student at Jeonbuk National University, majoring in Computer Science and Artificial Intelligence. Having recently completed foundational studies in deep learning, they are now building upon this knowledge as a student member of the Medical AI and Computational Science Lab.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque elit, tristique placerat feugiat ac, facilisis vitae arcu. Proin eget egestas augue. Praesent ut sem nec arcu pellentesque aliquet. Duis dapibus diam vel metus tempus vulputate.
+As someone just beginning their journey into the vast world of deep learning, [Your Name] is currently exploring various subfields and applications of AI. They are actively seeking a career path that will allow them to continue learning and develop their skills in a dynamic and challenging environment.
 
 {{< icon name="download" pack="fas" >}} {{< staticref "uploads/resume.pdf" "newtab" >}}Download{{< /staticref >}} my resumé as a PDF.

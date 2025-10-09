@@ -3,7 +3,7 @@
 ko:
   languageName: Korean
   weight: 1
-  title: '나의 포트폴리오' # 한국어 사이트 제목
+  title: '안상아의 포트폴리오' # 한국어 사이트 제목
   params:
     description: '한국어 사이트 설명'
   menu:
@@ -21,7 +21,7 @@ ko:
 en:
   languageName: English
   weight: 2
-  title: 'My Portfolio' # 영어 사이트 제목
+  title: 'Sang-a Ahn's Portfolio' # 영어 사이트 제목
   params:
     description: 'Site description in English'
   menu:
