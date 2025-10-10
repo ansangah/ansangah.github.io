@@ -34,12 +34,13 @@
   transform: scale(1);
 }
 
-/* 슬라이드 이미지: 비율 유지하면서 꽉 채우기 */
+/* 슬라이더 이미지: 비율 유지하면서 여백 검은색으로 채움 */
 .hb-slide img {
   width: 100%;
   height: 100%;
-  object-fit: cover;         /* 핵심: 여백 없이 꽉 채움 */
-  object-position: center;   /* 중앙 기준으로 크롭 */
+  object-fit: contain;      /* 👈 이미지를 자르지 않고 전부 표시 */
+  object-position: center;  /* 중앙 정렬 */
+  background-color: #0b0f14;   /* 👈 남는 공간을 검은색으로 채움 */
   display: block;
 }
 
