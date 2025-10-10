@@ -21,6 +21,7 @@ author: admin
 👋 Hello! I'm **Sang-a Ahn**,<br>
 a third-year computer artificial intelligence student<br>
 at Jeonbuk National University.
+{.intro-text}
 
 
 Check out my [resumé](/en/resume/) and portfolio below!
