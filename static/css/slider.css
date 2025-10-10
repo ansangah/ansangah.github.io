@@ -15,7 +15,9 @@
 .hb-slider{
   position: relative;
   width: 100vw;
-  height: 250px;             /* 원하시는 높이로 */
+  height: 30vh;          /* 원하시는 높이로 */
+  min-height: 220px;     /* 너무 작아지지 않게 최소 제한 */
+  max-height: 340px;     /* 너무 커지지 않게 상한 */
   margin: 0 auto;
   overflow: hidden;
   background-color: #000;     /* 남는 공간(레터박스)을 검정으로 */
