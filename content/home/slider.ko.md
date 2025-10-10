@@ -1,4 +1,5 @@
 ---
+draft: true
 widget: slider
 headless: true
 weight: 50            # 페이지 최상단 근처
