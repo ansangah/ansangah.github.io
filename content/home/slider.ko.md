@@ -1,16 +1,16 @@
 ---
 widget: slider
 headless: true
-weight: 5            # 페이지 최상단 근처
+weight: 10            # 페이지 최상단 근처
 title: ""
 content:
   slides:
-    - image: "media/slide1.jpeg"
-      caption: "CV Projects"
-    - image: "media/slide2.jpeg"
-      caption: "Frontend UI"
-    - image: "media/slide3.jpeg"
-      caption: "NLP & Analytics"
+    - image: "/media/slide1.jpeg"
+      caption: "1번입니다"
+    - image: "/media/slide2.jpeg"
+      caption: "2번입니다"
+    - image: "/media/slide3.jpeg"
+      caption: "3번입니다"
 design:
   height: "360px"               # auto 대신 고정 높이로 겹침 방지
   autoplay: true
