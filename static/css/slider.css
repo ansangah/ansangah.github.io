@@ -11,36 +11,27 @@
   overflow: hidden;
 }
 
-/* 슬라이더 본체 */
-.hb-slider {
+/* 슬라이더 컨테이너: 화면 가득 + 고정 높이 */
+.hb-slider{
   position: relative;
-  width: 100vw;           /* 화면 끝까지 */
-  height: 400px;          /* 고정 높이 */
-  overflow: hidden;
+  width: 100vw;
+  height: 400px;             /* 원하시는 높이로 */
   margin: 0 auto;
+  overflow: hidden;
+  background-color: #000;     /* 남는 공간(레터박스)을 검정으로 */
 }
 
-/* 개별 슬라이드 (기본 비활성 상태) */
-.hb-slide {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  transition: opacity 0.6s ease, transform 0.6s ease;
-  transform: scale(1.02);
-}
+/* 슬라이드 페이드 */
+.hb-slide{ position:absolute; inset:0; opacity:0; transition:opacity .6s ease; }
+.hb-slide.active{ opacity:1; }
 
-.hb-slide.active {
-  opacity: 1;
-  transform: scale(1);
-}
-
-/* 슬라이더 이미지: 비율 유지하면서 여백 검은색으로 채움 */
-.hb-slide img {
+/* ✅ 핵심: ‘전부 보이기’ + 남는 공간 검정 */
+.hb-slider .hb-slide img{
   width: 100%;
   height: 100%;
-  object-fit: contain;      /* 👈 이미지를 자르지 않고 전부 표시 */
-  object-position: center;  /* 중앙 정렬 */
-  background-color: #0b0f14;   /* 👈 남는 공간을 검은색으로 채움 */
+  object-fit: contain !important;   /* 반드시 contain */
+  object-position: center;
+  background-color: #000;
   display: block;
 }
 
@@ -58,66 +49,40 @@
   letter-spacing: 0.3px;
 }
 
-/* ===== 네비게이션 (좌우 버튼 + 점) ===== */
-.hb-nav {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  border: none;
-  cursor: pointer;
-  backdrop-filter: blur(6px);
-  background: var(--hb-bg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px;
-  color: var(--hb-stroke);
-  transition: opacity 0.2s ease;
-  z-index: 10;
+/* 기본은 숨김 */
+.hb-nav{
+  position:absolute; top:50%; transform:translateY(-50%);
+  width:44px; height:44px; border-radius:999px; border:0;
+  display:flex; align-items:center; justify-content:center;
+  background: rgba(0,0,0,.35);
+  color:#e3eeff; font-size:22px; cursor:pointer;
+  opacity: 0; transition: opacity .2s ease, background .2s ease;
+  z-index:10;
+}
+.hb-prev{ left:12px; }
+.hb-next{ right:12px; }
+
+/* 슬라이더에 마우스 올렸을 때만 나타남 */
+.hb-slider:hover .hb-nav{ opacity: .85; }
+
+/* 버튼에 마우스 올리면 살짝 진하게 */
+.hb-nav:hover{ background: rgba(0,0,0,.5); }
+
+/* 터치 디바이스(hover 없음)에서는 항상 보이게 */
+@media (hover: none){
+  .hb-nav{ opacity:.85; }
 }
 
-.hb-nav:hover {
-  opacity: 0.8;
+.hb-dots{
+  position:absolute; left:0; right:0; bottom:12px;
+  display:flex; gap:8px; justify-content:center; z-index:9;
 }
-
-.hb-prev {
-  left: 12px;
+.hb-dot{
+  width:9px; height:9px; border-radius:999px; border:0; cursor:pointer;
+  background: rgba(200,220,255,.9); opacity:.55;
+  transition: transform .2s, opacity .2s;
 }
-
-.hb-next {
-  right: 12px;
-}
-
-/* 점 네비게이션 */
-.hb-dots {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 12px;
-  display: flex;
-  gap: 8px;
-  justify-content: center;
-  z-index: 10;
-}
-
-.hb-dot {
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  border: none;
-  cursor: pointer;
-  background: var(--hb-dot);
-  opacity: 0.5;
-  transition: transform 0.2s ease, opacity 0.2s ease;
-}
-
-.hb-dot.active {
-  transform: scale(1.25);
-  opacity: 1;
-}
+.hb-dot.active{ transform:scale(1.25); opacity:1; }
 
 /* ===== 색상 테마 ===== */
 :root {
