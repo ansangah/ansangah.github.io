@@ -12,7 +12,9 @@ content:
     - image: "media/slide3.jpeg"
       caption: "NLP & Analytics"
 design:
-  height: "auto"     # 또는 "300px"
+  height: "360px"               # auto 대신 고정 높이로 겹침 방지
   autoplay: true
-  interval: 4000     # 4초마다 자동 전환
+  interval: 4000
+  spacing:
+    padding: ["12px","0","36px","0"]   # 상/우/하/좌 (아래쪽 여백 36px)
 ---

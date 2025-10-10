@@ -36,9 +36,11 @@ content:
       tag: 프론트
 
 design:
-  columns: '1'
+  columns: 3              # 한 줄에 카드 3개
   view: masonry
-  flip_alt_rows: true
-  background: {}
-  spacing: {padding: [0, 0, 0, 0]}
+  flip_alt_rows: false    # 줄 뒤집힘 비활성화 (필요시 유지해도 무방)
+  background:
+    shape: none           # 섹션 장식(삼각형) 비활성화
+  spacing:
+    padding: ["40px", "0", "0", "0"]  # 위쪽 여백 넉넉히 확보
 ---

@@ -56,6 +56,12 @@ social:
     icon_pack: fab
     link: https://github.com/ansangah
 
+design:
+  spacing:
+    padding: ["24px", "0", "32px", "0"]   # 위아래 여백 (겹침 방지)
+  background:
+    shape: none                          # 삼각형 배경 제거
+
 # Link to a PDF of your resume/CV from the About widget.
 # To enable, copy your resume/CV to `static/files/cv.pdf` and uncomment the lines below.
 # - icon: cv
@@ -73,3 +79,4 @@ social:
 
 
 {{< icon name="download" pack="fas" >}} {{< staticref "uploads/resume.pdf" "newtab" >}}다운로드{{< /staticref >}} 이력서 PDF로 다운받기
+
