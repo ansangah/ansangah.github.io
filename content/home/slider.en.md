@@ -1,30 +1,35 @@
 ---
-
-widget: slider
+widget: blank
 headless: true
-weight: 50            # 페이지 최상단 근처
-title: ""
-content:
-  slides:
-    - title: ""
-      background:
-        image: "/media/slide1.jpeg"   # 또는 "slide1.jpeg" (assets 방식)
-        position: center
-        fit: cover 
-    - title: ""
-      background:
-        image: "/media/slide2.jpeg"
-        position: center
-        fit: cover
-    - title: ""
-      background:
-        image: "/media/slide3.jpeg"
-        position: center
-        fit: cover
+weight: 10
+title:
 design:
-  height: "360px"               # auto 대신 고정 높이로 겹침 방지
-  autoplay: true
-  interval: 4000
   spacing:
-    padding: ["12px","0","36px","0"]   # 상/우/하/좌 (아래쪽 여백 36px)
+    padding: ["0","0","24px","0"]
 ---
+<link rel="stylesheet" href="/css/slider.css">
+
+<div class="hb-slider" aria-label="Image slider">
+  <div class="hb-slide active">
+    <img src="/media/slide1.jpg" alt="슬라이드 1">
+    <div class="hb-caption">CV Projects</div>
+  </div>
+  <div class="hb-slide">
+    <img src="/media/slide2.jpg" alt="슬라이드 2">
+    <div class="hb-caption">Frontend UI</div>
+  </div>
+  <div class="hb-slide">
+    <img src="/media/slide3.jpg" alt="슬라이드 3">
+    <div class="hb-caption">NLP & Analytics</div>
+  </div>
+
+  <button class="hb-nav hb-prev" aria-label="이전">
+    <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>
+  </button>
+  <button class="hb-nav hb-next" aria-label="다음">
+    <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+  </button>
+  <div class="hb-dots" aria-hidden="true"></div>
+</div>
+
+<script defer src="/js/slider.js"></script>
