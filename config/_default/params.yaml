@@ -35,6 +35,7 @@ header:
   navbar:
     enable: true
     align: r
+    blox: "navbar"
     show_logo: true            # ← 로고 표시
     show_language: false
     show_day_night: true
