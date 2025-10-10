@@ -32,3 +32,20 @@ en:
       - name: Contact
         url: '/contact/'
         weight: 3
+jp:
+  languageName: 日本語
+  weight: 3
+  title: "アン·サンア | ポートフォリオ"
+  params:
+    description: 'アン·サンアの経歴、スキル、制作物を紹介するポートフォリオサイトです。'
+  menu:
+    main:
+      - name: ホーム
+        url: '/'
+        weight: 1
+      - name: 履歴書
+        url: '/resume/'
+        weight: 2
+      - name: お問い合わせ
+        url: '/contact/'
+        weight: 3
