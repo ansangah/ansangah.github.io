@@ -204,3 +204,49 @@ a.navbar-brand svg {
   z-index: 5 !important;
   opacity: .95;
 }
+
+/* ====== 홈 레이아웃: 데스크탑 2단, 모바일 1단 ====== */
+
+/* 공통: 인트로/포트폴리오 섹션 사이 여백 조금 줄이기 */
+#intro.home-section,
+#portfolio.home-section {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* 데스크탑 이상에서 2단 배치 */
+@media (min-width: 1200px) {
+  /* 슬라이더 아래의 두 섹션만 좌우 배치 */
+  #intro.home-section,
+  #portfolio.home-section {
+    width: 50%;
+    float: left;
+    clear: none; /* 테마의 clear 규칙 무력화 */
+    padding-left: 16px;
+    padding-right: 16px;
+    box-sizing: border-box;
+  }
+
+  /* 왼쪽(인트로)은 우측 여백, 오른쪽(포트폴리오)은 좌측 여백 살짝 */
+  #intro.home-section  { padding-right: 24px; }
+  #portfolio.home-section { padding-left: 24px; }
+
+  /* 섹션 내부 컨테이너가 너무 좁지 않게 가로폭 제한 완화(선택) */
+  #intro .container, #portfolio .container {
+    max-width: none; /* 테마 기본 max-width 해제 */
+    padding-left: 0; padding-right: 0;
+  }
+}
+
+/* 태블릿/모바일에서는 기본 세로 스택으로 복귀 */
+@media (max-width: 1199.98px) {
+  #intro.home-section,
+  #portfolio.home-section {
+    width: 100%;
+    float: none;
+    clear: both;
+    padding-left: 0;
+    padding-right: 0;
+    margin-bottom: 24px; /* 섹션 간 간격 */
+  }
+}
