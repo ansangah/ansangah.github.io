@@ -59,7 +59,11 @@ taxonomies:
   category: categories
   author: authors
 markup:
-  _merge: deep
+  goldmark:
+    parser:
+      attribute: true    # [링크](...){.btn .btn-primary} 같은 마크다운 클래스 문법 허용
+    renderer:
+      unsafe: true       # (이미지/iframe 등 raw HTML 쓸 때 필요 — 지도도 이걸로 보임)
 related:
   threshold: 80
   includeNewer: true
