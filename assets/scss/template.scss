@@ -146,8 +146,8 @@ a.navbar-brand {
 a.navbar-brand::before {
   content: "";
   display: inline-block;
-  width: 60px;          /* ← 크기 조절 */
-  height: 60px;
+  width: 80px;          /* ← 크기 조절 */
+  height: 80px;
   background: url("/media/header.png") no-repeat center / contain;
 }
 
