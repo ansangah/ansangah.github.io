@@ -5,12 +5,21 @@ weight: 50            # 페이지 최상단 근처
 title: ""
 content:
   slides:
-    - image: "slide1.jpeg"
-      caption: "CV Projects"
-    - image: "slide2.jpeg"
-      caption: "Frontend UI"
-    - image: "slide3.jpeg"
-      caption: "NLP & Analytics"
+    - title: ""
+      background:
+        image: "/media/slide1.jpeg"   # 또는 "slide1.jpeg" (assets 방식)
+        position: center
+        fit: cover 
+    - title: ""
+      background:
+        image: "/media/slide2.jpeg"
+        position: center
+        fit: cover
+    - title: ""
+      background:
+        image: "/media/slide3.jpeg"
+        position: center
+        fit: cover
 design:
   height: "360px"               # auto 대신 고정 높이로 겹침 방지
   autoplay: true
