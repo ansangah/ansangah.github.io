@@ -1,5 +1,5 @@
 ---
-draft: true
+
 # Use the Intro widget of the Blog template
 widget: about.avatar
 

@@ -5,9 +5,6 @@
 
 title: Sang A-Ahn's Website # Website name
 baseURL: 'https://ansangah.github.io/' # Website URL
-theme: academic-cv
-builder:
-  type: block
 
 ############################
 ## PAGE OPTIONS
