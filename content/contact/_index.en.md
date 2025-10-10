@@ -23,7 +23,8 @@ Reach me anytime via:
 
 ## Quick Links (FAB)
 
-
-[Email](mailto:dkstkddkdhkd@jbnu.ac.kr){.btn .btn-primary}
-[GitHub](https://github.com/ansangah){.btn .btn-primary}   
-[Instagram](https://www.instagram.com/ahnneu_){.btn .btn-primary}   
+<div class="contact-buttons">
+  <a class="btn btn-primary" href="mailto:dkstkddkdhkd@jbnu.ac.kr">Email</a>
+  <a class="btn btn-primary" href="https://github.com/ansangah">GitHub</a>
+  <a class="btn btn-primary" href="https://instagram.com/ahnneu_">Instagram</a>
+</div>
