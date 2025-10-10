@@ -154,7 +154,7 @@ a.navbar-brand::before {
 
 /* 다크 모드에서는 다른 로고 사용 (있을 때만) */
 .dark a.navbar-brand::before {
-  background-image: url("/media/header-dark.png");
+  background-image: url("/media/header.png");
 }
 
 /* 혹시 테마가 내부에서 이미지를 넣었다면 제거(안전장치) */
