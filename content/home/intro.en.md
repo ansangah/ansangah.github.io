@@ -18,8 +18,10 @@ author: admin
 #  css_class: fullscreen
 ---
 
-👋 Hello! I'm **Sang-a Ahn**, a third-year computer artificial intelligence student at Jeonbuk National University.
+👋 Hello! I'm **Sang-a Ahn**,<br>
+a third-year computer artificial intelligence student<br>
+at Jeonbuk National University.
 
 
-Check out my [resumé](/resume/) and portfolio below!
+Check out my [resumé](/en/resume/) and portfolio below!
 
