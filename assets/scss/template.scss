@@ -146,10 +146,9 @@ a.navbar-brand {
 a.navbar-brand::before {
   content: "";
   display: inline-block;
-  width: 44px;          /* ← 크기 조절 */
-  height: 44px;
+  width: 60px;          /* ← 크기 조절 */
+  height: 60px;
   background: url("/media/header.png") no-repeat center / contain;
-  border-radius: 8px;   /* 둥근 모서리 원치 않으면 제거 */
 }
 
 /* 다크 모드에서는 다른 로고 사용 (있을 때만) */

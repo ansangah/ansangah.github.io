@@ -45,7 +45,7 @@ header:
       text: ""
       image:
         filename: "media/header.png"
-        height: 40
+        height: 60
       image_dark:
         filename: "media/header.png"               # ← 로고 클릭 시 메인 페이지로 이동
 
