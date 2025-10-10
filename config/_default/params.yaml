@@ -40,12 +40,13 @@ header:
     show_day_night: true
     show_search: true
     highlight_active_link: false
-    brand:
-      text: ""                 # 텍스트 브랜드 숨김(원하면 제거)
-      logo: "media/header.png"        # 밝은 모드 로고
-      logo_dark: "media/header.png"  # 다크 모드 로고(선택)
-      height: 48               # 헤더에서 보이는 로고 높이(px)
-      link: "/"                # ← 로고 클릭 시 메인 페이지로 이동
+    logo:
+      text: ""
+      image:
+        filename: "media/header.png"
+        height: 40
+      image_dark:
+        filename: "media/header.png"               # ← 로고 클릭 시 메인 페이지로 이동
 
 footer:
   copyright:
