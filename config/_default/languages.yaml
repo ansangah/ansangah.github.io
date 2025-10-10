@@ -7,10 +7,10 @@ ko:
   menu:
     main:
       - name: 홈
-        url: '#about'
+        url: '/'
         weight: 1
-      - name: 이력서
-        url: '/about/'
+      - name: 이력
+        url: '/resume/'
         weight: 2
       - name: 연락하기
         url: '/contact/'
@@ -24,10 +24,10 @@ en:
   menu:
     main:
       - name: Home
-        url: '#about'
+        url: '/'
         weight: 1
       - name: Resumé
-        url: '/about/'
+        url: '/resume/'
         weight: 2
       - name: Contact
         url: '/contact/'
