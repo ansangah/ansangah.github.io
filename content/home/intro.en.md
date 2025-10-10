@@ -19,6 +19,7 @@ author: admin
 ---
 
 👋 Hello! I'm **Sang-a Ahn**, a third-year computer artificial intelligence student at Jeonbuk National University.
-{style="font-size: 1.2rem; background: #FFB76B; background: linear-gradient(to right, #FFB76B 0%, #FFA73D 30%, #FF7C00 60%, #FF7F04 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"}
 
-Check out my [resumé](/about/) and portfolio below!
+<span class="subtitle-gray">
+Check out my <a href="/uploads/resume.pdf" class="link-sky">resumé</a> and portfolio below!
+</span>
