@@ -9,7 +9,7 @@ ko:
       - name: 홈
         url: '/'
         weight: 1
-      - name: 이력
+      - name: 이력서
         url: '/resume/'
         weight: 2
       - name: 연락하기
