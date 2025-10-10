@@ -11,15 +11,15 @@ design:
 
 <div class="hb-slider" aria-label="Image slider">
   <div class="hb-slide active">
-    <img src="/media/slide1.jpg" alt="슬라이드 1">
+    <img src="/media/slide1.jpeg" alt="슬라이드 1">
     <div class="hb-caption">CV Projects</div>
   </div>
   <div class="hb-slide">
-    <img src="/media/slide2.jpg" alt="슬라이드 2">
+    <img src="/media/slide2.jpeg" alt="슬라이드 2">
     <div class="hb-caption">Frontend UI</div>
   </div>
   <div class="hb-slide">
-    <img src="/media/slide3.jpg" alt="슬라이드 3">
+    <img src="/media/slide3.jpeg" alt="슬라이드 3">
     <div class="hb-caption">NLP & Analytics</div>
   </div>
 
