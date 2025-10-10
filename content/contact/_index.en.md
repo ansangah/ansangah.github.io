@@ -1,6 +1,6 @@
 ---
 title: "Contact"
-type: landing
+type: page
 breadcrumb: false
 summary: "Get in touch and find my location"
 ---

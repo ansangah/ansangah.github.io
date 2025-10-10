@@ -1,6 +1,6 @@
 ---
 title: "Contact"
-type: landing
+type: page
 breadcrumb: false
 summary: "연락처와 위치 안내"
 ---
