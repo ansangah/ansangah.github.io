@@ -162,3 +162,30 @@ a.navbar-brand svg {
   display: none !important;
 }
 
+/* About 위젯 소셜 아이콘(메일/인스타/깃허브) 항상 가운데 정렬 */
+.wg-about .network-icon,
+.author .network-icon,
+.network-icon {                     /* 안전하게 넓게 커버 */
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;                        /* 아이콘 간 간격 */
+  padding-left: 0 !important;       /* 좌측 들여쓰기 제거 */
+  margin: 8px 0 0;
+  text-align: center;               /* 폴백 */
+}
+
+.wg-about .network-icon li,
+.author .network-icon li,
+.network-icon li {
+  list-style: none;
+}
+
+/* 일부 브레이크포인트에서 좌측으로 바뀌는 유틸리티 클래스를 무력화 */
+@media (max-width: 1200px) {
+  .wg-about .network-icon,
+  .author .network-icon {
+    justify-content: center !important;
+  }
+}
