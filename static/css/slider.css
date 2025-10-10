@@ -1,57 +1,145 @@
-.hb-slider{
-    position:relative; width:100%; max-width:1100px; margin:0 auto; 
-    aspect-ratio: 16/9; overflow:hidden; border-radius:14px;
-    box-shadow: 0 8px 24px rgba(0,0,0,.12);
+/* ===== 풀블리드(full-bleed) 슬라이더 공통 스타일 ===== */
+
+/* 화면 전체 너비 확보 (그리드/컨테이너 제약 제거) */
+.hb-fullbleed {
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  width: 100vw;
+  overflow: hidden;
+}
+
+/* 슬라이더 본체 */
+.hb-slider {
+  position: relative;
+  width: 100vw;           /* 화면 끝까지 */
+  height: 400px;          /* 고정 높이 */
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+/* 개별 슬라이드 (기본 비활성 상태) */
+.hb-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  transform: scale(1.02);
+}
+
+.hb-slide.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* 슬라이드 이미지: 비율 유지하면서 꽉 채우기 */
+.hb-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;         /* 핵심: 여백 없이 꽉 채움 */
+  object-position: center;   /* 중앙 기준으로 크롭 */
+  display: block;
+}
+
+/* 슬라이드 하단 캡션 */
+.hb-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 16px clamp(16px, 4vw, 40px);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0));
+  letter-spacing: 0.3px;
+}
+
+/* ===== 네비게이션 (좌우 버튼 + 점) ===== */
+.hb-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  background: var(--hb-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: var(--hb-stroke);
+  transition: opacity 0.2s ease;
+  z-index: 10;
+}
+
+.hb-nav:hover {
+  opacity: 0.8;
+}
+
+.hb-prev {
+  left: 12px;
+}
+
+.hb-next {
+  right: 12px;
+}
+
+/* 점 네비게이션 */
+.hb-dots {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 12px;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  z-index: 10;
+}
+
+.hb-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  background: var(--hb-dot);
+  opacity: 0.5;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.hb-dot.active {
+  transform: scale(1.25);
+  opacity: 1;
+}
+
+/* ===== 색상 테마 ===== */
+:root {
+  --hb-bg: rgba(255, 255, 255, 0.7);
+  --hb-stroke: rgba(0, 96, 224, 0.9);
+  --hb-dot: rgba(0, 96, 224, 0.9);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --hb-bg: rgba(0, 0, 0, 0.4);
+    --hb-stroke: rgba(170, 200, 255, 0.9);
+    --hb-dot: rgba(170, 200, 255, 0.9);
   }
-  .hb-slide{ position:absolute; inset:0; opacity:0; transform:scale(1.02); transition:opacity .6s ease, transform .6s ease; }
-  .hb-slide.active{ opacity:1; transform:scale(1); }
-  .hb-slide img{ width:100%; height:100%; object-fit:cover; display:block; }
-  
-  .hb-caption{
-    position:absolute; left:0; right:0; bottom:0; padding:16px 20px;
-    color:#fff; font-weight:600; letter-spacing:.2px;
-    background: linear-gradient( to top, rgba(0,0,0,.55), rgba(0,0,0,0) );
+}
+
+/* ===== 반응형 ===== */
+@media (max-width: 768px) {
+  .hb-slider {
+    height: 56vw; /* 가로폭 기준 비율 유지 */
   }
-  
-  /* Prev/Next buttons */
-  .hb-nav{
-    position:absolute; top:50%; transform:translateY(-50%);
-    width:44px; height:44px; border-radius:9999px; border:none; cursor:pointer;
-    backdrop-filter: blur(6px);
-    display:flex; align-items:center; justify-content:center;
-    user-select:none;
+  .hb-caption {
+    font-size: 0.9rem;
+    padding: 12px 20px;
   }
-  .hb-nav svg{ width:22px; height:22px; }
-  .hb-prev{ left:12px; }
-  .hb-next{ right:12px; }
-  
-  /* Dots */
-  .hb-dots{ position:absolute; left:0; right:0; bottom:10px; display:flex; gap:8px; justify-content:center; }
-  .hb-dot{
-    width:9px; height:9px; border-radius:9999px; border:none; cursor:pointer; opacity:.6;
-    transition:transform .2s ease, opacity .2s ease;
-  }
-  .hb-dot.active{ transform:scale(1.25); opacity:1; }
-  
-  /* 색상(라이트/다크 자동) */
-  :root{
-    --hb-bg: rgba(255,255,255,.85);
-    --hb-stroke: rgba(0, 96, 224, .9);     /* 라이트: 차분한 파랑 */
-    --hb-dot: rgba(0, 96, 224, .85);
-  }
-  @media (prefers-color-scheme: dark){
-    :root{
-      --hb-bg: rgba(0,0,0,.4);
-      --hb-stroke: rgba(170, 200, 255, .9); /* 다크: 눈 편한 밝은 파랑톤 */
-      --hb-dot: rgba(170, 200, 255, .9);
-    }
-  }
-  .hb-nav{ background: var(--hb-bg); }
-  .hb-nav svg path{ stroke: var(--hb-stroke); stroke-width:2; fill:none; }
-  .hb-dot{ background: var(--hb-dot); }
-  
-  /* 반응형 높이 보정 (가로가 극단적으로 좁을 때) */
-  @media (max-width: 640px){
-    .hb-slider{ aspect-ratio: 4/3; }
-    .hb-caption{ font-size: 14px; padding: 10px 12px; }
-  }
+}

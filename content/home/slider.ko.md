@@ -9,7 +9,8 @@ design:
 ---
 <link rel="stylesheet" href="/css/slider.css">
 
-<div class="hb-slider" aria-label="Image slider">
+<div class="hb-fullbleed">
+  <div class="hb-slider" aria-label="Image slider">
   <div class="hb-slide active">
     <img src="/media/slide1.jpeg" alt="슬라이드 1">
     <div class="hb-caption">CV Projects</div>
@@ -23,13 +24,11 @@ design:
     <div class="hb-caption">NLP & Analytics</div>
   </div>
 
-  <button class="hb-nav hb-prev" aria-label="이전">
-    <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>
-  </button>
-  <button class="hb-nav hb-next" aria-label="다음">
-    <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
-  </button>
+  <button class="hb-nav hb-prev" aria-label="이전">‹</button>
+  <button class="hb-nav hb-next" aria-label="다음">›</button>
+
   <div class="hb-dots" aria-hidden="true"></div>
+  </div>
 </div>
 
 <script defer src="/js/slider.js"></script>
