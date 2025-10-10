@@ -27,8 +27,6 @@ summary: "연락처와 위치 안내"
 
 아래 버튼으로 바로 연결할 수 있어요.
 
-<div class="contact-buttons">
-  <a class="btn btn-primary" href="mailto:dkstkddkdhkd@jbnu.ac.kr">Email</a>
-  <a class="btn btn-primary" href="https://github.com/ansangah">GitHub</a>
-  <a class="btn btn-primary" href="https://instagram.com/ahnneu_">Instagram</a>
-</div> 
+{{< icon name="envelope" pack="fas" >}} [dkstkddkdhkd@jbnu.ac.kr](mailto:dkstkddkdhkd@jbnu.ac.kr)  
+{{< icon name="instagram" pack="fab" >}} [@ahnneu_](https://instagram.com/ahnneu_)  
+{{< icon name="github" pack="fab" >}} [ansangah](https://github.com/ansangah)
