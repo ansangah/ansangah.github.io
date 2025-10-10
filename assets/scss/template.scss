@@ -189,3 +189,21 @@ a.navbar-brand svg {
     justify-content: center !important;
   }
 }
+
+/* 슬라이더 섹션 배경 오버레이 제거(가리는 이슈 방지) */
+#slider .home-section-bg { display: none !important; }
+
+/* 슬라이드 아이템 배경 이미지가 확실히 보이도록 */
+.wg-slider .carousel-item {
+  height: 360px;                 /* slider.md의 height와 동일하게 */
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+
+/* 좌우 화살표가 다른 섹션에 가려지지 않도록 */
+.carousel-control-prev,
+.carousel-control-next {
+  z-index: 5 !important;
+  opacity: .95;
+}
