@@ -161,3 +161,62 @@ a.navbar-brand img,
 a.navbar-brand svg {
   display: none !important;
 }
+
+/* ===== Search input 얌전한 파란 계열 테두리 스타일 ===== */
+
+.search-modal,
+.js-search,
+.modal--search,
+#search {
+
+  input[type="search"],
+  .ais-SearchBox-input,
+  .form-control[type="search"] {
+    background: transparent;
+    color: #e5e7eb;
+    border: 1.5px solid rgba(100, 149, 237, 0.35); /* 연한 cornflower blue */
+    border-radius: 10px;
+    padding: 0.6rem 1rem;
+    transition: all 0.25s ease;
+  }
+
+  /* 플레이스홀더 색상 (은은한 회색) */
+  input[type="search"]::placeholder,
+  .ais-SearchBox-input::placeholder {
+    color: #9ca3af;
+  }
+
+  /* 포커스 시 효과 — 얌전한 하늘빛 */
+  input[type="search"]:focus,
+  .ais-SearchBox-input:focus,
+  .form-control[type="search"]:focus {
+    outline: none;
+    border-color: #6ea8ff; /* 밝은 하늘색 블루 */
+    box-shadow: 0 0 8px rgba(110, 168, 255, 0.4); /* 부드러운 블루글로우 */
+  }
+
+  /* 접근성용 :focus-visible */
+  input[type="search"]:focus-visible,
+  .ais-SearchBox-input:focus-visible {
+    outline: 2px solid rgba(110, 168, 255, 0.6);
+    outline-offset: 2px;
+  }
+
+  input[type="search"] {
+    -webkit-appearance: none;
+  }
+}
+
+/* 닫기 버튼 스타일 (선택사항) */
+.search-modal .search-close,
+.js-search .search-close {
+  background: #334155;
+  color: #e5e7eb;
+  border-radius: 9999px;
+  transition: background 0.2s;
+}
+
+.search-modal .search-close:hover,
+.js-search .search-close:hover {
+  background: #4b5b75;
+}
