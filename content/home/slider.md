@@ -1,7 +1,7 @@
 ---
 widget: slider
 headless: true
-weight: 20            # 페이지 최상단 근처
+weight: 5            # 페이지 최상단 근처
 title: ""
 content:
   slides:
