@@ -1,21 +1,21 @@
 ---
-title: "Contact"
+title: "연락하기"
 draft: false
 summary: "연락처와 위치 안내"
 ---
 
-## 문의하기
+## ✉️문의하기
 
 아래 연락처로 언제든 문의해 주세요.
 
-{{< icon name="phone" pack="lucide" >}} [ +82-10-3630-4640 ](tel:+821036304640)  
-{{< icon name="mail" pack="lucide" >}} [dkstkddkdhkd@jbnu.ac.kr](mailto:dkstkddkdhkd@jbnu.ac.kr)  
-{{< icon name="instagram" pack="lucide" >}} [@ahnneu_](https://instagram.com/ahnneu_)  
-{{< icon name="github" pack="lucide" >}} [ansangah](https://github.com/ansangah)
+{{< icon name="phone" pack="fas" >}} [ +82-10-3630-4640 ](tel:+821036304640)  
+{{< icon name="envelope" pack="fas" >}} [dkstkddkdhkd@jbnu.ac.kr](mailto:dkstkddkdhkd@jbnu.ac.kr)  
+{{< icon name="brands/github" pack="fab" >}} [@ahnneu_](https://instagram.com/ahnneu_)  
+{{< icon name="brands/instagram" pack="fab" >}} [ansangah](https://github.com/ansangah)
 
 ---
 
-## 위치
+## 📍위치
 
 전북대학교 공과대학 7호관
 

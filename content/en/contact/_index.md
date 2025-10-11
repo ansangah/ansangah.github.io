@@ -4,18 +4,18 @@ draft: false
 summary: "Get in touch and find my location"
 ---
 
-## Get in touch
+## ✉️Get in touch
 
 Reach me anytime via:
 
-{{< icon name="phone" pack="lucide" >}} [ +82-10-3630-4640 ](tel:+821036304640)  
-{{< icon name="mail" pack="lucide" >}} [dkstkddkdhkd@jbnu.ac.kr](mailto:dkstkddkdhkd@jbnu.ac.kr)  
-{{< icon name="instagram" pack="lucide" >}} [@ahnneu_](https://instagram.com/ahnneu_)  
-{{< icon name="github" pack="lucide" >}} [ansangah](https://github.com/ansangah)
+{{< icon pack="lucide" name="phone" >}} [+82-10-3630-4640](tel:+821036304640)    
+{{< icon pack="lucide" name="mail" >}} [dkstkddkdhkd@jbnu.ac.kr](mailto:dkstkddkdhkd@jbnu.ac.kr)    
+{{< icon pack="lucide" name="instagram" >}} [@ahnneu_](https://instagram.com/ahnneu_)    
+{{< icon pack="lucide" name="github" >}} [ansangah](https://github.com/ansangah)  
 
 ---
 
-## Location
+## 📍Location
 
 Jeonbuk National University Technical College No. 7
 
