@@ -1,14 +1,10 @@
 /* 1) 본문 컨테이너를 안전 폭으로 고정 + 좌우 패딩 */
-.page-content, .article-container, main .content, .prose, .page-body {
-    max-width: none !important;
-    width: 100% !important;
-    margin-left: 0 !important;
-    margin-right: auto !important;   /* 왼쪽 정렬 */
-    padding-left: clamp(16px,4vw,64px);
-    padding-right: clamp(16px,4vw,64px);
-    text-align: left !important;
+.page-content, .article-container, .prose, main .content, .docs-content {
+    max-width: 100vh;
+    margin: 0 auto;
+    padding: 0 16px;
+    box-sizing: border-box;
   }
-  img, iframe { max-width: 100%; height: auto; display: block; }
   
   /* 2) 가로 넘침 방지 (모바일에서 오른쪽이 잘리는 문제 차단) */
   html, body {
