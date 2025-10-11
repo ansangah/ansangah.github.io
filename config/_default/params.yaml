@@ -69,6 +69,7 @@ features:
   i18n_switcher: true  # 헤더에 지구본
   search:
     enable: true
+    sections: ["*"]
 
   params:
   custom_css:
