@@ -68,7 +68,7 @@ work:
     company_name: 전북대학교
     company_url: ''
     company_logo: ''
-    date_start: 2023-12-1
+    date_start: 2023-12-01
     date_end: 2024-11-30
     summary: |
       학과 행사 기획 및 운영을 담당하며, 일정 조율·팀 협업·예산 관리 등 기획 실무를 경험함.
