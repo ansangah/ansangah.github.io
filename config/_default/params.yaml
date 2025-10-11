@@ -37,9 +37,10 @@ header:
     show_search: true
     show_theme_chooser: true
     logo:
-      text: false               # 텍스트 로고 대신 이미지 사용
-      image: "media/logo.png"   # /static/ 하위 경로
-      alt: "Portfolio"     # 대체 텍스트
+      text: false
+      image: "media/logo.png"       # static/media/logo.png
+      image_dark: "media/logo.png"   # 다크모드용이 없으면 같은 파일로 복사해도 됨
+      alt: "Portfolio"
 
 # Site footer
 footer:
