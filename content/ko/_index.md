@@ -19,9 +19,9 @@ sections:
         text: 이력서 다운로드
         url: uploads/resume.pdf
       headings:
-        about: ''
-        education: ''
-        interests: ''
+        about: '소개'
+        education: '학위'
+        interests: '관심 분야'
     design:
       # Apply a gradient background
       css_class: hbx-bg-gradient

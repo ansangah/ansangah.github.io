@@ -1,6 +1,6 @@
 ---
 title: '이력 사항'
-date: 2025-10-11
+date: 2023-10-24
 type: landing
 
 design:
