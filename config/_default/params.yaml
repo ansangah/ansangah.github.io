@@ -35,6 +35,7 @@ header:
     block: 'navbar'
     fixed_to_top: true
     show_search: true
+    show_logo: true            # ← 로고 표시
     show_theme_chooser: true
     logo:
       text: false
