@@ -2,6 +2,7 @@
 title: "연락하기"
 draft: false
 summary: "연락처와 위치 안내"
+show_title: false
 ---
 
 ## ✉️ 문의하기

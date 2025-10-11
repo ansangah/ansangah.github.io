@@ -2,6 +2,7 @@
 title: "Contact"
 draft: false
 summary: "Get in touch and find my location"
+show_title: false
 ---
 
 ## ✉️ Get in touch
