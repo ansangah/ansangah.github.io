@@ -8,10 +8,33 @@ summary: "연락처와 위치 안내"
 
 아래 연락처로 언제든 문의해 주세요.
 
-{{< icon name="phone" pack="fas" >}} [ +82-10-3630-4640 ](tel:+821036304640)  
-{{< icon name="envelope" pack="fas" >}} [dkstkddkdhkd@jbnu.ac.kr](mailto:dkstkddkdhkd@jbnu.ac.kr)  
-{{< icon name="instagram" pack="fab" >}} [@ahnneu_](https://instagram.com/ahnneu_)  
-{{< icon name="github" pack="fab" >}} [ansangah](https://github.com/ansangah)
+<!-- 아이콘만 보여주기 -->
+<div class="contact-icons" aria-label="social links">
+  <a href="mailto:dkstkddkdhkd@jbnu.ac.kr" aria-label="email">
+    {{< icon name="envelope" pack="fas" >}}
+  </a>
+  <a href="https://github.com/ansangah" target="_blank" rel="noopener" aria-label="GitHub">
+    {{< icon name="github" pack="fab" >}}
+  </a>
+  <a href="https://www.instagram.com/ahnneu_/" target="_blank" rel="noopener" aria-label="Instagram">
+    {{< icon name="instagram" pack="fab" >}}
+  </a>
+</div>
+
+<!-- 페이지 안에서 바로 스타일(원하면 크기/간격 조절) -->
+<style>
+  .contact-icons a{
+    display:inline-flex; align-items:center; justify-content:center;
+    margin-right:14px; text-decoration:none;
+  }
+  .contact-icons i{
+    font-size: 26px; line-height:1; /* 아이콘 크기 */
+  }
+  .contact-icons a:hover i{
+    transform: translateY(-1px);
+    filter: brightness(1.15);
+  }
+</style>
 
 ---
 
