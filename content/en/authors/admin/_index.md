@@ -40,122 +40,116 @@ profiles:
     label: Instagram
 
 interests:
-  - Large Language Models
+  - Deep Learning
   - Computer Vision
   - Reinforcement Learning
-  - AI Ethics
+  - Front-end
 
 education:
-  - area: PhD Computer Science (AI Focus)
-    institution: Stanford University
-    date_start: 2015-09-01
-    date_end: 2019-06-30
+  - area: BS Computer Science and Artificial Intelligence
+    institution: Jeonbuk National University
+    date_start: 2023-03-02
+    date_end: ''
     summary: |
-      Thesis on _Scaling Laws for Neural Language Models_. Supervised by Prof. Andrew Ng. Published 5 papers in NeurIPS and ICML, with 2 best paper awards.
+      GPA: 3.8/4.5
     button:
       text: 'Read Thesis'
       url: 'https://example.com/thesis.pdf'
-  - area: MS Computer Science
-    institution: Carnegie Mellon University
-    date_start: 2013-09-01
-    date_end: 2015-05-31
-    summary: |
-      GPA: 4.0/4.0
-
-      Specialized in machine learning and robotics.
-  - area: BS Computer Science
-    institution: MIT
-    date_start: 2009-09-01
-    date_end: 2013-05-31
-    summary: |
-      GPA: 3.9/4.0
-
-      Minored in Mathematics. President of AI Club.
 
 work:
-  - position: Senior AI Research Scientist
-    company_name: Meta AI
-    company_url: 'https://ai.meta.com/'
+  - position: Medical AI and Computational Science Lab (MACS)
+    company_name: Jeonbuk National University
+    company_url: 'https://jbnu.macs.or.kr/'
     company_logo: ''
-    date_start: 2020-01-01
+    date_start: 2025-07-01
     date_end: ''
     summary: |2-
-      Leading research on multimodal AI systems. Contributed to Llama 2 and other open-source models. 50+ citations in 3 years.
-  - position: AI Research Intern
-    company_name: OpenAI
-    company_url: 'https://openai.com/'
+      Studying the fundamental principles and implementation methods of deep learning.
+      Gaining foundational research experience as an undergraduate student.
+  - position: ALPS
+    company_name: Jeonbuk National University
+    company_url: 'https://sites.google.com/view/jbnu-alps'
     company_logo: ''
-    date_start: 2019-06-01
-    date_end: 2019-12-31
+    date_start: 2024-03-02
+    date_end: 2024-06-30
     summary: |
-      Worked on GPT-3 scaling. Co-authored paper on prompt engineering.
+      An academic club in the Department of Computer and Artificial Intelligence Engineering
+      focused on learning data structures and algorithms.
 
 # Skills
 # Add your own SVG icons to `assets/media/icons/`
 skills:
-  - name: Technical Skills
+  - name: Skills
     items:
-      - name: Python & PyTorch
+      - name: Python
         description: ''
-        percent: 95
+        percent: 90
         icon: code-bracket
       - name: Machine Learning
         description: ''
-        percent: 100
+        percent: 20
         icon: chart-bar
-      - name: Cloud Computing (AWS/GCP)
+      - name: Cloud Computing (AWS)
         description: ''
-        percent: 85
+        percent: 50
         icon: cloud
+      - name: Frontend Development
+        description: ''
+        percent: 50
+        icon: hero/computer-desktop
+
   - name: Hobbies
     color: '#eeac02'
     color_border: '#f0bf23'
     items:
-      - name: Hiking in the Rockies
+      - name: Baking
         description: ''
         percent: 80
-        icon: person-simple-walk
-      - name: Building Custom PCs
+        icon: hero/sparkles
+      - name: Listening to Music
         description: ''
         percent: 90
-        icon: cpu-chip
-      - name: Sci-Fi Reading
+        icon: hero/musical-note
+      - name: Reading
         description: ''
         percent: 70
         icon: book-open
 
 languages:
-  - name: English
+  - name: Korean
     percent: 100
-  - name: Spanish
-    percent: 50
+  - name: English
+    percent: 40
+  - name: Japanese
+    percent: 30
 
 # Awards.
 #   Add/remove as many awards below as you like.
 #   Only `title`, `awarder`, and `date` are required.
 #   Begin multi-line `summary` with YAML's `|` or `|2-` multi-line prefix and indent 2 spaces below.
-awards:
-  - title: Best Paper Award
-    url: https://neurips.cc/
-    date: '2022-12-01'
-    awarder: NeurIPS
-    icon: hero/trophy
-    summary: |
-      Awarded for groundbreaking work on efficient training of large models.
-  - title: AI Innovation Grant
-    url: https://www.nsf.gov/
-    date: '2021-06-15'
-    awarder: National Science Foundation
-    icon: hero/currency-dollar
-    summary: |
-      $500,000 grant for research in ethical AI development.
-  - title: Outstanding PhD Thesis
-    url: https://www.stanford.edu/
-    date: '2019-06-30'
-    awarder: Stanford University
-    icon: hero/academic-cap
-    summary: |
-      Recognized for contributions to scaling laws in deep learning.
+
+# awards:
+#   - title: Best Paper Award
+#     url: https://neurips.cc/
+#     date: '2022-12-01'
+#     awarder: NeurIPS
+#     icon: hero/trophy
+#     summary: |
+#       Awarded for groundbreaking work on efficient training of large models.
+#   - title: AI Innovation Grant
+#     url: https://www.nsf.gov/
+#     date: '2021-06-15'
+#     awarder: National Science Foundation
+#     icon: hero/currency-dollar
+#     summary: |
+#       $500,000 grant for research in ethical AI development.
+#   - title: Outstanding PhD Thesis
+#     url: https://www.stanford.edu/
+#     date: '2019-06-30'
+#     awarder: Stanford University
+#     icon: hero/academic-cap
+#     summary: |
+#       Recognized for contributions to scaling laws in deep learning.
 ---
 
 **Sang-A Ahn** is a third-year undergraduate student at Jeonbuk National University, majoring in Computer Science and Artificial Intelligence. Having recently completed foundational studies in deep learning, they are now building upon this knowledge as a student member of the Medical AI and Computational Science Lab.
