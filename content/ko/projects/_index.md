@@ -11,8 +11,8 @@ design:
 sections:
   - block: collection
     content:
-      title: Selected Projects
-      text: I enjoy making things. Here are a selection of projects that I have worked on over the years.
+      title: "프로젝트 모음"
+      text: "진행한 주요 프로젝트"
       filters:
         folders:
           - projects

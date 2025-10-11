@@ -51,9 +51,9 @@ education:
     date_end: ''
     summary: |
       GPA: 3.8/4.5
-    button:
-      text: 'Read Thesis'
-      url: 'https://example.com/thesis.pdf'
+    # button:
+    #   text: 'Read Thesis'
+    #   url: 'https://example.com/thesis.pdf'
 
 work:
   - position: 의료 AI 및 계산과학 연구실

@@ -52,9 +52,9 @@ education:
     date_end: ''
     summary: |
       GPA: 3.8/4.5
-    button:
-      text: 'Read Thesis'
-      url: 'https://example.com/thesis.pdf'
+    # button:
+    #   text: 'Read Thesis'
+    #   url: 'https://example.com/thesis.pdf'
 
 work:
   - position: Medical AI and Computational Science Lab (MACS)
