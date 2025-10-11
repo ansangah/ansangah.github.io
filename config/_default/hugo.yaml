@@ -7,6 +7,7 @@
 title: 안상아의 포트폴리오
 # Website URL
 baseURL: 'https://ansangah.github.io/'
+canonifyURLs: true
 
 ############################
 ## LANGUAGE
@@ -59,3 +60,6 @@ icons:
   fontawesome: true
   academicons: true
   lucide: true
+header:
+  navbar:
+    show_search: true
