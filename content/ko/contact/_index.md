@@ -5,6 +5,17 @@ summary: "연락처와 위치 안내"
 show_title: false
 ---
 
+<style>
+.contact-left {
+  max-width: 1100px;
+  margin-left: 0 !important;
+  margin-right: auto !important;   /* 왼쪽 정렬 */
+  padding: 0 24px;
+  text-align: left !important;
+}
+</style>
+
+<div class="contact-left">
 ## ✉️ 문의하기
 
 아래 연락처로 언제든 문의해 주세요.
@@ -28,4 +39,6 @@ show_title: false
     loading="lazy"
     referrerpolicy="no-referrer-when-downgrade">
   </iframe>
+</div>
+
 </div>
