@@ -53,3 +53,7 @@ security:
   _merge: deep
 sitemap:
   _merge: deep
+icons:
+  fontawesome: true
+  academicons: true
+  lucide: true
