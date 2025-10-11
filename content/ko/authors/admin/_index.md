@@ -39,122 +39,99 @@ profiles:
     url: https://www.instagram.com/ahnneu_/
     label: Instagram
 interests:
-  - Large Language Models
-  - Computer Vision
-  - Reinforcement Learning
-  - AI Ethics
+  - 딥러닝
+  - 컴퓨터 비전
+  - 강화학습
+  - 프론트엔드
 
 education:
-  - area: PhD Computer Science (AI Focus)
-    institution: Stanford University
-    date_start: 2015-09-01
-    date_end: 2019-06-30
+  - area: 컴퓨터인공지능학부 학사
+    institution: 전북대학교
+    date_start: 2023-03-02
+    date_end: ''
     summary: |
-      Thesis on _Scaling Laws for Neural Language Models_. Supervised by Prof. Andrew Ng. Published 5 papers in NeurIPS and ICML, with 2 best paper awards.
+      GPA: 3.8/4.5
     button:
       text: 'Read Thesis'
       url: 'https://example.com/thesis.pdf'
-  - area: MS Computer Science
-    institution: Carnegie Mellon University
-    date_start: 2013-09-01
-    date_end: 2015-05-31
-    summary: |
-      GPA: 4.0/4.0
-
-      Specialized in machine learning and robotics.
-  - area: BS Computer Science
-    institution: MIT
-    date_start: 2009-09-01
-    date_end: 2013-05-31
-    summary: |
-      GPA: 3.9/4.0
-
-      Minored in Mathematics. President of AI Club.
 
 work:
-  - position: Senior AI Research Scientist
-    company_name: Meta AI
-    company_url: 'https://ai.meta.com/'
-    company_logo: ''
-    date_start: 2020-01-01
+  - position: 의료 AI 및 계산과학 연구실
+    company_name: 전북대학교
+    company_url: 'https://jbnu.macs.or.kr/'
+    company_logo: flask
+    date_start: 2025-07-01
     date_end: ''
     summary: |2-
-      Leading research on multimodal AI systems. Contributed to Llama 2 and other open-source models. 50+ citations in 3 years.
-  - position: AI Research Intern
-    company_name: OpenAI
-    company_url: 'https://openai.com/'
-    company_logo: ''
-    date_start: 2019-06-01
-    date_end: 2019-12-31
+      딥러닝의 기초적인 원리와 구현 방법에 대한 학습. 학부생으로서 기초 연구 경험을 쌓음.
+  - position: ALPS
+    company_name: 전북대학교
+    company_url: 'https://sites.google.com/view/jbnu-alps'
+    company_logo: desktop
+    date_start: 2024-03-02
+    date_end: 2024-06-30
     summary: |
-      Worked on GPT-3 scaling. Co-authored paper on prompt engineering.
+      자료구조 및 알고리즘 학습을 목표로 하는 전북대학교 컴퓨터인공지능학부 학술 동아리
 
 # Skills
 # Add your own SVG icons to `assets/media/icons/`
 skills:
-  - name: Technical Skills
+  - name: 기술
     items:
-      - name: Python & PyTorch
+      - name: 파이썬
         description: ''
-        percent: 95
+        percent: 90
         icon: code-bracket
-      - name: Machine Learning
+      - name: 머신러닝
         description: ''
-        percent: 100
+        percent: 20
         icon: chart-bar
-      - name: Cloud Computing (AWS/GCP)
+      - name: 클라우드 컴퓨팅 (AWS)
         description: ''
-        percent: 85
+        percent: 50
         icon: cloud
-  - name: Hobbies
+      - name: 프론트엔드
+        description: ''
+        percent: 50
+        icon: computer
+  - name: 취미
     color: '#eeac02'
     color_border: '#f0bf23'
     items:
-      - name: Hiking in the Rockies
+      - name: 제과
         description: ''
         percent: 80
-        icon: person-simple-walk
-      - name: Building Custom PCs
+        icon: bread-slice
+      - name: 음악 듣기
         description: ''
         percent: 90
-        icon: cpu-chip
-      - name: Sci-Fi Reading
+        icon: music
+      - name: 독서
         description: ''
         percent: 70
         icon: book-open
 
 languages:
-  - name: English
+  - name: 한국어
     percent: 100
-  - name: Spanish
-    percent: 50
+  - name: 영어
+    percent: 40
+  - name: 일본어
+    percent: 30
 
 # Awards.
 #   Add/remove as many awards below as you like.
 #   Only `title`, `awarder`, and `date` are required.
 #   Begin multi-line `summary` with YAML's `|` or `|2-` multi-line prefix and indent 2 spaces below.
-awards:
-  - title: Best Paper Award
-    url: https://neurips.cc/
-    date: '2022-12-01'
-    awarder: NeurIPS
-    icon: hero/trophy
-    summary: |
-      Awarded for groundbreaking work on efficient training of large models.
-  - title: AI Innovation Grant
-    url: https://www.nsf.gov/
-    date: '2021-06-15'
-    awarder: National Science Foundation
-    icon: hero/currency-dollar
-    summary: |
-      $500,000 grant for research in ethical AI development.
-  - title: Outstanding PhD Thesis
-    url: https://www.stanford.edu/
-    date: '2019-06-30'
-    awarder: Stanford University
-    icon: hero/academic-cap
-    summary: |
-      Recognized for contributions to scaling laws in deep learning.
+
+# awards:
+#   - title: Best Paper Award
+#     url: https://neurips.cc/
+#     date: '2022-12-01'
+#     awarder: NeurIPS
+#     icon: hero/trophy
+#     summary: |
+#       Awarded for groundbreaking work on efficient training of large models.
 ---
 
 **안상아**는 전북대학교 컴퓨터인공지능학부 3학년에 재학 중입니다. 최근 딥러닝의 기초적인 원리와 구현 방법에 대한 학습을 마쳤으며, 현재는 '의료 AI 및 계산과학 연구실'에 소속되어 학부생으로서 기초 연구 경험을 쌓고 있습니다.

@@ -16,7 +16,7 @@ ko:
         url: '/'
         weight: 1
       - name: 이력서
-        url: '/resume/'
+        url: '/experience/'
         weight: 2
       - name: 소식
         url: '/news/'
@@ -38,7 +38,7 @@ en:
         url: '/'
         weight: 1
       - name: Resumé
-        url: '/resume/'
+        url: '/experience/'
         weight: 2
       - name: News
         url: '/news/'
