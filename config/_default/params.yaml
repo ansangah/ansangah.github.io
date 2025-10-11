@@ -40,10 +40,10 @@ header:
     logo:
       text: ""
       image:
-        filename: "media/logo.png"
+        filename: "logo.png"
         height: 80
       image_dark:
-        filename: "media/logo.png" 
+        filename: "logo.png" 
 
 # Site footer
 footer:
