@@ -1,0 +1,20 @@
+{{- $items := slice -}}
+{{- range where .Site.RegularPages "Kind" "page" -}}
+  {{- $p := . -}}
+  {{- $isPrivate := ($p.Params.private | default false) -}}
+  {{- $searchExcluded := (or ($p.Params.search.exclude | default false) ($p.Params.search_exclude | default false)) -}}
+  {{- if and (not $p.Draft) (not $isPrivate) (not $searchExcluded) -}}
+    {{- $plain := ($p.Plain | default "") -}}
+    {{- $summary := (cond (gt (len $p.Summary) 0) $p.Summary ($plain | truncate 200)) -}}
+    {{- $content := ($plain | truncate 2000) -}}
+    {{- $items = $items | append (dict
+      "title"     $p.Title
+      "permalink" $p.Permalink
+      "summary"   $summary
+      "content"   $content
+      "section"   $p.Section
+      "lang"      $p.Lang
+    ) -}}
+  {{- end -}}
+{{- end -}}
+{{- $items | jsonify -}}
