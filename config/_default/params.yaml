@@ -3,9 +3,6 @@
 # Documentation: https://docs.hugoblox.com/
 # This file is formatted using YAML syntax - learn more at https://learnxinyminutes.com/docs/yaml/
 
-favicon: "favicon.png"
-params:
-  favicon: "favicon.png"
 
 # Appearance
 appearance:
