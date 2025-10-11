@@ -1,9 +1,15 @@
+# Languages
+#   Create a section for each of your site's languages.
+#   Documentation: https://docs.hugoblox.com/reference/language/
+
+# Default language
 ko:
-  languageName: Korean
-  weight: 1
-  title: '안상아의 포트폴리오'
+  languageName: "한국어"
+  weight: 1            # 가벼울수록(숫자 작을수록) 메뉴 왼쪽/위치상 먼저 옴
+  contentDir: "content/ko"
+  title: "안상아의 포트폴리오"
   params:
-    description: '한국어 사이트 설명'
+    date_format: "2025-10-11"   # 한국식 날짜 표기
   menu:
     main:
       - name: 홈
@@ -12,15 +18,20 @@ ko:
       - name: 이력서
         url: '/resume/'
         weight: 2
+      - name: 소식
+        url: '/news/'
+        weight: 3
+      - name: 프로젝트
+        url: '/projects/'
+        weight: 4
       - name: 연락하기
         url: '/contact/'
-        weight: 3
+        weight: 5
 en:
-  languageName: English
+  languageName: "English"
   weight: 2
-  title: "Sang-a Ahn's Portfolio"
-  params:
-    description: 'Site description in English'
+  contentDir: "content/en"
+  title: "Sang-A Ahn's Portfolio"
   menu:
     main:
       - name: Home
@@ -29,23 +40,12 @@ en:
       - name: Resumé
         url: '/resume/'
         weight: 2
+      - name: News
+        url: '/news/'
+        weight: 3
+      - name: Projects
+        url: '/projects/'
+        weight: 4
       - name: Contact
         url: '/contact/'
-        weight: 3
-jp:
-  languageName: 日本語
-  weight: 3
-  title: "アン·サンア | ポートフォリオ"
-  params:
-    description: 'アン·サンアの経歴、スキル、制作物を紹介するポートフォリオサイトです。'
-  menu:
-    main:
-      - name: ホーム
-        url: '/'
-        weight: 1
-      - name: 履歴書
-        url: '/resume/'
-        weight: 2
-      - name: お問い合わせ
-        url: '/contact/'
-        weight: 3
+        weight: 5

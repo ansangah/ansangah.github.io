@@ -3,22 +3,10 @@
 # Hugo Documentation: https://gohugo.io/getting-started/configuration/#all-configuration-settings
 # This file is formatted using YAML syntax - learn more at https://learnxinyminutes.com/docs/yaml/
 
-title: Sang A-Ahn's Website # Website name
-baseURL: 'https://ansangah.github.io/' # Website URL
-
-############################
-## PAGE OPTIONS
-############################
-
-cascade:
-  # Blog post options
-  - _target:
-      path: /post/**
-    editable: true
-    reading_time: true
-    commentable: true
-    show_related: true
-    show_breadcrumb: true
+# Website name
+title: Hugo Academic CV Theme
+# Website URL
+baseURL: 'https://example.com/'
 
 ############################
 ## LANGUAGE
@@ -33,6 +21,8 @@ removePathAccents: true
 ## ADVANCED
 ############################
 
+build:
+  writeStats: true
 enableGitInfo: false
 summaryLength: 30
 pagination:
@@ -41,41 +31,25 @@ enableEmoji: true
 enableRobotsTXT: true
 footnotereturnlinkcontents: <sup>^</sup>
 ignoreFiles: [\.ipynb$, .ipynb_checkpoints$, \.Rmd$, \.Rmarkdown$, _cache$]
-permalinks:
-  authors: '/author/:slug/'
-  tags: '/tag/:slug/'
-  categories: '/category/:slug/'
 disableAliases: true
 outputs:
-  home: [HTML, RSS, JSON, WebAppManifest, headers, redirects]
+  home: [HTML, RSS, headers, redirects, backlinks]
   section: [HTML, RSS]
 imaging:
   resampleFilter: lanczos
-  quality: 75
+  quality: 90
   anchor: smart
+  hint: picture
 timeout: 600000
 taxonomies:
-  tag: tags
-  category: categories
   author: authors
+  tag: tags
+  publication_type: publication_types
 markup:
-  goldmark:
-    parser:
-      attribute: true    # [링크](...){.btn .btn-primary} 같은 마크다운 클래스 문법 허용
-    renderer:
-      unsafe: true       # (이미지/iframe 등 raw HTML 쓸 때 필요 — 지도도 이걸로 보임)
-related:
-  threshold: 80
-  includeNewer: true
-  toLower: true
-  indices:
-    - name: tags
-      weight: 100
-    - name: categories
-      weight: 70
+  _merge: deep
+  highlight:
+    lineNos: false
 security:
   _merge: deep
 sitemap:
-  _merge: deep
-minify:
   _merge: deep
