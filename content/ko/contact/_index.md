@@ -1,31 +1,51 @@
 ---
 title: "연락하기"
-draft: false
+type: landing   # ← 섹션 빌더 활성화
 summary: "연락처와 위치 안내"
+cascade:
+  toc: false
 ---
 
-## ✉️ 문의하기
+# 좌측: 연락처 / 우측: 지도
 
-아래 연락처로 언제든 문의해 주세요.
+- block: about.biography
+  design:
+    columns: 2            # 2열 (모바일에서는 자동 1열)
+  content:
+    title: "✉️ 문의하기"
+    text: |
+      아래 연락처로 언제든 문의해 주세요.
 
-{{< icon name="phone" pack="fas" >}} [ +82-10-3630-4640 ](tel:+821036304640)  
-{{< icon name="envelope" pack="fas" >}} [dkstkddkdhkd@jbnu.ac.kr](mailto:dkstkddkdhkd@jbnu.ac.kr)  
-{{< icon name="brands/instagram" pack="fab" >}} [@ahnneu_](https://instagram.com/ahnneu_)  
-{{< icon name="brands/github" pack="fab" >}} [ansangah](https://github.com/ansangah)
+      {{< icon name="phone" pack="fas" >}} [+82-10-3630-4640](tel:+821036304640)  
+      {{< icon name="envelope" pack="fas" >}} [dkstkddkdhkd@jbnu.ac.kr](mailto:dkstkddkdhkd@jbnu.ac.kr)  
+      {{< icon name="instagram" pack="fab" >}} [@ahnneu_](https://instagram.com/ahnneu_)  
+      {{< icon name="github" pack="fab" >}} [ansangah](https://github.com/ansangah)
 
----
+- block: feature.map
+  content:
+    title: "📍 위치"
+    text: "전북대학교 공과대학 7호관"
+    map:
+      provider: "osm"     # 구글 지도를 쓰려면 "google" + API key 필요
+      latitude: 35.8460286
+      longitude: 127.1344631
+      zoom: 15
+      address: "Jeonbuk National University, Jeonju"
+      marker: true
+  design:
+    columns: 2            # 위 블록과 같은 줄에 배치(데스크탑), 모바일은 자동 1열
 
-## 📍 위치
+# 하단: 버튼들
 
-전북대학교 공과대학 7호관
-
-<div style="position:relative;width:100%;padding-top:56.25%;overflow:hidden;border-radius:12px;">
-  <iframe 
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3234.1213201548776!2d127.13446309999999!3d35.8460286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35702330dc920b9d%3A0x1d0d425396006646!2z7KCE67aB64yA7ZWZ6rWQIOqzteqzvOuMgO2VmSA37Zi46rSA!5e0!3m2!1sko!2skr!4v1760079980030!5m2!1sko!2skr"
-    style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"
-    allowfullscreen=""
-    loading="lazy"
-    referrerpolicy="no-referrer-when-downgrade">
-  </iframe>
-</div>
-
+- block: cta.buttons
+  content:
+    buttons:
+      - text: "이메일 보내기"
+        icon: "at-symbol"
+        url: "mailto:dkstkddkdhkd@jbnu.ac.kr"
+      - text: "GitHub"
+        icon: "brands/github"
+        url: "https://github.com/ansangah"
+      - text: "Instagram"
+        icon: "brands/instagram"
+        url: "https://www.instagram.com/ahnneu_/"
