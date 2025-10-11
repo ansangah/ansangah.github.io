@@ -40,10 +40,10 @@ header:
     logo:
       text: "ansangah"      # ← 텍스트 브랜드(이미지 대체/겸용)
       image:
-        filename: "logo.png"      # assets/media/logo.png
+        filename: logo.png    # assets/media/logo.png
         height: 80
       image_dark:
-        filename: "logo.png" # 없으면 같은 파일 복사 
+        filename: logo.png # 없으면 같은 파일 복사 
 
 # Site footer
 footer:
