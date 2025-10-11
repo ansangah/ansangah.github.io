@@ -204,3 +204,77 @@ a.navbar-brand svg {
   z-index: 5 !important;
   opacity: .95;
 }
+
+/* ===== 인트로(프로필) 섹션: 좌우 2단 배치 ===== */
+#intro.home-section .container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 60px;                /* 좌우 간격 */
+  flex-wrap: wrap;          /* 좁은 화면에서는 자동 세로 정렬 */
+  text-align: left;
+  margin-top: 48px;
+  margin-bottom: 48px;
+}
+
+/* 왼쪽 프로필 영역 */
+#intro.home-section .profile-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  flex: 0 0 240px;          /* 고정 폭 */
+  text-align: center;
+}
+
+/* 프로필 이미지 */
+#intro.home-section .profile-left img.avatar {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* 이름, 아이콘 정렬 */
+#intro.home-section .profile-left h2 {
+  margin-top: 8px;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+#intro.home-section .profile-left .network-icon {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+/* 오른쪽 텍스트 영역 */
+#intro.home-section .profile-right {
+  flex: 1;
+  max-width: 560px;
+  line-height: 1.6;
+  font-size: 1.05rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* 모바일 화면에서는 세로 배치 */
+@media (max-width: 900px) {
+  #intro.home-section .container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 24px;
+  }
+
+  #intro.home-section .profile-left,
+  #intro.home-section .profile-right {
+    flex: 1 1 100%;
+    max-width: 90%;
+  }
+
+  #intro.home-section .profile-left {
+    margin-bottom: 12px;
+  }
+}
