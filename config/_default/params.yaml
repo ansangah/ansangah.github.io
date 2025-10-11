@@ -38,7 +38,7 @@ header:
     show_logo: true         # 로고 사용
     show_title: false        # ← 텍스트도 보이게(이미지 실패해도 버튼 유지)
     logo:
-      text: "Sang-A Ahn's Portfolio"      # ← 텍스트 브랜드(이미지 대체/겸용)
+      text: "안상아의 포트폴리오"      # ← 텍스트 브랜드(이미지 대체/겸용)
       image:
         filename: "media/header.png"   # assets/media/logo.png
         height: 80

@@ -1,47 +1,30 @@
 ---
 title: "Contact"
-type: landing
+draft: false
 summary: "Get in touch and find my location"
-cascade:
-  toc: false
 ---
 
-- block: about.biography
-  design:
-    columns: 2
-  content:
-    title: "✉️ Get in touch"
-    text: |
-      Feel free to reach me anytime.
+## ✉️ Get in touch
 
-      {{< icon name="phone" pack="fas" >}} [+82-10-3630-4640](tel:+821036304640)  
-      {{< icon name="envelope" pack="fas" >}} [dkstkddkdhkd@jbnu.ac.kr](mailto:dkstkddkdhkd@jbnu.ac.kr)  
-      {{< icon name="instagram" pack="fab" >}} [@ahnneu_](https://instagram.com/ahnneu_)  
-      {{< icon name="github" pack="fab" >}} [ansangah](https://github.com/ansangah)
+Reach me anytime via:
 
-- block: feature.map
-  design:
-    columns: 2
-  content:
-    title: "📍 Location"
-    text: "College of Engineering, JBNU"
-    map:
-      provider: "osm"
-      latitude: 35.8460286
-      longitude: 127.1344631
-      zoom: 15
-      address: "Jeonbuk National University, Jeonju"
-      marker: true
+{{< icon name="phone" pack="fas" >}} [ +82-10-3630-4640 ](tel:+821036304640)  
+{{< icon name="envelope" pack="fas" >}} [dkstkddkdhkd@jbnu.ac.kr](mailto:dkstkddkdhkd@jbnu.ac.kr)  
+{{< icon name="brands/instagram" pack="fab" >}} [@ahnneu_](https://instagram.com/ahnneu_)  
+{{< icon name="brands/github" pack="fab" >}} [ansangah](https://github.com/ansangah) 
 
-- block: cta.buttons
-  content:
-    buttons:
-      - text: "Email me"
-        icon: "at-symbol"
-        url: "mailto:dkstkddkdhkd@jbnu.ac.kr"
-      - text: "GitHub"
-        icon: "brands/github"
-        url: "https://github.com/ansangah"
-      - text: "Instagram"
-        icon: "brands/instagram"
-        url: "https://www.instagram.com/ahnneu_/"
+---
+
+## 📍 Location
+
+Jeonbuk National University Technical College No. 7
+
+<div style="position:relative;width:100%;padding-top:56.25%;overflow:hidden;border-radius:12px;">
+  <iframe 
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3234.1213201548776!2d127.13446309999999!3d35.8460286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35702330dc920b9d%3A0x1d0d425396006646!2z7KCE67aB64yA7ZWZ6rWQIOqzteqzvOuMgO2VmSA37Zi46rSA!5e0!3m2!1sko!2skr!4v1760079980030!5m2!1sko!2skr"
+    style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"
+    allowfullscreen=""
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade">
+  </iframe>
+</div>
