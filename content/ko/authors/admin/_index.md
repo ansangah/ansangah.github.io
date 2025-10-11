@@ -59,7 +59,7 @@ work:
   - position: 의료 AI 및 계산과학 연구실
     company_name: 전북대학교
     company_url: 'https://jbnu.macs.or.kr/'
-    company_logo: "icon/flask.svg"
+    company_logo: fab/flask
     date_start: 2025-07-01
     date_end: ''
     summary: |2-
@@ -67,7 +67,7 @@ work:
   - position: ALPS
     company_name: 전북대학교
     company_url: 'https://sites.google.com/view/jbnu-alps'
-    company_logo: "icon/desktop.svg"
+    company_logo: fab/desktop
     date_start: 2024-03-02
     date_end: 2024-06-30
     summary: |
@@ -93,7 +93,7 @@ skills:
       - name: 프론트엔드
         description: ''
         percent: 50
-        icon: "icon/computer.svg"
+        icon: hero/computer-desktop
   - name: 취미
     color: '#eeac02'
     color_border: '#f0bf23'
@@ -101,11 +101,11 @@ skills:
       - name: 제과
         description: ''
         percent: 80
-        icon: "icon/bread-slice.svg"
+        icon: fab/bread-slice
       - name: 음악 듣기
         description: ''
         percent: 90
-        icon: "icon/music.svg"
+        icon: fab/music
       - name: 독서
         description: ''
         percent: 70
