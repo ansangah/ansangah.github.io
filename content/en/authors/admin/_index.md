@@ -66,6 +66,14 @@ work:
     summary: |2-
       Studying the fundamental principles and implementation methods of deep learning.
       Gaining foundational research experience as an undergraduate student.
+  - position: 2nd Student Council of the Department of Computer and Artificial Intelligence (Planning Department)
+    company_name: Jeonbuk National University
+    company_url: ''
+    company_logo: ''
+    date_start: 2023-12-01
+    date_end: 2024-11-30
+    summary: |
+      Participated in planning and managing departmental events, coordinating schedules, collaborating with team members, and handling budget management as part of the Planning Department.
   - position: ALPS
     company_name: Jeonbuk National University
     company_url: 'https://sites.google.com/view/jbnu-alps'
@@ -75,6 +83,14 @@ work:
     summary: |
       An academic club in the Department of Computer and Artificial Intelligence Engineering
       focused on learning data structures and algorithms.
+  - position: 1nd Student Council of the Department of Computer and Artificial Intelligence (Planning Department)
+    company_name: Jeonbuk National University
+    company_url: ''
+    company_logo: ''
+    date_start: 2023-12-01
+    date_end: 2024-11-30
+    summary: |
+      Participated in planning and managing departmental events, coordinating schedules, collaborating with team members, and handling budget management as part of the Planning Department.
 
 # Skills
 # Add your own SVG icons to `assets/media/icons/`

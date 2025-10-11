@@ -64,6 +64,14 @@ work:
     date_end: ''
     summary: |2-
       딥러닝의 기초적인 원리와 구현 방법에 대한 학습. 학부생으로서 기초 연구 경험을 쌓음.
+  - position: 제 2대 컴퓨터인공지능학부 학생회 (기획부)
+    company_name: 전북대학교
+    company_url: ''
+    company_logo: ''
+    date_start: 2023-12-1
+    date_end: 2024-11-30
+    summary: |
+      학과 행사 기획 및 운영을 담당하며, 일정 조율·팀 협업·예산 관리 등 기획 실무를 경험함.
   - position: ALPS
     company_name: 전북대학교
     company_url: 'https://sites.google.com/view/jbnu-alps'
@@ -72,6 +80,14 @@ work:
     date_end: 2024-06-30
     summary: |
       자료구조 및 알고리즘 학습을 목표로 하는 전북대학교 컴퓨터인공지능학부 학술 동아리
+  - position: 제 1대 컴퓨터인공지능학부 학생회 (기획부)
+    company_name: 전북대학교
+    company_url: ''
+    company_logo: ''
+    date_start: 2023-11-30
+    date_end: 2023-04-01
+    summary: |
+      학과 행사 기획 및 운영을 담당하며, 일정 조율·팀 협업·예산 관리 등 기획 실무를 경험함.
 
 # Skills
 # Add your own SVG icons to `assets/media/icons/`
