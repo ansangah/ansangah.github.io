@@ -46,9 +46,11 @@ taxonomies:
   tag: tags
   publication_type: publication_types
 markup:
-  _merge: deep
-  highlight:
-    lineNos: false
+  goldmark:
+    parser:
+      attribute: true    # [링크](...){.btn .btn-primary} 같은 마크다운 클래스 문법 허용
+    renderer:
+      unsafe: true
 security:
   _merge: deep
 sitemap:

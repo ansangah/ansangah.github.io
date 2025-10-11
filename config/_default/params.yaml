@@ -67,3 +67,14 @@ features:
   privacy_pack:
     enable: false
   i18n_switcher: true  # 헤더에 지구본
+  search:
+    provider: wowchemy
+    algolia:
+      app_id: ''
+      api_key: ''
+      index_name: ''
+      show_logo: false
+      
+  params:
+  custom_css:
+    - "css/custom.css"
