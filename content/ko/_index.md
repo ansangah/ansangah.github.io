@@ -20,7 +20,7 @@ sections:
         url: uploads/resume.pdf
       headings:
         about: '소개'
-        experience: '이력 사항'
+        experience: '경험'
         education: '학위'
         interests: '관심 분야'
     design:

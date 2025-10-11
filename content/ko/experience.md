@@ -1,5 +1,5 @@
 ---
-title: '이력 사항'
+title: '이력서'
 date: 2023-10-24
 type: landing
 
