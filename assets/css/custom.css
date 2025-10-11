@@ -32,3 +32,7 @@
     line-height: 1.2;
     margin-block: 0.6em 0.4em;
   }
+
+  .page-content, .article-container, main .content {
+    text-align: left !important;
+  }
