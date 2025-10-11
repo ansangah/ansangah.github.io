@@ -9,7 +9,7 @@ design:
 
 <div class="container">
   <div class="profile-left">
-    <img src="/media/avatar.jpeg" alt="안상아" class="avatar">
+    <img src="/authors/admin/avatar.jpeg" alt="안상아" class="avatar">
     <h2>안상아</h2>
     <div class="network-icon">
       <a href="mailto:dkstkddkdhkd@jbnu.ac.kr" aria-label="Email"><i class="fas fa-envelope"></i></a>
@@ -22,6 +22,6 @@ design:
     👋 안녕하세요!  
     전북대학교 컴퓨터인공지능학부 3학년에 재학 중인 **안상아**입니다.  
     <br><br>
-    아래에서 제 이력서와 포트폴리오를 확인하세요!
+    아래에서 제 <a href="/resume" class="resume-btn">이력서</a>와 포트폴리오를 확인하세요!
   </div>
 </div>
