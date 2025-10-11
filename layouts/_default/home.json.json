@@ -1,20 +1,36 @@
+{{- $allow := site.Params.features.search.sections | default (slice "*") -}}
 {{- $items := slice -}}
-{{- range where .Site.RegularPages "Kind" "page" -}}
+{{- range site.Pages -}}
   {{- $p := . -}}
-  {{- $isPrivate := ($p.Params.private | default false) -}}
-  {{- $searchExcluded := (or ($p.Params.search.exclude | default false) ($p.Params.search_exclude | default false)) -}}
-  {{- if and (not $p.Draft) (not $isPrivate) (not $searchExcluded) -}}
-    {{- $plain := ($p.Plain | default "") -}}
-    {{- $summary := (cond (gt (len $p.Summary) 0) $p.Summary ($plain | truncate 200)) -}}
-    {{- $content := ($plain | truncate 2000) -}}
-    {{- $items = $items | append (dict
-      "title"     $p.Title
-      "permalink" $p.Permalink
-      "summary"   $summary
-      "content"   $content
-      "section"   $p.Section
-      "lang"      $p.Lang
-    ) -}}
+  {{- $kind := $p.Kind -}}
+  {{- if and (ne $kind "home") (ne $kind "taxonomy") (ne $kind "term") -}}
+    {{- $section := $p.Section -}}
+    {{- $inSection := or (in $allow "*") (in $allow $section) -}}
+    {{- $isPrivate := ($p.Params.private | default false) -}}
+    {{- $searchExcluded := or ($p.Params.search.exclude | default false) ($p.Params.search_exclude | default false) -}}
+    {{- if and $inSection (not $p.Draft) (not $isPrivate) (not $searchExcluded) -}}
+      {{- $plain := ($p.Plain | default "") -}}
+      {{- if and (eq $section "authors") (eq $plain "") -}}
+        {{- $role := ($p.Params.role | default "") -}}
+        {{- $bio  := ($p.Params.bio  | default "") -}}
+        {{- $orgs := (cond (gt (len $p.Params.organizations) 0) (delimit (apply $p.Params.organizations "index" "." "name") ", ") "") -}}
+        {{- $plain = (print $role " " $orgs " " $bio) -}}
+      {{- end -}}
+      {{- $summary := cond (gt (len $p.Summary) 0)
+                           $p.Summary
+                           (cond (gt (len ($p.Params.summary | default "")) 0)
+                                 ($p.Params.summary)
+                                 ($plain | truncate 200)) -}}
+      {{- $content := (cond (gt (len $plain) 0) $plain $summary) | truncate 2000 -}}
+      {{- $items = $items | append (dict
+        "title"     $p.Title
+        "permalink" $p.Permalink
+        "summary"   $summary
+        "content"   $content
+        "section"   $section
+        "lang"      $p.Lang
+      ) -}}
+    {{- end -}}
   {{- end -}}
 {{- end -}}
 {{- $items | jsonify -}}

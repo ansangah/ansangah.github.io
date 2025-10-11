@@ -4,7 +4,7 @@ draft: false
 summary: "Get in touch and find my location"
 ---
 
-## Get in touch
+## ✉️ Get in touch
 
 Reach me anytime via:
 
@@ -15,7 +15,7 @@ Reach me anytime via:
 
 ---
 
-## Location
+## 📍 Location
 
 Jeonbuk National University Technical College No. 7
 
