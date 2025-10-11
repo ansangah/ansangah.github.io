@@ -36,12 +36,12 @@ header:
     show_day_night: true
     show_language: false
     show_logo: true         # 로고 사용
-    show_title: true        # ← 텍스트도 보이게(이미지 실패해도 버튼 유지)
+    show_title: false        # ← 텍스트도 보이게(이미지 실패해도 버튼 유지)
     logo:
       text: "ansangah"      # ← 텍스트 브랜드(이미지 대체/겸용)
       image:
         filename: logo.png    # assets/media/logo.png
-        height: 80
+        height: 40
       image_dark:
         filename: logo.png # 없으면 같은 파일 복사 
 
