@@ -59,7 +59,7 @@ work:
   - position: 의료 AI 및 계산과학 연구실
     company_name: 전북대학교
     company_url: 'https://jbnu.macs.or.kr/'
-    company_logo: hero/beaker
+    company_logo: ''
     date_start: 2025-07-01
     date_end: ''
     summary: |2-
@@ -67,7 +67,7 @@ work:
   - position: ALPS
     company_name: 전북대학교
     company_url: 'https://sites.google.com/view/jbnu-alps'
-    company_logo: hero/presentation-chart-line
+    company_logo: ''
     date_start: 2024-03-02
     date_end: 2024-06-30
     summary: |
