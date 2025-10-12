@@ -1,19 +1,25 @@
-<meta property="og:title" content="안상아의 포트폴리오">
-<meta property="og:description" content="전북대학교 컴퓨터인공지능학부 포트폴리오 웹사이트">
-{{/* 페이지별 -> 대표 이미지 -> 사이트 기본 순으로 선택 */}}
+<!-- Custom OG tags (page > image.filename > image string > site default) -->
 {{ $og := "" }}
+
 {{ with .Params.og_image }}
   {{ $og = . | absURL }}
-{{ else if .Params.image }}
-  {{ if (reflect.IsMap .Params.image) }}
-    {{ with .Params.image.filename }}{{ $og = . | absURL }}{{ end }}
-  {{ else }}
-    {{ $og = .Params.image | absURL }}
-  {{ end }}
 {{ else }}
-  {{ $og = site.Params.marketing.seo.image | default "/media/preview.jpeg" | absURL }}
+  {{ with .Params.image }}
+    {{/* image 가 map일 때 (image.filename) */}}
+    {{ with .filename }}
+      {{ $og = . | absURL }}
+    {{ else }}
+      {{/* image 가 문자열일 때 */}}
+      {{ $og = $.Params.image | absURL }}
+    {{ end }}
+  {{ else }}
+    {{ $og = site.Params.marketing.seo.image | default "/media/preview.jpeg" | absURL }}
+  {{ end }}
 {{ end }}
+
+<meta property="og:title" content="{{ .Title }}">
+<meta property="og:description" content="{{ .Params.summary | default site.Params.marketing.seo.description }}">
 <meta property="og:image" content="{{ $og }}">
-<meta property="og:url" content="https://ansangah.github.io/">
+<meta property="og:url" content="{{ .Permalink }}">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
