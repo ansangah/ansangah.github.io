@@ -1,109 +1,84 @@
-/* ===== 풀블리드(full-bleed) 슬라이더 공통 스타일 ===== */
-
-/* 화면 전체 너비 확보 (그리드/컨테이너 제약 제거) */
-.hb-fullbleed {
-    margin: 0;
-    padding: 0;
+/* 섹션 밖으로 '풀블리드' 탈출 */
+.hb-fullbleed{
+    width:100vw;
+    margin-left:50%;
+    transform:translateX(-50%);
   }
   
-  /* 슬라이더 컨테이너: 화면 가득 + 고정 높이 */
+  /* 슬라이더 래퍼 : 가로 꽉 + 반응형 높이(21:9 근사) */
   .hb-slider{
-    position: relative;
-    width: 100vw;
-    height: 30vh;          /* 원하시는 높이로 */
-    min-height: 250px;     /* 너무 작아지지 않게 최소 제한 */
-    max-height: 300px;     /* 너무 커지지 않게 상한 */
-    margin: 0 auto;
-    overflow: hidden;
-    background-color: #000;     /* 남는 공간(레터박스)을 검정으로 */
-    background: transparent; /* 회색 띠 방지 */
+    position:relative;
+    width:100%;
+    height:clamp(220px, 32vw, 460px); /* 화면이 작으면 220px, 보통은 32vw, 크면 460px */
+    overflow:hidden;
+    border-radius:12px;
   }
   
-  /* 슬라이드 페이드 */
-  .hb-slide{ position:absolute; inset:0; opacity:0; transition:opacity .6s ease; }
+  /* 각 슬라이드가 슬라이더 영역을 완전히 덮도록 */
+  .hb-slide{
+    position:absolute;
+    inset:0;
+    opacity:0;
+    transition:opacity .5s ease;
+  }
   .hb-slide.active{ opacity:1; }
   
-  /* ✅ 핵심: ‘전부 보이기’ + 남는 공간 검정 */
-  .hb-slider .hb-slide img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    background-color: #000;
-    display: block;
+  /* 이미지가 영역을 꽉 채우되 잘리는 부분은 감수(object-fit: cover) */
+  .hb-slide img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
   }
   
-  /* 슬라이드 하단 캡션 */
-  .hb-caption {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 16px clamp(16px, 4vw, 40px);
-    color: #fff;
-    font-size: 1rem;
-    font-weight: 600;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0));
-    letter-spacing: 0.3px;
+  /* 캡션 */
+  .hb-caption{
+    position:absolute;
+    left:20px;
+    bottom:16px;
+    padding:8px 12px;
+    background:rgba(0,0,0,.45);
+    border-radius:8px;
+    font-size:.95rem;
+    color:#fff;
   }
   
-  /* 기본은 숨김 */
+  /* 좌우 네비 */
   .hb-nav{
-    position:absolute; top:50%; transform:translateY(-50%);
-    width:44px; height:44px; border-radius:999px; border:0;
-    display:flex; align-items:center; justify-content:center;
-    background: rgba(0,0,0,.35);
-    color:#e3eeff; font-size:22px; cursor:pointer;
-    opacity: 0; transition: opacity .2s ease, background .2s ease;
-    z-index:10;
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    width:42px; height:42px;
+    border-radius:999px;
+    border:1px solid rgba(255,255,255,.3);
+    background:rgba(0,0,0,.35);
+    color:#fff;
+    font-size:22px; line-height:42px;
+    text-align:center;
+    cursor:pointer;
+    transition:opacity .2s, background .2s;
   }
-  .hb-prev{ left:12px; }
-  .hb-next{ right:12px; }
+  .hb-prev{ left:10px; }
+  .hb-next{ right:10px; }
+  .hb-nav:hover{ background:rgba(0,0,0,.55); }
   
-  /* 슬라이더에 마우스 올렸을 때만 나타남 */
-  .hb-slider:hover .hb-nav{ opacity: .85; }
-  
-  /* 버튼에 마우스 올리면 살짝 진하게 */
-  .hb-nav:hover{ background: rgba(0,0,0,.5); }
-  
-  /* 터치 디바이스(hover 없음)에서는 항상 보이게 */
-  @media (hover: none){
-    .hb-nav{ opacity:.85; }
-  }
-  
+  /* 도트 */
   .hb-dots{
-    position:absolute; left:0; right:0; bottom:12px;
-    display:flex; gap:8px; justify-content:center; z-index:9;
+    position:absolute;
+    left:50%; bottom:12px;
+    transform:translateX(-50%);
+    display:flex; gap:8px;
   }
   .hb-dot{
-    width:9px; height:9px; border-radius:999px; border:0; cursor:pointer;
-    background: rgba(200,220,255,.9); opacity:.55;
-    transition: transform .2s, opacity .2s;
+    width:8px; height:8px;
+    border-radius:999px;
+    background:rgba(255,255,255,.45);
+    border:none; cursor:pointer;
   }
-  .hb-dot.active{ transform:scale(1.25); opacity:1; }
+  .hb-dot.active{ background:#fff; }
   
-  /* ===== 색상 테마 ===== */
-  :root {
-    --hb-bg: rgba(255, 255, 255, 0.7);
-    --hb-stroke: rgba(0, 96, 224, 0.9);
-    --hb-dot: rgba(0, 96, 224, 0.9);
-  }
-  
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --hb-bg: rgba(0, 0, 0, 0.4);
-      --hb-stroke: rgba(170, 200, 255, 0.9);
-      --hb-dot: rgba(170, 200, 255, 0.9);
-    }
-  }
-  
-  /* ===== 반응형 ===== */
-  @media (max-width: 768px) {
-    .hb-slider {
-      height: 56vw; /* 가로폭 기준 비율 유지 */
-    }
-    .hb-caption {
-      font-size: 0.9rem;
-      padding: 12px 20px;
-    }
+  /* 모바일 여백 조금만 */
+  @media (max-width: 640px){
+    .hb-slider{ height:clamp(200px, 45vw, 360px); border-radius:10px; }
+    .hb-caption{ left:14px; bottom:12px; padding:6px 10px; font-size:.9rem; }
   }
