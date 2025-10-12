@@ -3,6 +3,7 @@
 title: ''
 date: 2022-10-24
 type: landing
+image: 'preview.png'
 
 design:
   # Default section spacing
