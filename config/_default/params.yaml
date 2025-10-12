@@ -14,8 +14,9 @@ marketing:
     site_type: Person
     local_business_type: ''
     org_name: ''
-    description: 'The highly-customizable Hugo Academic theme powered by Hugo Blox Builder. Easily create your personal academic website.'
+    description: 'A portfolio website showcasing my academic background, projects, and research interests.'
     twitter: 'GetResearchDev'
+    image: 'preview.png'   
   analytics:
     google_analytics: ''
     baidu_tongji: ''
@@ -59,11 +60,10 @@ features:
     enable: false
   privacy_pack:
     enable: false
-  i18n_switcher: true  # 헤더에 지구본
+  i18n_switcher: true
   search:
     enable: true
     sections: ["*"]
 
-  params:
-  custom_css:
-    - "css/custom.css"
+custom_css:
+  - "css/custom.css"
