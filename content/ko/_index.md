@@ -9,9 +9,13 @@ design:
   spacing: '6rem'
 
 sections:
-  - block: blank
+  - block: markdown
     content:
-      filename: slider.md
+      filename: home/slider.md   # 아래 파일을 렌더링
+    design:
+      columns: "1"
+      spacing:
+        padding: ["0","0","24px","0"]
   - block: resume-biography-3
     content:
       # Choose a user profile to display (a folder name within `content/authors/`)

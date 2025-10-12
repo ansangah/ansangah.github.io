@@ -1,11 +1,6 @@
 ---
-widget: blank
-headless: true
-weight: 10
-title:
-design:
-  spacing:
-    padding: ["0","0","24px","0"]
+title: ""
+draft: false
 ---
 
 <link rel="stylesheet" href="/css/slider.css">
@@ -29,7 +24,7 @@ design:
   <button class="hb-nav hb-next" aria-label="다음">›</button>
 
   <div class="hb-dots" aria-hidden="true"></div>
-</div>
+  </div>
 </div>
 
 <script defer src="/js/slider.js"></script>
