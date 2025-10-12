@@ -1,0 +1,42 @@
+[
+    {
+      "title": "소개",
+      "summary": "전북대학교 컴퓨터인공지능학부 3학년 재학 중인 학부생입니다.",
+      "content": "안녕하세요! 전북대학교 컴퓨터인공지능학부에 재학 중인 안상아입니다. 최근 딥러닝의 기초 원리와 구현 방법을 학습했으며, ‘의료 AI 및 계산과학 연구실’에서 학부연구생으로 활동하며 연구 경험을 쌓고 있습니다.",
+      "permalink": "https://ansangah.github.io/",
+      "relpermalink": "/",
+      "section": "소개",
+      "type": "page",
+      "lang": "ko"
+    },
+    {
+      "title": "주요 프로젝트",
+      "summary": "GitHub Pages 기반 HugoBlox 포트폴리오 구축",
+      "content": "HugoBlox와 GitHub Actions를 이용해 자동 배포가 가능한 포트폴리오 사이트를 제작했습니다. 다국어(한국어·영어) 지원과 반응형 UI, SEO 설정 등을 포함했습니다.",
+      "permalink": "https://ansangah.github.io/projects/",
+      "relpermalink": "/projects/",
+      "section": "프로젝트",
+      "type": "page",
+      "lang": "ko"
+    },
+    {
+      "title": "쿠키런 서버 프로젝트",
+      "summary": "기존 쿠키런 오픈소스를 기반으로 구현된 Java 서버 프로젝트",
+      "content": "PVP 매칭과 게임 데이터 동기화를 담당합니다. 소켓 기반 멀티플레이 환경을 구현했으며, 실시간 전투 및 점수 관리 기능을 포함합니다.",
+      "permalink": "https://ansangah.github.io/projects/cr-server/",
+      "relpermalink": "/projects/cr-server/",
+      "section": "프로젝트",
+      "type": "page",
+      "lang": "ko"
+    },
+    {
+      "title": "연락하기",
+      "summary": "안상아의 연락처 및 SNS 정보",
+      "content": "전화: +82-10-3630-4640 / 이메일: dkstkddkdhkd@jbnu.ac.kr / 깃허브: ansangah / 인스타그램: @ahnneu_",
+      "permalink": "https://ansangah.github.io/contact/",
+      "relpermalink": "/contact/",
+      "section": "연락하기",
+      "type": "page",
+      "lang": "ko"
+    }
+  ]
