@@ -1,7 +1,8 @@
 ---
-title: "📍 Location"
+title: "Contact Information"
 data: 2025-10-11
 ---
+##  📍 Location
 
 My usual location:
 
