@@ -16,7 +16,7 @@ marketing:
     org_name: ''
     description: 'A portfolio website showcasing my academic background, projects, and research interests.'
     twitter: 'GetResearchDev'
-    image: 'preview.png'   
+    image: 'https://ansangah.github.io/preview.png'   
   analytics:
     google_analytics: ''
     baidu_tongji: ''
