@@ -3,6 +3,7 @@
 title: ''
 date: 2022-10-24
 type: landing
+og-image: '/media/preview.jpeg'
 image: 
   filename: 'icon_hu_962f7c39bcb7c978.png'
 
