@@ -1,6 +1,6 @@
 ---
 title: "Contact Information"
-og-image: '/media/preview.jpeg'
+og_image: '/media/preview.jpeg'
 image: 
     filename: '/media/preview.jpeg'
 ---

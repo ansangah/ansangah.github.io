@@ -3,7 +3,7 @@
 title: ''
 date: 2025-10-11
 type: landing
-og-image: '/media/preview.jpeg'
+og_image: '/media/preview.jpeg'
 image: 
   filename: 'icon_hu_962f7c39bcb7c978.png'
 
