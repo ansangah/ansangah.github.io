@@ -9,7 +9,7 @@
   .hb-slider{
     position:relative;
     width:100%;
-    height:clamp(220px, 32vw, 460px); /* 화면이 작으면 220px, 보통은 32vw, 크면 460px */
+    height:clamp(220px, 32vw, 300px); /* 화면이 작으면 220px, 보통은 32vw, 크면 460px */
     overflow:hidden;
     border-radius:12px;
   }
@@ -82,3 +82,9 @@
     .hb-slider{ height:clamp(200px, 45vw, 360px); border-radius:10px; }
     .hb-caption{ left:14px; bottom:12px; padding:6px 10px; font-size:.9rem; }
   }
+/* 슬라이더 섹션의 상단 패딩 제거 */
+section:has(.hb-slider),
+div.section:has(.hb-slider) {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
