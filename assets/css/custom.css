@@ -5,32 +5,88 @@
     border-radius: 12px;
     overflow: hidden;      /* 모서리 둥글게 */
     aspect-ratio: 16 / 9;  /* 기본 비율 (가로형) */
-  }
+}
   
   /* iframe을 래퍼에 꽉 채우기 */
-  .map-embed iframe {
+.map-embed iframe {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
     border: 0;
-  }
+}
   
   /* 작은 모바일에서 세로비 더 확보 (잘림 방지) */
-  @media (max-width: 480px) {
+@media (max-width: 480px) {
     .map-embed { aspect-ratio: 4 / 5; }  /* 필요하면 3/4 등으로 조정 */
-  }
+}
   
   /* 구형 브라우저 폴백: aspect-ratio 미지원 시 패딩 해크 사용 */
-  @supports not (aspect-ratio: 1 / 1) {
+@supports not (aspect-ratio: 1 / 1) {
     .map-embed { height: 0; padding-top: 56.25%; } /* 16:9 */
-    @media (max-width: 480px) { .map-embed { padding-top: 125%; } } /* 4:5 */
-    .map-embed iframe {
-      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+@media (max-width: 480px) { .map-embed { padding-top: 125%; } } /* 4:5 */
+.map-embed iframe {
+        position: absolute; top: 0; left: 0; width: 100%; height: 100%;
     }
-  }
+}
   
-  /* 혹시 부모 컨테이너가 잘라먹는 현상 방지 */
-  .page-body iframe,
-  .prose iframe { max-width: 100%; }
-  .article-container, .page-body, .prose { overflow: visible; }
+/* 혹시 부모 컨테이너가 잘라먹는 현상 방지 */
+.page-body iframe,
+.prose iframe { max-width: 100%; }
+.article-container, .page-body, .prose { overflow: visible; }
+
+  /* ====== 여기부터 슬라이더 ====== */
+.hb-carousel { position: relative; margin: 0 auto; max-width: 1200px; }
+.hb-track {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 100%;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    gap: 0;
+}
+
+/* 각 슬라이드는 동일 높이(반응형) */
+.hb-slide {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    scroll-snap-align: start;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #0f172a; /* 다크 배경 */
+}
+.hb-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 캡션/버튼 오버레이 */
+.hb-caption {
+    position: absolute;
+    inset: auto 0 0 0;
+    padding: 1rem 1.25rem;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,.65) 60%, rgba(0,0,0,.85) 100%);
+    color: #fff;
+}
+.hb-title { font-size: clamp(1rem, 2.4vw, 1.5rem); font-weight: 700; }
+.hb-desc  { opacity: .9; margin-top: .25rem; font-size: clamp(.9rem, 2vw, 1rem); }
+.hb-cta {
+    display: inline-block;
+    margin-top: .6rem;
+    margin-right: .5rem;
+    padding: .5rem .9rem;
+    border-radius: .6rem;
+    background: #2563eb;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+}
+.hb-cta.ghost { background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.25); }
+
+/* 모바일에서 세로 높이 늘리고 텍스트 가독성 확보 */
+@media (max-width: 480px) {
+    .hb-slide { aspect-ratio: 4 / 5; }
+}

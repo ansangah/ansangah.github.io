@@ -9,23 +9,42 @@ design:
   spacing: '6rem'
 
 sections:
-  - block: gallery
+    - block: markdown
     content:
       title: ''
-      items:
-        - image: "/media/slide1.jpeg"
-          caption: "CodyMate — AI 코디 앱"
-          link: "/projects/codymate/"
-        - image: "/media/slide2.jpeg"
-          caption: "Cookie Run Modded — PVP & Server"
-          link: "/projects/cookie-run/"
-        - image: "/media/slide3.jpeg"
-          caption: "Portfolio — Hugo Blox + GitHub Pages"
-          link: "/"
-    design:
-      style: carousel      # 캐러셀 모드 (테마가 지원하면 슬라이드처럼 동작)
-      height: "480px"      # 필요 시 조절
-      interval: 5000       # 자동 전환(ms)
+      text: |-
+        <!-- Swipe 가능한 반응형 캐러셀 -->
+        <div class="hb-carousel">
+          <div class="hb-track">
+            <figure class="hb-slide">
+              <img src="/media/slide1.jpeg" alt="CodyMate — AI 코디 앱">
+              <figcaption class="hb-caption">
+                <div class="hb-title">CodyMate</div>
+                <div class="hb-desc">AI가 옷장을 관리하고 맞춤 코디를 제안합니다.</div>
+                <a class="hb-cta" href="/projects/codymate/">프로젝트 보기</a>
+              </figcaption>
+            </figure>
+
+            <figure class="hb-slide">
+              <img src="/media/slide2.jpeg" alt="Cookie Run Modded — PVP & Server">
+              <figcaption class="hb-caption">
+                <div class="hb-title">Cookie Run Modded</div>
+                <div class="hb-desc">추가 PVP 모드와 커스텀 서버를 구현한 게임 프로젝트.</div>
+                <a class="hb-cta" href="/projects/CR-Front/">클라이언트</a>
+                <a class="hb-cta ghost" href="/projects/CR-Server/">서버</a>
+              </figcaption>
+            </figure>
+
+            <figure class="hb-slide">
+              <img src="/media/slide3.jpeg" alt="Portfolio — Hugo Blox + GitHub Pages">
+              <figcaption class="hb-caption">
+                <div class="hb-title">Portfolio Website</div>
+                <div class="hb-desc">Hugo Blox와 GitHub Pages로 제작·배포.</div>
+                <a class="hb-cta" href="/">사이트 방문</a>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
   - block: resume-biography-3
     content:
       # Choose a user profile to display (a folder name within `content/authors/`)
