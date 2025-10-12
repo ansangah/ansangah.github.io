@@ -1,35 +1,30 @@
-<link rel="stylesheet" href="https://unpkg.com/swiper@10/swiper-bundle.min.css"/>
+<!-- Swiper CDN -->
+<link rel="stylesheet"
+      href="https://unpkg.com/swiper@9/swiper-bundle.min.css">
+<script defer src="https://unpkg.com/swiper@9/swiper-bundle.min.js"></script>
 
-<section class="slider-section">
-  <div class="swiper">
+<section class="hb-slider-wrap">
+  <div class="swiper hb-swiper">
     <div class="swiper-wrapper">
 
       <div class="swiper-slide">
-        <img src="/media/slide1.jpeg" alt="AI Game Development" class="slide-img">
-        <div class="slide-caption">
-          <h3>AI Game Development</h3>
-          <a href="{{ "projects" | relref }}" class="btn-slide">보러가기</a>
-        </div>
+        <img src="/media/slide1.jpeg" alt="CV Projects">
+        <div class="hb-caption">CV Projects</div>
       </div>
 
       <div class="swiper-slide">
-        <img src="/media/slide2.jpeg" alt="AI Image Generation" class="slide-img">
-        <div class="slide-caption">
-          <h3>AI Image Generation</h3>
-          <a href="{{ "projects" | relref }}" class="btn-slide">보러가기</a>
-        </div>
+        <img src="/media/slide2.jpeg" alt="Frontend UI">
+        <div class="hb-caption">Frontend UI</div>
       </div>
 
       <div class="swiper-slide">
-        <img src="/media/slide3.jpeg" alt="Fake Review Detection" class="slide-img">
-        <div class="slide-caption">
-          <h3>Fake Review Detection</h3>
-          <a href="{{ "projects" | relref }}" class="btn-slide">보러가기</a>
-        </div>
+        <img src="/media/slide3.jpeg" alt="NLP & Analytics">
+        <div class="hb-caption">NLP & Analytics</div>
       </div>
 
     </div>
 
+    <!-- 네비게이션 -->
     <div class="swiper-button-prev"></div>
     <div class="swiper-button-next"></div>
     <div class="swiper-pagination"></div>
@@ -37,35 +32,99 @@
 </section>
 
 <style>
-  .slider-section{
-    position:relative;width:100vw;left:50%;margin-left:-50vw;
-    background:#000;overflow:hidden;display:flex;justify-content:center;align-items:center
+  /* 페이지 전체 폭으로 꽉 차게 (헤더 아래 여백 제거) */
+  .hb-slider-wrap{
+    width:100vw;
+    position:relative;
+    left:50%;
+    margin-left:-50vw;
+    background:#000;
   }
-  .slider-section .swiper{width:85%;aspect-ratio:16/9;background:#111;display:flex;justify-content:center;align-items:center}
-  .slider-section .swiper-slide{display:flex;justify-content:center;align-items:center;background:#000}
-  .slider-section .slide-img{max-width:100%;max-height:100%;width:auto;height:100%;object-fit:contain;display:block;margin:0 auto;background:#000}
-  .slider-section .slide-caption{position:absolute;left:50%;bottom:8%;transform:translateX(-50%);background:rgba(0,0,0,.55);padding:1rem 1.25rem;border-radius:10px;color:#fff;text-align:center}
-  .slider-section .slide-caption h3{margin:0;font-size:1.25rem}
-  .btn-slide{display:inline-block;margin-top:8px;background:#4ea1f3;color:#fff;padding:6px 14px;border-radius:6px;text-decoration:none;font-size:.9rem}
-  .btn-slide:hover{background:#1f78d1}
-  .slider-section .swiper{--swiper-navigation-size:18px}
-  .swiper-button-prev,.swiper-button-next{width:34px;height:34px;background:rgba(0,0,0,.35);border-radius:50%;color:#fff;transition:background .2s}
-  .swiper-button-prev:hover,.swiper-button-next:hover{background:rgba(0,0,0,.65)}
-  .swiper-pagination-bullet{width:7px;height:7px;background:#ccc;opacity:.9}
-  .swiper-pagination-bullet-active{background:#fff}
-  @media (max-width:640px){.slider-section .swiper{width:95%;aspect-ratio:4/3}.slider-section .slide-caption{font-size:.85rem;bottom:6%;padding:.7rem 1rem}}
+
+  /* 슬라이더 크기: 화면 비율에 맞춰 높이 지정 */
+  .hb-swiper{
+    width:100%;
+    height:42vh;      /* 데스크톱 */
+    min-height:240px; /* 너무 낮아지지 않도록 */
+    background:#000;
+  }
+
+  /* 슬라이드(검은 배경 + 가운데 정렬) */
+  .hb-swiper .swiper-slide{
+    background:#000;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+  }
+
+  /* 이미지는 'contain'으로 원본 비율 유지 (정방형 살리기) */
+  .hb-swiper .swiper-slide img{
+    max-width:100%;
+    max-height:100%;
+    width:auto;
+    height:auto;
+    object-fit:contain;
+    display:block;
+    background:#000; /* 남는 여백 검정 */
+    border-radius:10px; /* 원하면 모서리 둥글게 */
+  }
+
+  /* 캡션 */
+  .hb-caption{
+    position:absolute;
+    left:12px;
+    bottom:12px;
+    padding:6px 10px;
+    font-size:.95rem;
+    color:#fff;
+    background:rgba(0,0,0,.45);
+    border-radius:6px;
+  }
+
+  /* 화살표/도트 */
+  .swiper-button-prev,
+  .swiper-button-next{
+    color:#e5e7eb; /* 연한 회색 */
+  }
+  .swiper-pagination-bullet{
+    background:#e5e7eb;
+    opacity:.6;
+  }
+  .swiper-pagination-bullet-active{
+    background:#fff;
+    opacity:1;
+  }
+
+  /* 모바일에서 높이 조금 줄이기 */
+  @media (max-width: 768px){
+    .hb-swiper{ height: 32vh; min-height: 200px; }
+  }
 </style>
 
-<script src="https://unpkg.com/swiper@10/swiper-bundle.min.js"></script>
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-  new Swiper(".swiper", {
-    loop: true,
-    autoplay: { delay: 3000, disableOnInteraction: false },
-    pagination: { el: ".swiper-pagination", clickable: true },
-    navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
-    effect: "slide",
-    speed: 700
+  document.addEventListener('DOMContentLoaded', () => {
+    new Swiper('.hb-swiper', {
+      loop: true,
+      speed: 600,
+      centeredSlides: true,
+      slidesPerView: 1,
+      spaceBetween: 0,
+
+      autoplay: {
+        delay: 2800,
+        disableOnInteraction: false, // 손으로 넘겨도 자동재생 유지
+      },
+
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
   });
-});
 </script>
