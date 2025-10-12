@@ -3,15 +3,37 @@
 title: ''
 date: 2025-10-11
 type: landing
-og_image: '/media/preview.jpeg'
-image: 
-  filename: 'icon_hu_962f7c39bcb7c978.png'
 
 design:
   # Default section spacing
   spacing: '6rem'
 
 sections:
+  - block: slider
+    content:
+      slides:
+        - title: "CodyMate"
+          content: "AI가 옷장을 관리하고 코디를 추천하는 패션 앱 프로젝트"
+          image: "/media/slide1.jpeg"
+          link:
+            text: "프로젝트 보기"
+            url: "/projects/codymate/"
+        - title: "Cookie Run Server & Client"
+          content: "추가 PVP 모드와 커스텀 서버를 구현한 게임 개발 프로젝트"
+          image: "/media/slide2.jpeg"
+          link:
+            text: "프로젝트 보기"
+            url: "/projects/cookie-run/"
+        - title: "Portfolio Website"
+          content: "이 사이트는 Hugo Blox와 GitHub Pages로 제작되었습니다."
+          image: "/media/slide3.jpeg"
+          link:
+            text: "사이트 방문"
+            url: "/"
+    design:
+      height: "480px"   # 슬라이더 높이
+      interval: 5000    # 전환 간격 (ms 단위)
+      transition: slide # 효과: slide, fade
   - block: resume-biography-3
     content:
       # Choose a user profile to display (a folder name within `content/authors/`)

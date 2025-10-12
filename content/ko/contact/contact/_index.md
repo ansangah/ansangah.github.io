@@ -1,8 +1,5 @@
 ---
 title: "Contact Information"
-og_image: '/media/preview.jpeg'
-image: 
-    filename: '/media/preview.jpeg'
 ---
 
 ##  ✉️ 문의하기
