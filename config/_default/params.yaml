@@ -69,7 +69,3 @@ features:
 
 custom_css:
   - "css/custom.css"
-  - "css/slider.css"
-
-custom_js:
-  - "js/slider.js"
