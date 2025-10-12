@@ -1,80 +1,113 @@
-.slider-container {
+/* ===== 풀블리드(full-bleed) 슬라이더 공통 스타일 ===== */
+
+/* 화면 전체 너비 확보 (그리드/컨테이너 제약 제거) */
+.hb-fullbleed {
     position: relative;
-    width: 100%;
-    max-width: 1200px;
-    margin: 2rem auto;
-    overflow: hidden;
-    border-radius: 16px;
-  }
-  
-  .slider-track {
-    display: flex;
-    transition: transform 0.6s ease;
-  }
-  
-  .slide {
-    min-width: 100%;
-    position: relative;
-    text-align: center;
-  }
-  
-  .slide img {
-    width: 100%;
-    height: auto;
-    border-radius: 16px;
-  }
-  
-  .caption {
-    position: absolute;
-    bottom: 20px;
     left: 50%;
-    transform: translateX(-50%);
-    background: rgba(0, 0, 0, 0.6);
-    color: white;
-    padding: 8px 16px;
-    border-radius: 8px;
-    font-size: 1.2rem;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    width: 100vw;
+    overflow: hidden;
   }
   
-  .nav {
+  /* 슬라이더 컨테이너: 화면 가득 + 고정 높이 */
+  .hb-slider{
+    position: relative;
+    width: 100vw;
+    height: 30vh;          /* 원하시는 높이로 */
+    min-height: 250px;     /* 너무 작아지지 않게 최소 제한 */
+    max-height: 300px;     /* 너무 커지지 않게 상한 */
+    margin: 0 auto;
+    overflow: hidden;
+    background-color: #000;     /* 남는 공간(레터박스)을 검정으로 */
+  }
+  
+  /* 슬라이드 페이드 */
+  .hb-slide{ position:absolute; inset:0; opacity:0; transition:opacity .6s ease; }
+  .hb-slide.active{ opacity:1; }
+  
+  /* ✅ 핵심: ‘전부 보이기’ + 남는 공간 검정 */
+  .hb-slider .hb-slide img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain !important;   /* 반드시 contain */
+    object-position: center;
+    background-color: #000;
+    display: block;
+  }
+  
+  /* 슬라이드 하단 캡션 */
+  .hb-caption {
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.4);
-    border: none;
-    color: white;
-    font-size: 2rem;
-    padding: 8px 12px;
-    cursor: pointer;
-    border-radius: 50%;
-    z-index: 10;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 16px clamp(16px, 4vw, 40px);
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0));
+    letter-spacing: 0.3px;
   }
   
-  .nav.prev { left: 15px; }
-  .nav.next { right: 15px; }
+  /* 기본은 숨김 */
+  .hb-nav{
+    position:absolute; top:50%; transform:translateY(-50%);
+    width:44px; height:44px; border-radius:999px; border:0;
+    display:flex; align-items:center; justify-content:center;
+    background: rgba(0,0,0,.35);
+    color:#e3eeff; font-size:22px; cursor:pointer;
+    opacity: 0; transition: opacity .2s ease, background .2s ease;
+    z-index:10;
+  }
+  .hb-prev{ left:12px; }
+  .hb-next{ right:12px; }
   
-  .dots {
-    text-align: center;
-    margin-top: 12px;
+  /* 슬라이더에 마우스 올렸을 때만 나타남 */
+  .hb-slider:hover .hb-nav{ opacity: .85; }
+  
+  /* 버튼에 마우스 올리면 살짝 진하게 */
+  .hb-nav:hover{ background: rgba(0,0,0,.5); }
+  
+  /* 터치 디바이스(hover 없음)에서는 항상 보이게 */
+  @media (hover: none){
+    .hb-nav{ opacity:.85; }
   }
   
-  .dots button {
-    border: none;
-    background: #bbb;
-    border-radius: 50%;
-    width: 12px;
-    height: 12px;
-    margin: 0 6px;
-    cursor: pointer;
-    transition: background 0.3s;
+  .hb-dots{
+    position:absolute; left:0; right:0; bottom:12px;
+    display:flex; gap:8px; justify-content:center; z-index:9;
+  }
+  .hb-dot{
+    width:9px; height:9px; border-radius:999px; border:0; cursor:pointer;
+    background: rgba(200,220,255,.9); opacity:.55;
+    transition: transform .2s, opacity .2s;
+  }
+  .hb-dot.active{ transform:scale(1.25); opacity:1; }
+  
+  /* ===== 색상 테마 ===== */
+  :root {
+    --hb-bg: rgba(255, 255, 255, 0.7);
+    --hb-stroke: rgba(0, 96, 224, 0.9);
+    --hb-dot: rgba(0, 96, 224, 0.9);
   }
   
-  .dots button.active {
-    background: #333;
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --hb-bg: rgba(0, 0, 0, 0.4);
+      --hb-stroke: rgba(170, 200, 255, 0.9);
+      --hb-dot: rgba(170, 200, 255, 0.9);
+    }
   }
   
-  /* 반응형 */
+  /* ===== 반응형 ===== */
   @media (max-width: 768px) {
-    .caption { font-size: 1rem; }
-    .nav { font-size: 1.5rem; }
+    .hb-slider {
+      height: 56vw; /* 가로폭 기준 비율 유지 */
+    }
+    .hb-caption {
+      font-size: 0.9rem;
+      padding: 12px 20px;
+    }
   }
