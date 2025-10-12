@@ -34,3 +34,22 @@
 .page-body iframe,
 .prose iframe { max-width: 100%; }
 .article-container, .page-body, .prose { overflow: visible; }
+
+/* 헤더 아래 슬라이더 여백 제거 */
+header + main,
+main {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* 슬라이더 위쪽 붙이기 */
+.hb-slider-wrap {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* 상단 그림자나 transition 같은 거 방해 없게 */
+body > main:first-of-type {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
