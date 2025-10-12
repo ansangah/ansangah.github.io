@@ -3,7 +3,7 @@ title: "📍 Location"
 data: 2025-10-11
 ---
 
-You can find my usual location on the map below.
+My usual location:
 
 College of Engineering Building 7, Jeonbuk National University,
 567 Baekje-daero, Deokjin-gu, Jeonju, Jeonbuk, South Korea
