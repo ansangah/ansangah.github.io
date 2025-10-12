@@ -16,14 +16,15 @@ main:
   - name: Projects
     url: '/projects/'
     weight: 4
-  - name: Contact
+  - name: Contect
+    identifier: contact
     url: '/contact/'
     weight: 5
   - name: Contact Info
     parent: contact
-    url: contact/contact/
+    url: '/contact/contact/'
     weight: 6
   - name: Location
     parent: contact
-    url: contact/location/
+    url: '/contact/location/'
     weight: 7

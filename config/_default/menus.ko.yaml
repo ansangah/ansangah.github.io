@@ -16,14 +16,15 @@ main:
   - name: 프로젝트
     url: '/projects/'
     weight: 4
-  - name: 연락하기
+  - name: 연락
+    identifier: contact
     url: '/contact/'
     weight: 5
   - name: 연락처
     parent: contact
-    url: contact/contact/
+    url: '/contact/contact/'
     weight: 6
   - name: 오시는 길
     parent: contact
-    url: contact/location/
+    url: '/contact/location/'
     weight: 7
