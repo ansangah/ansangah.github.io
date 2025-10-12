@@ -1,5 +1,6 @@
 ---
 title: "Contact Information"
+image: "preview.jpeg"
 ---
 
 ##  ✉️ 문의하기

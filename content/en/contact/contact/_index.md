@@ -1,5 +1,6 @@
 ---
 title: "Contact Information"
+image: 'preview.jpeg'
 ---
 
 ## ✉️ Get in touch
