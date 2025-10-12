@@ -5,42 +5,26 @@
     <div class="swiper-wrapper">
 
       <div class="swiper-slide">
-        <img src="/media/slide-1.jpg" alt="AI Game Development" class="slide-img">
+        <img src="/media/slide1.jpeg" alt="AI Game Development" class="slide-img">
         <div class="slide-caption">
           <h3>AI Game Development</h3>
-          <a href="{{< relref "project/game" >}}" class="btn-slide">보러가기</a>
+          <a href="{{ "projects" | relref }}" class="btn-slide">보러가기</a>
         </div>
       </div>
 
       <div class="swiper-slide">
-        <img src="/media/slide-2.jpg" alt="AI Image Generation" class="slide-img">
+        <img src="/media/slide2.jpeg" alt="AI Image Generation" class="slide-img">
         <div class="slide-caption">
           <h3>AI Image Generation</h3>
-          <a href="{{< relref "project/ai" >}}" class="btn-slide">보러가기</a>
+          <a href="{{ "projects" | relref }}" class="btn-slide">보러가기</a>
         </div>
       </div>
 
       <div class="swiper-slide">
-        <img src="/media/slide-3.jpg" alt="Fake Review Detection" class="slide-img">
+        <img src="/media/slide3.jpeg" alt="Fake Review Detection" class="slide-img">
         <div class="slide-caption">
           <h3>Fake Review Detection</h3>
-          <a href="{{< relref "project/Review" >}}" class="btn-slide">보러가기</a>
-        </div>
-      </div>
-
-       <div class="swiper-slide">
-        <img src="/media/slide-4.jpg" alt="Data" class="slide-img">
-        <div class="slide-caption">
-          <h3>Data</h3>
-          <a href="{{< relref "project/data" >}}" class="btn-slide">보러가기</a>
-        </div>
-      </div>
-
-       <div class="swiper-slide">
-        <img src="/media/slide-5.jpg" alt="Web" class="slide-img">
-        <div class="slide-caption">
-          <h3>Web</h3>
-          <a href="{{< relref "project/web" >}}" class="btn-slide">보러가기</a>
+          <a href="{{ "projects" | relref }}" class="btn-slide">보러가기</a>
         </div>
       </div>
 
@@ -52,115 +36,29 @@
   </div>
 </section>
 
-
 <style>
-/* 전체 배경: 화면 전체 폭에 검정 */
-.slider-section{
-  position: relative;
-  width: 100vw;                 /* 브라우저 전체 폭 */
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;           /* 정가운데 강제 */
-  background-color: #000;       /* 좌우 검정 여백 */
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* 중앙 슬라이더 프레임 */
-.slider-section .swiper{
-  width: 70%;                   /* 중앙 사진 폭 (조절 가능) */
-  aspect-ratio: 16/9;
-  background: #111;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* 개별 슬라이드 */
-.slider-section .swiper-slide{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #000;
-}
-
-/* 이미지: 비율 유지 + 가운데 정렬 */
-.slider-section .slide-img{
-  max-width: 100%;
-  max-height: 100%;
-  width: auto;
-  height: 100%;
-  object-fit: contain;
-  display: block;
-  margin: 0 auto;
-  background-color: #000;
-}
-
-/* 캡션 */
-.slider-section .slide-caption{
-  position: absolute;
-  left: 50%;
-  bottom: 8%;
-  transform: translateX(-50%);  /* 완전 중앙 정렬 */
-  background: rgba(0,0,0,0.55);
-  padding: 1rem 1.25rem;
-  border-radius: 10px;
-  color: white;
-  text-align: center;
-}
-.slider-section .slide-caption h3{
-  margin: 0;
-  font-size: 1.5rem;
-}
-.slider-section .btn-slide{
-  display: inline-block;
-  margin-top: 10px;
-  background: #4ea1f3;
-  color: white;
-  padding: 6px 14px;
-  border-radius: 6px;
-  text-decoration: none;
-  font-size: .9rem;
-}
-.slider-section .btn-slide:hover{ background: #1f78d1; }
-
-/* 작고 둥근 네비 버튼 */
-.slider-section .swiper{ --swiper-navigation-size: 18px; }
-.slider-section .swiper-button-prev,
-.slider-section .swiper-button-next{
-  width: 34px; height: 34px;
-  background: rgba(0,0,0,0.35);
-  border-radius: 50%;
-  color: white;
-  transition: background .2s;
-}
-.slider-section .swiper-button-prev:hover,
-.slider-section .swiper-button-next:hover{
-  background: rgba(0,0,0,0.65);
-}
-
-/* 페이지 점 */
-.slider-section .swiper-pagination-bullet{
-  width: 7px; height: 7px;
-  background: #ccc;
-  opacity: .9;
-}
-.slider-section .swiper-pagination-bullet-active{ background: #fff; }
-
-/* 모바일 대응 */
-@media (max-width: 640px){
-  .slider-section .swiper{ width: 95%; aspect-ratio: 4/3; }
-  .slider-section .slide-caption{ font-size:.85rem; bottom:6%; padding:.7rem 1rem; }
-}
+  .slider-section{
+    position:relative;width:100vw;left:50%;margin-left:-50vw;
+    background:#000;overflow:hidden;display:flex;justify-content:center;align-items:center
+  }
+  .slider-section .swiper{width:85%;aspect-ratio:16/9;background:#111;display:flex;justify-content:center;align-items:center}
+  .slider-section .swiper-slide{display:flex;justify-content:center;align-items:center;background:#000}
+  .slider-section .slide-img{max-width:100%;max-height:100%;width:auto;height:100%;object-fit:contain;display:block;margin:0 auto;background:#000}
+  .slider-section .slide-caption{position:absolute;left:50%;bottom:8%;transform:translateX(-50%);background:rgba(0,0,0,.55);padding:1rem 1.25rem;border-radius:10px;color:#fff;text-align:center}
+  .slider-section .slide-caption h3{margin:0;font-size:1.25rem}
+  .btn-slide{display:inline-block;margin-top:8px;background:#4ea1f3;color:#fff;padding:6px 14px;border-radius:6px;text-decoration:none;font-size:.9rem}
+  .btn-slide:hover{background:#1f78d1}
+  .slider-section .swiper{--swiper-navigation-size:18px}
+  .swiper-button-prev,.swiper-button-next{width:34px;height:34px;background:rgba(0,0,0,.35);border-radius:50%;color:#fff;transition:background .2s}
+  .swiper-button-prev:hover,.swiper-button-next:hover{background:rgba(0,0,0,.65)}
+  .swiper-pagination-bullet{width:7px;height:7px;background:#ccc;opacity:.9}
+  .swiper-pagination-bullet-active{background:#fff}
+  @media (max-width:640px){.slider-section .swiper{width:95%;aspect-ratio:4/3}.slider-section .slide-caption{font-size:.85rem;bottom:6%;padding:.7rem 1rem}}
 </style>
-
-
 
 <script src="https://unpkg.com/swiper@10/swiper-bundle.min.js"></script>
 <script>
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
   new Swiper(".swiper", {
     loop: true,
     autoplay: { delay: 3000, disableOnInteraction: false },
