@@ -9,7 +9,7 @@ design:
   spacing: '6rem'
 
 sections:
-    - block: markdown
+  - block: markdown
     content:
       title: ''
       text: |-
