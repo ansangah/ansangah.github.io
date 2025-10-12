@@ -11,11 +11,10 @@ design:
 sections:
   - block: markdown
     content:
-      filename: home/slider.md   # 아래 파일을 렌더링
+      title: ''
+      text: '{{< slider >}}'
     design:
-      columns: "1"
-      spacing:
-        padding: ["0","0","24px","0"]
+      columns: '1'
   - block: resume-biography-3
     content:
       # Choose a user profile to display (a folder name within `content/authors/`)
