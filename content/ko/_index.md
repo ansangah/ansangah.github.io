@@ -26,7 +26,7 @@ sections:
         text: 이력서 다운로드
         url: uploads/resume.pdf
       headings:
-        about: '소개'
+        about: '소개;;'
         experience: '경험'
         education: '학위'
         interests: '관심 분야'
