@@ -16,7 +16,7 @@ main:
   - name: Projects
     url: '/projects/'
     weight: 4
-  - name: Contect
+  - name: Contact
     identifier: contact
     url: '/contact/'
     weight: 5
