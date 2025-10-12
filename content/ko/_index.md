@@ -15,7 +15,7 @@ sections:
       text: '{{< slider >}}'
     design:
       spacing:
-      padding: [0, 0, 0, 0]
+        padding: [0, 0, 0, 0]
   - block: resume-biography-3
     content:
       # Choose a user profile to display (a folder name within `content/authors/`)
