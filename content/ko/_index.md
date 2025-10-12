@@ -3,7 +3,8 @@
 title: ''
 date: 2025-10-11
 type: landing
-image: icon_hu_962f7c39bcb7c978.png
+image: 
+  filename: 'icon_hu_962f7c39bcb7c978.png'
 
 design:
   # Default section spacing
