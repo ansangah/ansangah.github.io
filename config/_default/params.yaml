@@ -3,6 +3,8 @@
 # Documentation: https://docs.hugoblox.com/
 # This file is formatted using YAML syntax - learn more at https://learnxinyminutes.com/docs/yaml/
 
+image: 'https://ansangah.github.io/media/preview.png'   
+
 # Appearance
 appearance:
   mode: system
@@ -16,7 +18,7 @@ marketing:
     org_name: ''
     description: 'A portfolio website showcasing my academic background, projects, and research interests.'
     twitter: 'GetResearchDev'
-    image: 'https://ansangah.github.io/preview.png'   
+    image: 'https://ansangah.github.io/media/preview.png'   
   analytics:
     google_analytics: ''
     baidu_tongji: ''
