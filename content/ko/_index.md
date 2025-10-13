@@ -1,6 +1,7 @@
 ---
 # Leave the homepage title empty to use the site title
-title: ''
+title: "안상아 | 전북대학교 컴퓨터인공지능학부"
+summary: "전북대학교 컴퓨터인공지능학부 재학 중인 안상아의 포트폴리오"
 date: 2025-10-11
 type: landing
 

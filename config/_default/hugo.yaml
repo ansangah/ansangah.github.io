@@ -52,8 +52,9 @@ markup:
       attribute: true    # [링크](...){.btn .btn-primary} 같은 마크다운 클래스 문법 허용
     renderer:
       unsafe: true
-security:
-  _merge: deep
+sitemap:
+  changefreq: weekly
+  priority: 0.5
 sitemap:
   _merge: deep
 icons:
