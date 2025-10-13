@@ -1,24 +1,20 @@
 # GitHub Pages 배포를 위한 워크플로우
 name: Deploy GitHub Pages
 
-# main 브랜치에 push 이벤트가 발생했을 때 이 워크플로우를 실행합니다.
 on:
   push:
     branches:
       - main
 
-# 워크플로우 실행 권한 설정
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# 동시 실행 제어 (하나의 배포만 진행되도록)
 concurrency:
   group: 'pages'
   cancel-in-progress: true
 
-# 실행될 작업 정의
 jobs:
   deploy:
     environment:
@@ -26,13 +22,11 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      # 1. 소스 코드를 가져옵니다 (Checkout)
       - name: Checkout
         uses: actions/checkout@v4
         with:
           submodules: true
 
-      # 2. 필요한 프로그램을 설치합니다.
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Install Node.js
@@ -44,25 +38,22 @@ jobs:
         with:
           hugo-version: 'latest'
           extended: true
-      # ----------------------------------------------------
-      # 바로 이 부분이 추가되었습니다!
-      - name: Install Tailwind CSS
-        run: npm install -g tailwindcss
-      # ----------------------------------------------------
 
-      # 3. 사이트를 빌드하고 검색 파일을 생성합니다.
+      # --- 바로 이 부분이 바뀌었습니다! ---
+      # package.json을 읽어 필요한 모든 Node.js 부품(Tailwind 포함)을 설치합니다.
+      - name: Install Node.js dependencies
+        run: npm install
+
       - name: Build with Hugo
         run: hugo --minify
       - name: Build search index with Pagefind
         run: npx -y pagefind --site public
 
-      # 4. 빌드된 결과물을 GitHub Pages용 아티팩트로 업로드합니다.
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./public
 
-      # 5. 아티팩트를 GitHub Pages에 배포합니다.
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
