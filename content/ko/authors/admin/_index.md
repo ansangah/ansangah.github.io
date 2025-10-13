@@ -35,9 +35,12 @@ profiles:
     label: E-mail Me
   - icon: brands/github
     url: https://github.com/ansangah
-  - icon: brands/instagram       # ← 추가
+  - icon: brands/instagram      
     url: https://www.instagram.com/ahnneu_/
     label: Instagram
+  - icon: brands/discord  
+    url: https://www.discord.com/ahnneu/
+    label: Discord
 interests:
   - 딥러닝
   - 컴퓨터 비전

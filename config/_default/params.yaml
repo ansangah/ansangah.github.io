@@ -14,19 +14,10 @@ appearance:
 marketing:
   seo:
     site_type: Person
-    local_business_type: ''
-    org_name: ''
-    description: "안상아 — 전북대학교 컴퓨터인공지능학부 학생. 딥러닝·프론트엔드 프로젝트와 학부 연구 활동을 소개합니다. | Sang-A Ahn — Undergraduate student in Computer & AI Engineering at Jeonbuk National University, showcasing AI, frontend, and academic projects."
-    twitter: 'GetResearchDev'
-  analytics:
-    google_analytics: ''
-    baidu_tongji: ''
-    plausible: ''
-    fathom: ''
-    pirsch: ''
-  verification:
-    google: ''
-    baidu: ''
+    org_name: '전북대 컴퓨터인공지능학부'
+    description: "안상아의 기술 포트폴리오 | 전북대학교 컴퓨터인공지능학부 학생으로서 딥러닝, 프론트엔드, 학부 연구 활동 등 성장 과정을 기록합니다."
+    twitter: ''
+    image: 'media/sharing.png'
 
 # Site header
 header:
