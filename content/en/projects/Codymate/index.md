@@ -16,7 +16,7 @@ tags:
 This is the frontend project of CodyMate.
 
 CodyMate is a personalized outfit coordination application that turns your wardrobe digital.
-By simply taking a photo, clothes are added to your in-app closet and can be matched based on **weather, mood, and location**.
-The app features a **community space** for sharing styles, **AI-based outfit recommendations**, and a **body shape adjustment system** that helps visualize how clothes fit different body types.
+By simply taking a photo, clothes are added to your in-app closet and can be matched based on <strong>weather, mood, and location</strong>.
+The app features a <strong>community</strong> space for sharing styles, <strong>AI-based outfit recommendations</strong>, and a <strong>body shape adjustment system</strong> that helps visualize how clothes fit different body types.
 Designed to enhance daily fashion decisions through intelligent and context-aware coordination.
 </div>
