@@ -1,7 +1,7 @@
 ---
 # Leave the homepage title empty to use the site title
 title: "안상아"
-summary: "전북대학교 컴퓨터인공지능학부 재학 중인 안상아의 포트폴리오입니다."
+summary: "딥러닝과 프론트엔드 기술을 탐구하는 안상아의 개발 포트폴리오입니다. 주요 프로젝트와 학습 기록을 확인해 보세요."
 date: 2025-10-11
 type: landing
 

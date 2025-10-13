@@ -1,7 +1,7 @@
 ---
 # Leave the homepage title empty to use the site title
 title: "Sang-A Ahn"
-summary: "Portfolio of Sang-A Ahn, undergraduate in Computer & AI Engineering at Jeonbuk National University."
+summary: "The development portfolio of Sang-A Ahn, exploring deep learning and front-end technologies. Discover key projects and learning records."
 date: 2022-10-24
 type: landing
 
