@@ -1,7 +1,6 @@
 ---
 title: "Contact Information"
 ---
-<div data-pagefind-body>
 
 ##  ✉️ 문의하기
 
@@ -12,4 +11,3 @@ title: "Contact Information"
 {{< icon name="brands/instagram" pack="fab" >}} [@ahnneu_](https://instagram.com/ahnneu_)  
 {{<div icon name="brands/github" pack="fab" >}} [ansangah](https://github.com/ansangah)
 
-</div>

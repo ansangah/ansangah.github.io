@@ -12,10 +12,9 @@ tags:
   - PVP
   - CookieRun
 ---
-<div data-pagefind-body>
+
 A **Java-based game server** developed for the modded open-source version of CookieRun.
 Responsible for **PVP matchmaking** and real-time data synchronization between clients.
 Implements multiplayer functionality using socket communication,
 handling real-time battle data exchange and score management without relying on an external database.
 Maintains server state in-memory for simplicity and performance.
-</div>
