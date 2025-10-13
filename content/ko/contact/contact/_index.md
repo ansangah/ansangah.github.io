@@ -1,6 +1,7 @@
 ---
 title: "Contact Information"
 ---
+<div data-pagefind-body>
 
 ##  ✉️ 문의하기
 
@@ -9,5 +10,6 @@ title: "Contact Information"
 {{< icon name="phone" pack="fas" >}} [ +82-10-3630-4640 ](tel:+821036304640)  
 {{< icon name="envelope" pack="fas" >}} [dkstkddkdhkd@jbnu.ac.kr](mailto:dkstkddkdhkd@jbnu.ac.kr)  
 {{< icon name="brands/instagram" pack="fab" >}} [@ahnneu_](https://instagram.com/ahnneu_)  
-{{<div icon name="brands/github" pack="fab" >}} [ansangah](https://github.com/ansangah)
+{{< icon name="brands/github" pack="fab" >}} [ansangah](https://github.com/ansangah)
 
+</div>
