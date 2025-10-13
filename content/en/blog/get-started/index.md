@@ -19,6 +19,8 @@ tags:
 
 content_meta:
   trending: true
+
+exclude_search: true
 ---
 
 Welcome 👋
