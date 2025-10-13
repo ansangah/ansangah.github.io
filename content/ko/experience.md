@@ -32,4 +32,5 @@ sections:
     content:
       title: 언어
       username: admin
+exclude_search: true
 ---

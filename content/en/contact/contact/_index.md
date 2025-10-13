@@ -1,7 +1,7 @@
 ---
 title: "Contact Information"
 ---
-
+<div data-pagefind-body>
 
 ## ✉️ Get in touch
 
@@ -11,3 +11,5 @@ Reach me anytime via:
 {{< icon name="envelope" pack="fas" >}} [dkstkddkdhkd@jbnu.ac.kr](mailto:dkstkddkdhkd@jbnu.ac.kr)  
 {{< icon name="brands/instagram" pack="fab" >}} [@ahnneu_](https://instagram.com/ahnneu_)  
 {{< icon name="brands/github" pack="fab" >}} [ansangah](https://github.com/ansangah)
+
+<div>

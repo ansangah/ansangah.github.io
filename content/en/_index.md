@@ -128,4 +128,5 @@ sections:
         # Card background color (CSS class)
         css_class: 'bg-primary-300'
         css_style: ''
+exclude_search: true
 ---

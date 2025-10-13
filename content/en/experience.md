@@ -32,4 +32,5 @@ sections:
     content:
       title: Languages
       username: admin
+exclude_search: true
 ---

@@ -167,7 +167,8 @@ languages:
 #     summary: |
 #       Recognized for contributions to scaling laws in deep learning.
 ---
-
+<div data-pagefind-body>
 **Sang-A Ahn** is a third-year undergraduate student at Jeonbuk National University, majoring in Computer Science and Artificial Intelligence. Having recently completed foundational studies in deep learning, they are now building upon this knowledge as a student member of the Medical AI and Computational Science Lab.
 
 As someone just beginning their journey into the vast world of deep learning, **Sang-A Ahn** is currently exploring various subfields and applications of AI. They are actively seeking a career path that will allow them to continue learning and develop their skills in a dynamic and challenging environment.
+</div>

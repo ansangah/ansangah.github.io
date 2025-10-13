@@ -13,7 +13,7 @@ tags:
   - Fashion Tech
   - Frontend
 ---
-
+<div data-pagefind-body>
 
 Codymate의 프론트엔드 프로젝트 입니다.
 
@@ -23,3 +23,4 @@ Codymate는 사용자의 옷장을 디지털화하여 손쉽게 코디를 추천
 다양한 체형에서의 착용 모습을 시각적으로 확인할 수 있습니다.
 사용자의 일상 속 패션 결정을 지능적으로 도와주는 코디메이트입니다.
 
+</div>
