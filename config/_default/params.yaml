@@ -68,6 +68,22 @@ features:
 custom_css:
   - "css/custom.css"
   
+# Search provider.
+# Docs: https://docs.hugoblox.com/reference/functions/#search
 search:
-  enable: true
-  provider: "fuse" # Or "algolia" if you prefer
+  provider: fuse
+  fuse:
+    # Which fields to search in?
+    keys:
+      - name: title
+        weight: 1
+      - name: content
+        weight: 0.9
+      - name: tags
+        weight: 0.8
+      - name: categories
+        weight: 0.7
+    # Search for whole words only?
+    whole_word_only: false
+    # Minimum number of characters to search for
+    min_char_length: 1
