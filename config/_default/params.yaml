@@ -18,6 +18,7 @@ marketing:
     description: "안상아의 기술 포트폴리오 | 전북대학교 컴퓨터인공지능학부 학생으로서 딥러닝, 프론트엔드, 학부 연구 활동 등 성장 과정을 기록합니다."
     twitter: ''
     image: 'media/sharing.png'
+    # Google Search Console 관련된 인증 파일은 static 폴더에 넣어두었습니다!
 
 # Site header
 header:
