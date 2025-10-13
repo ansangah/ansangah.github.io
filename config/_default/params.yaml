@@ -71,7 +71,7 @@ custom_css:
 # Search provider.
 # Docs: https://docs.hugoblox.com/reference/functions/#search
 search:
-  provider: fuse
+  provider: pagefind
   fuse:
     # Which fields to search in?
     keys:
