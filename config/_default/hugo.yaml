@@ -14,7 +14,7 @@ canonifyURLs: true
 ############################
 
 defaultContentLanguage: ko
-hasCJKLanguage: false
+hasCJKLanguage: true
 defaultContentLanguageInSubdir: false
 removePathAccents: true
 
