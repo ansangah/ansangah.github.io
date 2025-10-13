@@ -39,7 +39,7 @@ profiles:
     url: https://www.instagram.com/ahnneu_/
     label: Instagram
   - icon: brands/discord  
-    url: https://www.discord.com/ahnneu/
+    url: https://discord.com/users/ahnneu
     label: Discord
 interests:
   - 딥러닝
