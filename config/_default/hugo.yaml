@@ -7,7 +7,7 @@
 title: Sang-A Ahn's Portfoilo
 # Website URL
 baseURL: 'https://ansangah.github.io/'
-canonifyURLs: true
+canonifyURLs: false
 
 ############################
 ## LANGUAGE
