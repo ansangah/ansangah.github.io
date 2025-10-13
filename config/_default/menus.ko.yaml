@@ -10,8 +10,8 @@ main:
   - name: 이력서
     url: '/experience/'
     weight: 2
-  - name: 소식
-    url: '/news/'
+  - name: 블로그
+    url: '/blog/'
     weight: 3
   - name: 프로젝트
     url: '/projects/'

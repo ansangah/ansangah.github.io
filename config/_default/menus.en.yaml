@@ -11,7 +11,7 @@ main:
     url: '/experience/'
     weight: 2
   - name: News
-    url: '/news/'
+    url: '/blog/'
     weight: 3
   - name: Projects
     url: '/projects/'
