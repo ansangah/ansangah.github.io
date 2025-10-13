@@ -63,9 +63,11 @@ features:
   privacy_pack:
     enable: false
   i18n_switcher: true
-  search:
-    enable: true
-    sections: ["*"]
+
 
 custom_css:
   - "css/custom.css"
+  
+search:
+  enable: true
+  provider: "fuse" # Or "algolia" if you prefer
