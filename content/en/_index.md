@@ -1,7 +1,7 @@
 ---
 # Leave the homepage title empty to use the site title
-title: "Sang-A Ahn | Department of Computer & Artificial Intelligence, Jeonbuk National University"
-summary: "Portfolio of Sang-A Ahn, an undergraduate student majoring in Computer and Artificial Intelligence Engineering at Jeonbuk National University."
+title: "Sang-A Ahn | Dept. of Computer & AI Engineering, JBNU"
+summary: "Portfolio of Sang-A Ahn, undergraduate in Computer & AI Engineering at Jeonbuk National University."
 date: 2022-10-24
 type: landing
 
