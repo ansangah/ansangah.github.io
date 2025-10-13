@@ -6,11 +6,11 @@
 ko:
   languageName: "한국어"
   contentDir: "content/ko"
-  title: "안상아의 포트폴리오"
+  title: "포트폴리오"
   params:
     date_format: "2025-10-11"   # 한국식 날짜 표기
 
 en:
   languageName: "English"
   contentDir: "content/en"
-  title: "Sang-A Ahn's Portfolio"
+  title: "Portfolio"
