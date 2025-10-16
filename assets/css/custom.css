@@ -113,3 +113,10 @@ a[aria-label="Email"] {
   transform: none !important;
   cursor: default !important;
 }
+
+/* ===== 소개 섹션 배경 이미지를 사용자 지정 이미지로 변경 ===== */
+.custom-bg-image {
+  background: url("/media/profile-bg.jpg") no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+}
