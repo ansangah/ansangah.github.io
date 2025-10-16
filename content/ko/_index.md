@@ -7,7 +7,7 @@ type: landing
 
 design:
   # Default section spacing
-  spacing: '6rem'
+  spacing: '4rem'
 
 sections:
   - block: markdown
@@ -38,6 +38,22 @@ sections:
       avatar:
         size: medium # Options: small (150px), medium (200px, default), large (320px), xl (400px), xxl (500px)
         shape: circle # Options: circle (default), square, rounded
+  - block: collection
+    id: projects
+    content:
+      title: 'My Projects'
+      subtitle: ''
+      text: |-
+        Use this area to speak to your mission. I'm a research scientist in the Moonshot team at DeepMind. I blog about machine learning, deep learning, and moonshots.
+
+        I apply a range of qualitative and quantitative methods to comprehensively investigate the role of science and technology in the economy.
+
+        Please reach out to collaborate 😃
+      page_type: Projects
+      count: 3
+    design:
+      view: article-grid
+      columns: '3'
   - block: collection
     id: news
     content:
