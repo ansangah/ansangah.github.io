@@ -69,14 +69,12 @@ section.custom-hero {
   color: #fff;
 }
 
-/* 테마가 까는 배경/그라데이션 제거 */
+/* 수정 후: 섹션 배경 래퍼만 투명 처리 */
 .custom-hero.hbx-bg-gradient,
 .custom-hero .hbx-bg-gradient,
 .custom-hero .hb-section__bg,
 .custom-hero .hb-section-bg,
-.custom-hero .section-bg,
-.custom-hero .bg-surface,
-.custom-hero [class*="bg-gradient"] {
+.custom-hero .section-bg {
   background: transparent !important;
 }
 .custom-hero.hbx-bg-gradient::before,
