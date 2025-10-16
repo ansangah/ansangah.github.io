@@ -118,7 +118,7 @@ a[aria-label="Email"] {
 .custom-hero{
   position: relative;
   /* 원하는 배경 이미지 경로 */
-  background: url("/media/profile-bg.jpg") center/cover no-repeat fixed;
+  background: url("/media/profile-bg.png") center/cover no-repeat fixed;
   /* 섹션 자체의 기본 글자색을 밝게 */
   color: #fff;
 }
