@@ -13,7 +13,6 @@ tags:
   - Regression
 image:
   caption: 'Image credit: [**Unsplash**](https://unsplash.com)'
-exclude_search: false
 math: true
 ---
 
