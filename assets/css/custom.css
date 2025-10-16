@@ -110,37 +110,3 @@ section.custom-hero {
   color: #fff !important;
   text-shadow: 0 1px 2px rgba(0,0,0,.35);
 }
-
-@media (prefers-color-scheme: light) {
-  /* 소개 섹션의 오버레이가 버튼/박스를 덮지 않도록 */
-  .custom-hero::before {
-    z-index: 0 !important;
-  }
-  .custom-hero > * {
-    position: relative;
-    z-index: 2 !important;
-  }
-
-  /* 소개 글에서 '안상아' 텍스트를 흰색으로 (모든 강조 포함) */
-  .custom-hero strong,
-  .custom-hero b,
-  .custom-hero em,
-  .custom-hero span[style*="bold"],
-  .custom-hero .text-primary {
-    color: #ffffff !important;
-  }
-
-  /* 학위 카드 내부의 학교명만 검정색으로 (다른 요소 영향 X) */
-  .pill-cards .hb-card small,
-  .pill-cards .hb-card p {
-    color: #000000 !important;
-    opacity: 1 !important;
-  }
-
-  /* 카드 전체 배경 불투명하게 유지 */
-  .pill-cards .hb-card {
-    background: var(--pill-bg) !important;
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-  }
-}
