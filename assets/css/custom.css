@@ -112,3 +112,38 @@ section.custom-hero {
 .custom-hero .bg-surface {
   background: var(--hb-surface-bg, #f8f8f8) !important;
 }
+
+/* 라이트 모드에서만: 히어로의 이름(큰 타이포)을 흰색으로 강제 */
+@media (prefers-color-scheme: light) {
+  .custom-hero .h1,
+  .custom-hero .display-1,
+  .custom-hero .display-2,
+  .custom-hero .display-3,
+  .custom-hero .portrait-title h1,
+  .custom-hero .portrait-title h2,
+  .custom-hero .hero-title,
+  .custom-hero .name {
+    color: #fff !important;
+  }
+  /* 혹시 테마가 .text-dark 로 강제하는 경우까지 커버 */
+  .custom-hero .text-dark {
+    color: #fff !important;
+  }
+}
+
+/* 🎓 학위 카드 유리효과 제거하고 불투명 흰색 배경으로 */
+.degree, 
+.hb-card.degree, 
+.custom-hero .degree, 
+.custom-hero .hb-card.degree {
+  background: #fff !important;       /* 완전 흰색 */
+  backdrop-filter: none !important;  /* 블러 제거 */
+  -webkit-backdrop-filter: none !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08); /* 살짝 입체감만 */
+  border: 1px solid rgba(0,0,0,0.05);    /* 얇은 테두리 */
+}
+
+/* 학위 카드 내부 글자 색 안정화 */
+.degree * {
+  color: #3a3a3a !important;
+}
