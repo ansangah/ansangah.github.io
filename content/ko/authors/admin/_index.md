@@ -42,10 +42,10 @@ profiles:
     url: https://discord.com/users/ahnneu
     label: Discord
 interests:
-  - 딥러닝
-  - 컴퓨터 비전
-  - 강화학습
-  - 프론트엔드
+  - Deep Learning
+  - Computer Vision
+  - Reinforcement Learning
+  - Front-end
 
 education:
   - area: 컴퓨터인공지능학부 학사
