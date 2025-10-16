@@ -68,3 +68,31 @@ a[aria-label="Email"] {
 .page-links .flex [aria-label] {
   display: none !important;
 }
+
+/* ===== 상단 네비게이션 Hover 색상 수정 ===== */
+
+/* 기본 메뉴 항목 hover */
+.navbar a:hover,
+.navbar-item:hover,
+.navbar-nav > li:hover > a {
+  background-color: rgba(100, 180, 255, 0.15); /* 투명한 하늘색 느낌 */
+  color: #aee3ff !important; /* 글씨 색도 살짝 밝은 하늘색 */
+  transition: all 0.2s ease-in-out;
+  border-radius: 8px;
+}
+
+/* 드롭다운 내부 hover */
+.dropdown-item:hover,
+.navbar .dropdown-menu a:hover {
+  background-color: rgba(100, 180, 255, 0.2);
+  color: #aee3ff !important;
+  border-radius: 6px;
+  transition: all 0.2s ease-in-out;
+}
+
+/* 선택된(활성) 메뉴 강조 효과 */
+.navbar a.active,
+.navbar-item.active {
+  color: #aee3ff !important;
+  border-bottom: 2px solid #aee3ff;
+}
