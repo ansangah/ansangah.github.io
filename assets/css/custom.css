@@ -162,3 +162,45 @@ a[aria-label="Email"] {
     background: rgba(0,0,0,0.45);
   }
 }
+
+/* 학위 카드 배경을 완전한 흰색으로 변경 */
+.card.bg-surface, 
+.card.bg-light, 
+.card {
+  background: #ffffff !important;   /* 완전 흰색 */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* 살짝 그림자 */
+  backdrop-filter: none !important;  /* blur 제거 */
+  border: 1px solid rgba(0,0,0,0.05); /* 경계선 은은하게 */
+}
+
+/* 카드 안의 텍스트 가독성 보정 */
+.card h3, 
+.card p, 
+.card span {
+  color: #000 !important;
+}
+
+/* 학위 섹션 카드: 라이트/다크 공통으로 blur 제거 및 단색 배경 */
+.edu-white-card .card {
+  background: #ffffff !important; /* 라이트모드용 흰색 */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  backdrop-filter: none !important;
+  border: 1px solid rgba(0,0,0,0.05);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* 다크모드에서도 blur 제거하고 어두운 단색으로 유지 */
+@media (prefers-color-scheme: dark) {
+  .edu-white-card .card {
+    background: #1a1a1a !important;   /* 어두운 고정 배경 */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+    border: 1px solid rgba(255,255,255,0.08);
+    backdrop-filter: none !important;
+  }
+  
+  .edu-white-card .card h3,
+  .edu-white-card .card p,
+  .edu-white-card .card span {
+    color: #fff !important;
+  }
+}
