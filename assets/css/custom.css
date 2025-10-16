@@ -1,110 +1,150 @@
-/* 공통: 반응형 맵 래퍼 */
-.map-embed {
-    position: relative;
-    width: 100%;
-    border-radius: 12px;
-    overflow: hidden;      /* 모서리 둥글게 */
-    aspect-ratio: 16 / 9;  /* 기본 비율 (가로형) */
-}
-  
-  /* iframe을 래퍼에 꽉 채우기 */
-.map-embed iframe {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    border: 0;
-}
-  
-  /* 작은 모바일에서 세로비 더 확보 (잘림 방지) */
-@media (max-width: 480px) {
-    .map-embed { aspect-ratio: 4 / 5; }  /* 필요하면 3/4 등으로 조정 */
-}
-  
-  /* 구형 브라우저 폴백: aspect-ratio 미지원 시 패딩 해크 사용 */
-@supports not (aspect-ratio: 1 / 1) {
-    .map-embed { height: 0; padding-top: 56.25%; } /* 16:9 */
-@media (max-width: 480px) { .map-embed { padding-top: 125%; } } /* 4:5 */
-.map-embed iframe {
-        position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    }
-}
-  
-/* 혹시 부모 컨테이너가 잘라먹는 현상 방지 */
-.page-body iframe,
-.prose iframe { max-width: 100%; }
-.article-container, .page-body, .prose { overflow: visible; }
+/* 지도 */
+.map-embed{ position:relative; width:100%; border-radius:12px; overflow:hidden; aspect-ratio:16/9; }
+.map-embed iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; }
+@media (max-width:480px){ .map-embed{ aspect-ratio:4/5; } }
 
-/* 헤더 아래 슬라이더 여백 제거 */
-header + main,
-main {
-  margin-top: 0 !important;
-  padding-top: 0 !important;
+/* 폴백: aspect-ratio 미지원 브라우저 */
+@supports not (aspect-ratio: 1/1){
+  .map-embed{ height:0; padding-top:56.25%; } /* 16:9 */
+}
+@media (max-width:480px){
+  @supports not (aspect-ratio: 1/1){
+    .map-embed{ padding-top:125%; } /* 4:5 */
+  }
 }
 
-/* 슬라이더 위쪽 붙이기 */
-.hb-slider-wrap {
-  margin-top: 0 !important;
-  padding-top: 0 !important;
-}
-
-/* 상단 그림자나 transition 같은 거 방해 없게 */
-body > main:first-of-type {
-  padding-top: 0 !important;
-  margin-top: 0 !important;
-}
-
-/* 공유 아이콘 전부 숨기기 */
 a[aria-label="X"],
 a[aria-label="Facebook"],
 a[aria-label="LinkedIn"],
 a[aria-label="WhatsApp"],
-a[aria-label="Email"] {
-  display: none !important;
+a[aria-label="Email"]{ display:none !important; }
+.page-links .flex [aria-label]{ display:none !important; }
+
+/* 소개 섹션에 .custom-hero 클래스를 준 경우: 배경 + 반투명 검정 오버레이 */
+.custom-hero{
+  position: relative;
+  background: url("/media/profile-bg.png") center/cover no-repeat fixed;
+  color: #fff;
+}
+.custom-hero::before{
+  content:"";
+  position:absolute; inset:0;
+  background: rgba(0,0,0,0.35); /* 진하기 조절 */
+  pointer-events:none; z-index:0;
+}
+.custom-hero > *{ position:relative; z-index:1; }
+
+/* 텍스트 가독성 보강 */
+.custom-hero h1, .custom-hero h2, .custom-hero h3,
+.custom-hero .section-title, .custom-hero .prose, .custom-hero p{
+  color:#fff !important;
+  text-shadow:0 1px 2px rgba(0,0,0,.35);
 }
 
-/* 공유 아이콘 줄 자체를 숨기고 싶다면(공백 제거) */
-.page-links .flex a[aria-label],
-.page-links .flex [aria-label] {
-  display: none !important;
+/* 모바일일 때 오버레이 좀 더 진하게(선택) */
+@media (max-width:768px){
+  .custom-hero::before{ background: rgba(0,0,0,0.45); }
 }
 
-/* ===== 네비게이션 Hover 색상 전체 적용 ===== */
+/* 칩 팔레트 */
+:root{
+  --accent-ink:#7a4a29;  /* 글자색 */
+  --pill-bg:#fff7db;     /* 배경 */
+  --pill-bd:#e8d9a8;     /* 보더 */
+  --accent-chip-shadow:0 2px 0 rgba(122,74,41,.08), 0 8px 24px rgba(0,0,0,.06);
+}
+.dark:root{
+  --accent-ink:#f3e6b3;
+  --pill-bg:#2b2a22;
+  --pill-bd:#5a5433;
+  --accent-chip-shadow:0 2px 0 rgba(0,0,0,.2), 0 12px 28px rgba(0,0,0,.35);
+}
+
+/* 블록 전체를 칩 형태 카드로 */
+.pill-cards .hb-card,
+.pill-cards [class*="hb-card"]{
+  background:var(--pill-bg) !important;
+  border:2px solid var(--pill-bd) !important;
+  border-radius:9999px !important;
+  box-shadow:var(--accent-chip-shadow) !important;
+  backdrop-filter:none !important;
+  -webkit-backdrop-filter:none !important;
+}
+
+/* 카드 안 글자색/아이콘 */
+.pill-cards .hb-card, .pill-cards .hb-card *{
+  color:var(--accent-ink) !important; text-shadow:none !important;
+}
+.pill-cards .hb-card .rounded-full{
+  background:#e5b400 !important; color:#1f1f1f !important;
+  box-shadow:none !important; border:1px solid rgba(0,0,0,.06) !important;
+}
+
+/* 남아있는 blur 클래스 제거 */
+.pill-cards .glass, .pill-cards [class*="glass"],
+.pill-cards .backdrop-blur, .pill-cards [class*="backdrop-blur"]{
+  backdrop-filter:none !important; -webkit-backdrop-filter:none !important;
+  background:var(--pill-bg) !important;
+}
+
+/* 여백 조정(선택) */
+.pill-cards .hb-card{ padding:1.1rem 1.25rem !important; }
+
+.navbar a:hover, .navbar-item:hover,
+.navbar-nav > li:hover > a, .navbar .nav-item:hover > a{
+  background-color:rgba(100,180,255,.15); color:#aee3ff !important; border-radius:8px;
+}
+.dropdown-item:hover, .navbar .dropdown-menu a:hover{
+  background-color:rgba(100,180,255,.2); color:#aee3ff !important; border-radius:6px;
+}
+.navbar .dropdown:hover > a, .navbar .dropdown:focus-within > a{
+  background-color:rgba(100,180,255,.2); color:#aee3ff !important; border-radius:8px;
+}
+.navbar a.active, .navbar-item.active{ color:#aee3ff !important; border-bottom:2px solid #aee3ff; }
+
+/* ===== 네비게이션 Hover 색상 전체 적용 (노랑 버전) ===== */
+
+/* 기본 노랑 톤 정의 */
+:root {
+  --hover-bg-yellow: rgba(255, 221, 87, 0.25); /* 은은한 노랑 배경 */
+  --hover-text-yellow: #FFD54F;                /* 가독성 좋은 따뜻한 노랑 */
+}
 
 /* 공통 hover 효과 (상위 메뉴 포함) */
 .navbar a:hover,
 .navbar-item:hover,
 .navbar-nav > li:hover > a,
 .navbar .nav-item:hover > a {
-  background-color: rgba(100, 180, 255, 0.15); /* 은은한 하늘색 배경 */
-  color: #aee3ff !important; /* 글씨 색 하늘색 */
+  background-color: var(--hover-bg-yellow);
+  color: var(--hover-text-yellow) !important;
   border-radius: 8px;
+  transition: all 0.2s ease;
 }
 
 /* 드롭다운 내부 hover */
 .dropdown-item:hover,
 .navbar .dropdown-menu a:hover {
-  background-color: rgba(100, 180, 255, 0.2);
-  color: #aee3ff !important;
+  background-color: rgba(255, 221, 87, 0.35);
+  color: var(--hover-text-yellow) !important;
   border-radius: 6px;
 }
 
 /* 상위 드롭다운 메뉴 hover 시 */
 .navbar .dropdown:hover > a,
 .navbar .dropdown:focus-within > a {
-  background-color: rgba(100, 180, 255, 0.2);
-  color: #aee3ff !important;
+  background-color: rgba(255, 221, 87, 0.35);
+  color: var(--hover-text-yellow) !important;
   border-radius: 8px;
 }
 
 /* 현재 페이지(active) 강조 */
 .navbar a.active,
 .navbar-item.active {
-  color: #aee3ff !important;
-  border-bottom: 2px solid #aee3ff;
+  color: var(--hover-text-yellow) !important;
+  border-bottom: 2px solid var(--hover-text-yellow);
 }
 
-/* ===== 로고(브랜드)는 hover 효과 제거 ===== */
+/* 로고(브랜드)는 hover 효과 제거 */
 .navbar .navbar-brand:hover,
 .hb-navbar .navbar-brand:hover {
   background: none !important;
@@ -114,93 +154,6 @@ a[aria-label="Email"] {
   cursor: default !important;
 }
 
-/* ===== 소개 섹션: 배경 이미지 + 반투명 검정 오버레이 ===== */
-.custom-hero{
-  position: relative;
-  /* 원하는 배경 이미지 경로 */
-  background: url("/media/profile-bg.png") center/cover no-repeat fixed;
-  /* 섹션 자체의 기본 글자색을 밝게 */
-  color: #fff;
-}
-
-/* 반투명 검정 오버레이 (이미지 위에, 컨텐츠 아래) */
-.custom-hero::before{
-  content: "";
-  position: absolute;
-  inset: 0;
-  /* 필요시 그라데이션으로도 가능: linear-gradient(...) */
-  background: rgba(0,0,0,0.35);  /* ⬅️ 진하기 조절: 0.25~0.6 사이 추천 */
-  pointer-events: none;          /* 오버레이가 클릭을 가로채지 않도록 */
-  z-index: 0;
-}
-
-/* 실제 섹션 컨텐츠는 오버레이 위로 */
-.custom-hero > *{
-  position: relative;
-  z-index: 1;
-}
-
-/* 본문 가독성 보강(테마에 따라 클래스가 다를 수 있어 넓게 커버) */
-.custom-hero h1,
-.custom-hero h2,
-.custom-hero h3,
-.custom-hero .section-title,
-.custom-hero .prose,
-.custom-hero p{
-  color: #fff !important;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.35);
-}
-
-/* 카드/버튼 같은 요소는 그대로 스타일 유지(원한다면 밝기 조정 가능) */
-.custom-hero .card{
-  backdrop-filter: blur(2px);
-}
-
-/* 모바일에서 오버레이를 조금 더 진하게(가독성↑) */
-@media (max-width: 768px){
-  .custom-hero::before{
-    background: rgba(0,0,0,0.45);
-  }
-}
-
-/* 학위 카드 배경을 완전한 흰색으로 변경 */
-.card.bg-surface, 
-.card.bg-light, 
-.card {
-  background: #ffffff !important;   /* 완전 흰색 */
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* 살짝 그림자 */
-  backdrop-filter: none !important;  /* blur 제거 */
-  border: 1px solid rgba(0,0,0,0.05); /* 경계선 은은하게 */
-}
-
-/* 카드 안의 텍스트 가독성 보정 */
-.card h3, 
-.card p, 
-.card span {
-  color: #000 !important;
-}
-
-/* 학위 섹션 카드: 라이트/다크 공통으로 blur 제거 및 단색 배경 */
-.edu-white-card .card {
-  background: #ffffff !important; /* 라이트모드용 흰색 */
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  backdrop-filter: none !important;
-  border: 1px solid rgba(0,0,0,0.05);
-  transition: background 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* 다크모드에서도 blur 제거하고 어두운 단색으로 유지 */
 @media (prefers-color-scheme: dark) {
-  .edu-white-card .card {
-    background: #1a1a1a !important;   /* 어두운 고정 배경 */
-    box-shadow: 0 2px 10px rgba(0,0,0,0.4);
-    border: 1px solid rgba(255,255,255,0.08);
-    backdrop-filter: none !important;
-  }
-  
-  .edu-white-card .card h3,
-  .edu-white-card .card p,
-  .edu-white-card .card span {
-    color: #fff !important;
-  }
-}
+  :root {
+    --hover-bg-yellow: rgba(255,
