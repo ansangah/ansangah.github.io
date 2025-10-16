@@ -138,7 +138,6 @@ FNN은 **데이터가 한 방향으로만 흐르는** 연결을 가짐. 각 뉴�
 
 ---
 
-### 참고 이미지/수식
-
-> 본문에 사용한 그림(`image-architecture.png` 등)은 이 글 폴더에 저장하고 파일명을 맞춰주세요.  
-> 수식은 LaTeX 형태로 적었으며, 사이트 설정에서 `math` 기능을 켜면 렌더링됩니다.
+{{< button url="/uploads/fnn-notes.pdf" style="primary" size="lg" icon="document-arrow-down" align="center" >}}
+PDF 다운로드
+{{< /button >}}
