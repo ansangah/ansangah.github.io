@@ -41,7 +41,7 @@ sections:
   - block: collection
     id: projects
     content:
-      title: 'My Projects'
+      title: 나의 프로젝트
       subtitle: ''
       text: ''
       page_type: projects
@@ -64,7 +64,7 @@ sections:
   - block: collection
     id: news
     content:
-      title: Blog
+      title: 블로그
       subtitle: ''
       text: ''
       # Page type to display. E.g. post, talk, publication...
@@ -85,9 +85,6 @@ sections:
       # Page order: descending (desc) or ascending (asc) date.
       order: desc
     design:
-      # Choose a layout view
-      view: card
-      # Reduce spacing
-      spacing:
-        padding: [0, 0, 0, 0]
+      view: article-grid
+      column: '3'
 ---
