@@ -23,7 +23,7 @@ a[aria-label="Email"]{ display:none !important; }
 /* 소개 섹션에 .custom-hero 클래스를 준 경우: 배경 + 반투명 검정 오버레이 */
 .custom-hero{
   position: relative;
-  background: url("/media/profile-bg.png") center/cover no-repeat fixed;
+  background: url("/media/profile-bg-light.png") center/cover no-repeat fixed;
   color: #fff;
 }
 .custom-hero::before{
@@ -152,7 +152,7 @@ a[aria-label="Email"]{ display:none !important; }
 /* 🌙 다크 모드 배경 */
 @media (prefers-color-scheme: dark) {
   .custom-hero {
-    background: url("/media/profile-bg-dark.png") center/cover no-repeat fixed;
+    background: url("/media/profile-bg-light.png") center/cover no-repeat fixed;
   }
 }
 
