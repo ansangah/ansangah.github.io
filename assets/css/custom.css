@@ -20,20 +20,32 @@ a[aria-label="WhatsApp"],
 a[aria-label="Email"]{ display:none !important; }
 .page-links .flex [aria-label]{ display:none !important; }
 
-/* 소개 섹션에 .custom-hero 클래스를 준 경우: 배경 + 반투명 검정 오버레이 */
+/* ============ 소개 섹션(히어로) ============ */
+
+/* 섹션에 .custom-hero 클래스가 붙어 있으면 라이트/다크 배경을 나눠서 적용 */
 .custom-hero{
   position: relative;
   background: url("/media/profile-bg-light.png") center/cover no-repeat fixed;
   color: #fff;
 }
+@media (prefers-color-scheme: dark) {
+  .custom-hero{
+    background: url("/media/profile-bg-dark.png") center/cover no-repeat fixed;
+  }
+}
+
+/* 반투명 검정 오버레이 (텍스트 가독성↑) */
 .custom-hero::before{
   content:"";
   position:absolute; inset:0;
-  background: rgba(0,0,0,0.35); /* 진하기 조절 */
+  background: rgba(0,0,0,0.35);
   pointer-events:none; z-index:0;
 }
+@media (max-width:768px){
+  .custom-hero::before{ background: rgba(0,0,0,0.45); }
+}
+/* 섹션 내부 컨텐츠는 오버레이 위로 */
 .custom-hero > *{ position:relative; z-index:1; }
-
 /* 텍스트 가독성 보강 */
 .custom-hero h1, .custom-hero h2, .custom-hero h3,
 .custom-hero .section-title, .custom-hero .prose, .custom-hero p{
@@ -41,123 +53,49 @@ a[aria-label="Email"]{ display:none !important; }
   text-shadow:0 1px 2px rgba(0,0,0,.35);
 }
 
-/* 모바일일 때 오버레이 좀 더 진하게(선택) */
-@media (max-width:768px){
-  .custom-hero::before{ background: rgba(0,0,0,0.45); }
-}
 
-/* 칩 팔레트 */
+/* ============ 네비게이션 Yellow Hover ============ */
+
+/* 라이트 모드 기본값 */
 :root{
-  --accent-ink:#7a4a29;  /* 글자색 */
-  --pill-bg:#fff7db;     /* 배경 */
-  --pill-bd:#e8d9a8;     /* 보더 */
-  --accent-chip-shadow:0 2px 0 rgba(122,74,41,.08), 0 8px 24px rgba(0,0,0,.06);
+  --hover-bg-yellow: rgba(255, 208, 66, 0.25);  /* 배경 */
+  --hover-text-yellow: #FFD23F;                 /* 글자 */
 }
-.dark:root{
-  --accent-ink:#f3e6b3;
-  --pill-bg:#2b2a22;
-  --pill-bd:#5a5433;
-  --accent-chip-shadow:0 2px 0 rgba(0,0,0,.2), 0 12px 28px rgba(0,0,0,.35);
-}
-
-/* 블록 전체를 칩 형태 카드로 */
-.pill-cards .hb-card,
-.pill-cards [class*="hb-card"]{
-  background:var(--pill-bg) !important;
-  border:2px solid var(--pill-bd) !important;
-  border-radius:9999px !important;
-  box-shadow:var(--accent-chip-shadow) !important;
-  backdrop-filter:none !important;
-  -webkit-backdrop-filter:none !important;
-}
-
-/* 카드 안 글자색/아이콘 */
-.pill-cards .hb-card, .pill-cards .hb-card *{
-  color:var(--accent-ink) !important; text-shadow:none !important;
-}
-.pill-cards .hb-card .rounded-full{
-  background:#e5b400 !important; color:#1f1f1f !important;
-  box-shadow:none !important; border:1px solid rgba(0,0,0,.06) !important;
-}
-
-/* 남아있는 blur 클래스 제거 */
-.pill-cards .glass, .pill-cards [class*="glass"],
-.pill-cards .backdrop-blur, .pill-cards [class*="backdrop-blur"]{
-  backdrop-filter:none !important; -webkit-backdrop-filter:none !important;
-  background:var(--pill-bg) !important;
-}
-
-/* 여백 조정(선택) */
-.pill-cards .hb-card{ padding:1.1rem 1.25rem !important; }
-
-.navbar a:hover, .navbar-item:hover,
-.navbar-nav > li:hover > a, .navbar .nav-item:hover > a{
-  background-color:rgba(100,180,255,.15); color:#aee3ff !important; border-radius:8px;
-}
-.dropdown-item:hover, .navbar .dropdown-menu a:hover{
-  background-color:rgba(100,180,255,.2); color:#aee3ff !important; border-radius:6px;
-}
-.navbar .dropdown:hover > a, .navbar .dropdown:focus-within > a{
-  background-color:rgba(100,180,255,.2); color:#aee3ff !important; border-radius:8px;
-}
-.navbar a.active, .navbar-item.active{ color:#aee3ff !important; border-bottom:2px solid #aee3ff; }
-
-/* ===== 네비게이션 Hover 색상 전체 적용 (노랑 버전) ===== */
-
-/* 🌞 라이트모드용 기본 노랑 hover 컬러 */
-:root {
-  --hover-bg-yellow: rgba(255, 208, 66, 0.25);   /* 은은한 따뜻한 노랑 */
-  --hover-text-yellow: #FFD23F;                  /* 본문/글자 강조 노랑 */
-}
-
-/* 🌙 다크모드용 */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --hover-bg-yellow: rgba(255, 213, 79, 0.2);  /* 살짝 어둡고 투명한 노랑 */
-    --hover-text-yellow: #FFE27A;                /* 가독성 좋은 부드러운 노랑 */
+/* 다크 모드 값 */
+@media (prefers-color-scheme: dark){
+  :root{
+    --hover-bg-yellow: rgba(255, 213, 79, 0.20);
+    --hover-text-yellow: #FFE27A;
   }
 }
 
-/* ===== 메뉴 hover 공통 적용 ===== */
+/* 상단 메뉴 & 드롭다운 hover */
 .navbar a:hover,
 .navbar-item:hover,
 .navbar-nav > li:hover > a,
-.navbar .nav-item:hover > a {
+.navbar .nav-item:hover > a{
   background-color: var(--hover-bg-yellow) !important;
   color: var(--hover-text-yellow) !important;
   border-radius: 8px;
 }
-
-/* 드롭다운 내부 hover */
 .dropdown-item:hover,
-.navbar .dropdown-menu a:hover {
+.navbar .dropdown-menu a:hover{
   background-color: var(--hover-bg-yellow) !important;
   color: var(--hover-text-yellow) !important;
   border-radius: 6px;
 }
-
-/* 활성(active) 메뉴도 노랑 포인트 */
+/* 활성 메뉴도 노랑 포인트 */
 .navbar a.active,
-.navbar-item.active {
+.navbar-item.active{
   color: var(--hover-text-yellow) !important;
   border-bottom: 2px solid var(--hover-text-yellow);
 }
-
-
-/* 🌞 라이트 모드 배경 */
-.custom-hero {
-  background: url("/media/profile-bg-light.png") center/cover no-repeat fixed;
-}
-
-/* 🌙 다크 모드 배경 */
-@media (prefers-color-scheme: dark) {
-  .custom-hero {
-    background: url("/media/profile-bg-dark.png") center/cover no-repeat fixed;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .custom-hero::before {
-    background: rgba(0,0,0,0.5);
-  }
+/* 로고 hover 제거(그대로 유지) */
+.navbar .navbar-brand:hover,
+.hb-navbar .navbar-brand:hover{
+  background:none !important;
+  color:inherit !important;
+  filter:none !important;
+  transform:none !important;
+  cursor:default !important;
 }

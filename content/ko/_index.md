@@ -33,7 +33,7 @@ sections:
         interests: '관심 분야'
     design:
       # Apply a gradient background
-      css_class: pill-cards
+      css_class: pill-cards custom-hero
       # Avatar customization
       avatar:
         size: medium # Options: small (150px), medium (200px, default), large (320px), xl (400px), xxl (500px)
