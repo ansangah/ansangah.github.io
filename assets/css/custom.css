@@ -104,56 +104,60 @@ a[aria-label="Email"]{ display:none !important; }
 
 /* ===== 네비게이션 Hover 색상 전체 적용 (노랑 버전) ===== */
 
-/* 기본 노랑 톤 정의 */
+/* 🌞 라이트모드용 기본 노랑 hover 컬러 */
 :root {
-  --hover-bg-yellow: rgba(255, 221, 87, 0.25); /* 은은한 노랑 배경 */
-  --hover-text-yellow: #FFD54F;                /* 가독성 좋은 따뜻한 노랑 */
+  --hover-bg-yellow: rgba(255, 208, 66, 0.25);   /* 은은한 따뜻한 노랑 */
+  --hover-text-yellow: #FFD23F;                  /* 본문/글자 강조 노랑 */
 }
 
-/* 공통 hover 효과 (상위 메뉴 포함) */
+/* 🌙 다크모드용 */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --hover-bg-yellow: rgba(255, 213, 79, 0.2);  /* 살짝 어둡고 투명한 노랑 */
+    --hover-text-yellow: #FFE27A;                /* 가독성 좋은 부드러운 노랑 */
+  }
+}
+
+/* ===== 메뉴 hover 공통 적용 ===== */
 .navbar a:hover,
 .navbar-item:hover,
 .navbar-nav > li:hover > a,
 .navbar .nav-item:hover > a {
-  background-color: var(--hover-bg-yellow);
+  background-color: var(--hover-bg-yellow) !important;
   color: var(--hover-text-yellow) !important;
   border-radius: 8px;
-  transition: all 0.2s ease;
 }
 
 /* 드롭다운 내부 hover */
 .dropdown-item:hover,
 .navbar .dropdown-menu a:hover {
-  background-color: rgba(255, 221, 87, 0.35);
+  background-color: var(--hover-bg-yellow) !important;
   color: var(--hover-text-yellow) !important;
   border-radius: 6px;
 }
 
-/* 상위 드롭다운 메뉴 hover 시 */
-.navbar .dropdown:hover > a,
-.navbar .dropdown:focus-within > a {
-  background-color: rgba(255, 221, 87, 0.35);
-  color: var(--hover-text-yellow) !important;
-  border-radius: 8px;
-}
-
-/* 현재 페이지(active) 강조 */
+/* 활성(active) 메뉴도 노랑 포인트 */
 .navbar a.active,
 .navbar-item.active {
   color: var(--hover-text-yellow) !important;
   border-bottom: 2px solid var(--hover-text-yellow);
 }
 
-/* 로고(브랜드)는 hover 효과 제거 */
-.navbar .navbar-brand:hover,
-.hb-navbar .navbar-brand:hover {
-  background: none !important;
-  color: inherit !important;
-  filter: none !important;
-  transform: none !important;
-  cursor: default !important;
+
+/* 🌞 라이트 모드 배경 */
+.custom-hero {
+  background: url("/media/profile-bg-light.png") center/cover no-repeat fixed;
+}
+
+/* 🌙 다크 모드 배경 */
+@media (prefers-color-scheme: dark) {
+  .custom-hero {
+    background: url("/media/profile-bg-dark.png") center/cover no-repeat fixed;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --hover-bg-yellow: rgba(255,
+  .custom-hero::before {
+    background: rgba(0,0,0,0.5);
+  }
+}
