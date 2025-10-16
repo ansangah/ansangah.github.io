@@ -10,21 +10,21 @@ main:
   - name: 이력서
     url: '/experience/'
     weight: 20
+  - name: 프로젝트
+    url: '/projects/'
+    weight: 30
   - name: 블로그
     identifier: blog
     url: '/blog/'
-    weight: 30
+    weight: 40
   - name: 딥러닝
     parent: blog
     url: '/blog/Deep/'
-    weight: 31
+    weight: 41
   - name: 흠
     parent: blog
     url: '/blog/Hmm/'
-    weight: 32
-  - name: 프로젝트
-    url: '/projects/'
-    weight: 40
+    weight: 42
   - name: 연락하기
     identifier: contact
     url: '/contact/'
