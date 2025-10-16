@@ -44,7 +44,7 @@ sections:
       title: 'My Projects'
       subtitle: ''
       text: ''
-      page_type: Projects
+      page_type: projects
       count: 3
       filters:
         author: ''
@@ -61,8 +61,6 @@ sections:
     design:
       view: article-grid
       columns: '3'
-      spacing:
-        padding: [0, 0, 0, 0]
   - block: collection
     id: news
     content:
