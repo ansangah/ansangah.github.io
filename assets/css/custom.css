@@ -152,7 +152,7 @@ a[aria-label="Email"]{ display:none !important; }
 /* 🌙 다크 모드 배경 */
 @media (prefers-color-scheme: dark) {
   .custom-hero {
-    background: url("/media/profile-bg-light.png") center/cover no-repeat fixed;
+    background: url("/media/profile-bg-dark.png") center/cover no-repeat fixed;
   }
 }
 
