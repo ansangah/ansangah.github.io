@@ -51,7 +51,7 @@ locale:
 features:
   math:
     enable: true
-    engine: katex
+    engine: mathjax
   privacy_pack:
     enable: false
   i18n_switcher: true
