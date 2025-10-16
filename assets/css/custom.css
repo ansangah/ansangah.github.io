@@ -53,3 +53,18 @@ body > main:first-of-type {
   padding-top: 0 !important;
   margin-top: 0 !important;
 }
+
+/* 공유 아이콘 전부 숨기기 */
+a[aria-label="X"],
+a[aria-label="Facebook"],
+a[aria-label="LinkedIn"],
+a[aria-label="WhatsApp"],
+a[aria-label="Email"] {
+  display: none !important;
+}
+
+/* 공유 아이콘 줄 자체를 숨기고 싶다면(공백 제거) */
+.page-links .flex a[aria-label],
+.page-links .flex [aria-label] {
+  display: none !important;
+}
