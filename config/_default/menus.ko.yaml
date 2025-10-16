@@ -6,25 +6,31 @@
 main:
   - name: 홈
     url: '/'
-    weight: 1
+    weight: 10
   - name: 이력서
     url: '/experience/'
-    weight: 2
+    weight: 20
   - name: 블로그
     url: '/blog/'
-    weight: 3
+    weight: 30
+  - name: 딥러닝
+    url: '/blog/DeepLearning'
+    weight: 31
+  - name: 흠
+    url: '/blog/Hmm'
+    weight: 32
   - name: 프로젝트
     url: '/projects/'
-    weight: 4
+    weight: 40
   - name: 연락하기
     identifier: contact
     url: '/contact/'
-    weight: 5
+    weight: 50
   - name: 연락처 정보
     parent: contact
     url: '/contact/contact/'
-    weight: 6
+    weight: 51
   - name: 위치 정보
     parent: contact
     url: '/contact/location/'
-    weight: 7
+    weight: 52
