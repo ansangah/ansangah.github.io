@@ -114,9 +114,51 @@ a[aria-label="Email"] {
   cursor: default !important;
 }
 
-/* ===== 소개 섹션 배경 이미지를 사용자 지정 이미지로 변경 ===== */
-.custom-bg-image {
-  background: url("/media/profile-bg.jpg") no-repeat center center;
-  background-size: cover;
-  background-attachment: fixed;
+/* ===== 소개 섹션: 배경 이미지 + 반투명 검정 오버레이 ===== */
+.custom-hero{
+  position: relative;
+  /* 원하는 배경 이미지 경로 */
+  background: url("/media/profile-bg.jpg") center/cover no-repeat fixed;
+  /* 섹션 자체의 기본 글자색을 밝게 */
+  color: #fff;
+}
+
+/* 반투명 검정 오버레이 (이미지 위에, 컨텐츠 아래) */
+.custom-hero::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  /* 필요시 그라데이션으로도 가능: linear-gradient(...) */
+  background: rgba(0,0,0,0.35);  /* ⬅️ 진하기 조절: 0.25~0.6 사이 추천 */
+  pointer-events: none;          /* 오버레이가 클릭을 가로채지 않도록 */
+  z-index: 0;
+}
+
+/* 실제 섹션 컨텐츠는 오버레이 위로 */
+.custom-hero > *{
+  position: relative;
+  z-index: 1;
+}
+
+/* 본문 가독성 보강(테마에 따라 클래스가 다를 수 있어 넓게 커버) */
+.custom-hero h1,
+.custom-hero h2,
+.custom-hero h3,
+.custom-hero .section-title,
+.custom-hero .prose,
+.custom-hero p{
+  color: #fff !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.35);
+}
+
+/* 카드/버튼 같은 요소는 그대로 스타일 유지(원한다면 밝기 조정 가능) */
+.custom-hero .card{
+  backdrop-filter: blur(2px);
+}
+
+/* 모바일에서 오버레이를 조금 더 진하게(가독성↑) */
+@media (max-width: 768px){
+  .custom-hero::before{
+    background: rgba(0,0,0,0.45);
+  }
 }
