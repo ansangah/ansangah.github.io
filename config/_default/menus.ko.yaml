@@ -14,10 +14,10 @@ main:
     url: '/blog/'
     weight: 30
   - name: 딥러닝
-    url: '/blog/DeepLearning'
+    url: '/blog/Deep/'
     weight: 31
   - name: 흠
-    url: '/blog/Hmm'
+    url: '/blog/Hmm/'
     weight: 32
   - name: 프로젝트
     url: '/projects/'
