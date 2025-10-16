@@ -1,4 +1,4 @@
 ---
-title: 블로그
+title: '딥러닝'
 view: article-grid
 ---

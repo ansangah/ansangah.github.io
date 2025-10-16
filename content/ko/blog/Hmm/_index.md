@@ -1,4 +1,4 @@
 ---
-title: 블로그
+title: ''
 view: article-grid
 ---
