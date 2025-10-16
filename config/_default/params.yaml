@@ -8,7 +8,7 @@ image: 'sharing.png'
 # Appearance
 appearance:
   mode: system
-  color: indigo
+  color: amber
 
 # SEO
 marketing:
