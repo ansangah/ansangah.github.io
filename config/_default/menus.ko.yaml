@@ -17,9 +17,9 @@ main:
     identifier: blog
     url: '/blog/'
     weight: 40
-  - name: 딥러닝
+  - name: 인공지능
     parent: blog
-    url: '/blog/deep/'
+    url: '/blog/ai-blog/'
     weight: 41
   - name: 과목별 정리
     parent: blog
