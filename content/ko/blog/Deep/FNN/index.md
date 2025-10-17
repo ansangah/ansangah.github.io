@@ -11,8 +11,6 @@ tags:
   - Activation Function
   - Classification
   - Regression
-image:
-  caption: 'Image credit: [**Unsplash**](https://unsplash.com)'
 math: true
 ---
 

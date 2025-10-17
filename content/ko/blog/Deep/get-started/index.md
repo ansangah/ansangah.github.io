@@ -1,16 +1,10 @@
 ---
 title: 🎉 Easily create your own simple yet highly customizable blog
 summary: Take full control of your personal brand and privacy by migrating away from the big tech platforms!
-date: 2023-10-27
-
-# Featured image
-# Place an image named `featured.jpg/png` in this page's folder and customize its options here.
-image:
-  caption: 'Image credit: [**Unsplash**](https://unsplash.com)'
+date: 2025-10-17
 
 authors:
   - admin
-  - Ted
 
 tags:
   - Academic
@@ -20,7 +14,8 @@ tags:
 content_meta:
   trending: true
 
-exclude_search: true
+exclude_search: false
+math: true
 ---
 
 Welcome 👋

@@ -19,7 +19,7 @@ main:
     weight: 40
   - name: 딥러닝
     parent: blog
-    url: '/blog/Deep/'
+    url: '/blog/deep/'
     weight: 41
   - name: 흠
     parent: blog
