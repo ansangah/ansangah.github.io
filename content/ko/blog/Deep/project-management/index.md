@@ -11,6 +11,7 @@ image:
   caption: 'Image credit: [**Unsplash**](https://unsplash.com)'
 
 exclude_search: true
+dl_kind: "notes"
 ---
 
 Easily manage your projects - create ideation mind maps, Gantt charts, todo lists, and more!

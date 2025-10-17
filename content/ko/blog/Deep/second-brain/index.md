@@ -11,6 +11,7 @@ image:
   caption: 'Image credit: [**Unsplash**](https://unsplash.com)'
 
 exclude_search: true
+dl_kind: "notes"
 ---
 
 Create a personal knowledge base and share your knowledge with your peers.
