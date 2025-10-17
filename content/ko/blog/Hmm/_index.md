@@ -1,4 +1,4 @@
 ---
-title: ''
-view: article-grid
+title: '흠'
+view: hmm
 ---
