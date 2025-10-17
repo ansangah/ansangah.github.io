@@ -1,45 +1,78 @@
 {{ define "main" }}
-<main class="container mx-auto px-4 py-8">
-  <header class="mb-8 text-center">
-    <h1 class="text-3xl font-bold text-gray-900 dark:text-white">{{ .Title }}</h1>
-    {{ with .Content }}<div class="prose mt-4">{{ . }}</div>{{ end }}
+<main class="container mx-auto px-4 py-8 course-archive">
+  <header class="mb-10 text-center">
+    <h1 class="text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">{{ .Title }}</h1>
+    {{ with .Content }}<div class="prose mt-4 mx-auto text-left max-w-2xl">{{ . }}</div>{{ end }}
   </header>
 
   {{ $pages := .RegularPages }}
-  {{ $textbook := where $pages "Params.dl_kind" "textbook" }}
-  {{ $notes := where $pages "Params.dl_kind" "notes" }}
-  {{ $others := where $pages "Params.dl_kind" "not in" (slice "textbook" "notes") }}
+  {{ $order := slice "3-2" "3-1" "2-2" "2-1" }}
+  {{ $labels := dict "3-2" "3학년 2학기" "3-1" "3학년 1학기" "2-2" "2학년 2학기" "2-1" "2학년 1학기" }}
 
-  {{ if gt (len $textbook) 0 }}
-    <section class="mb-10">
-      <h2 class="text-2xl font-semibold mb-4 text-gray-900 dark:text-white">딥러닝 교과서 정리</h2>
-      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {{ range $textbook.ByDate.Reverse }}
-          {{ partial "views/card-minimal.html" . }}
-        {{ end }}
-      </div>
-    </section>
+  {{ range $order }}
+    {{ $semester := . }}
+    {{ $semesterPages := where $pages "Params.semester" $semester }}
+    {{ if gt (len $semesterPages) 0 }}
+      <section class="course-semester mb-14">
+        <div class="course-semester__heading">
+          <span class="course-semester__badge">{{ $semester }}</span>
+          {{ with index $labels $semester }}
+            <span class="course-semester__label">{{ . }}</span>
+          {{ end }}
+        </div>
+        <div class="course-semester__grid">
+          {{ range $semesterPages.ByDate.Reverse }}
+            <article class="course-card">
+              <div class="course-card__meta">
+                <span class="course-card__date">{{ .Date.Format "2006-01-02" }}</span>
+              </div>
+              <h3 class="course-card__title">
+                <a href="{{ .RelPermalink }}" class="course-card__link">{{ .Title }}</a>
+              </h3>
+              {{ with .Summary }}
+                <p class="course-card__summary">{{ . }}</p>
+              {{ end }}
+              {{ with .Params.course_topics }}
+                <ul class="course-card__topics">
+                  {{ range . }}
+                    <li>{{ . }}</li>
+                  {{ end }}
+                </ul>
+              {{ end }}
+            </article>
+          {{ end }}
+        </div>
+      </section>
+    {{ end }}
   {{ end }}
 
-  {{ if gt (len $notes) 0 }}
-    <section class="mb-10">
-      <h2 class="text-2xl font-semibold mb-4 text-gray-900 dark:text-white">딥러닝 노트 · 논문 정리</h2>
-      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {{ range $notes.ByDate.Reverse }}
-          {{ partial "views/card-minimal.html" . }}
-        {{ end }}
-      </div>
-    </section>
-  {{ end }}
-
+  {{ $catchall := where $pages "Params.semester" "==" nil }}
+  {{ $unordered := where $pages "Params.semester" "not in" $order }}
+  {{ $others := union $catchall $unordered }}
   {{ if gt (len $others) 0 }}
-    <section>
-      <h2 class="text-2xl font-semibold mb-4 text-gray-900 dark:text-white">기타</h2>
-      <ul class="space-y-2">
+    <section class="course-semester mb-14">
+      <div class="course-semester__heading">
+        <span class="course-semester__badge">기타</span>
+        <span class="course-semester__label">학기 미분류</span>
+      </div>
+      <div class="course-semester__grid">
         {{ range $others.ByDate.Reverse }}
-          <li><a class="underline hover:no-underline" href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+          <article class="course-card">
+            <div class="course-card__meta">
+              {{ with .Params.semester }}
+                <span class="course-card__tag">{{ . }}</span>
+              {{ end }}
+              <span class="course-card__date">{{ .Date.Format "2006-01-02" }}</span>
+            </div>
+            <h3 class="course-card__title">
+              <a href="{{ .RelPermalink }}" class="course-card__link">{{ .Title }}</a>
+            </h3>
+            {{ with .Summary }}
+              <p class="course-card__summary">{{ . }}</p>
+            {{ end }}
+          </article>
         {{ end }}
-      </ul>
+      </div>
     </section>
   {{ end }}
 </main>

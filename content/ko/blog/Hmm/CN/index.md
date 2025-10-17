@@ -14,11 +14,11 @@ image:
 
 exclude_search: true
 dl_kind: "notes"
-semester: "3-2"
+semester: "3-1"
 course_topics:
-  - 강의 자료 제작
-  - 실습 과제 설계
-  - 수업 평가 자동화
+  - 지식 베이스 구축
+  - 협업 툴 활용
+  - 문서 자동화
 ---
 
 [Hugo Blox Builder](https://hugoblox.com) is designed to give technical content creators a seamless experience. You can focus on the content and the Hugo Blox Builder which this template is built upon handles the rest.
