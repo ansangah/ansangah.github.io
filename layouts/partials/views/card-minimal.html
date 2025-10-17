@@ -1,10 +1,10 @@
-<article class="rounded-xl border border-gray-200 shadow-sm p-4 bg-white">
+<article class="rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm p-4 bg-white dark:bg-gray-800 transition-colors">
     <a href="{{ .RelPermalink }}">
       {{ with .Params.featured.image }}
         <img src="{{ . }}" alt="" class="w-full h-40 object-cover rounded-lg mb-3">
       {{ end }}
-      <h3 class="text-lg font-semibold mb-1">{{ .Title }}</h3>
-      {{ with .Summary }}<p class="text-sm text-gray-600">{{ . }}</p>{{ end }}
-      <p class="mt-2 text-xs text-gray-500">{{ .Date.Format "2006-01-02" }}</p>
+      <h3 class="text-lg font-semibold mb-1 text-gray-900 dark:text-white">{{ .Title }}</h3>
+      {{ with .Summary }}<p class="text-sm text-gray-600 dark:text-gray-300">{{ . }}</p>{{ end }}
+      <p class="mt-2 text-xs text-gray-500 dark:text-gray-400">{{ .Date.Format "2006-01-02" }}</p>
     </a>
   </article>
