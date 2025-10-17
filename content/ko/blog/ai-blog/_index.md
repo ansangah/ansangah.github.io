@@ -1,4 +1,5 @@
 ---
 title: '인공지능'
-layout: "ai-blog"
+view: card
+columns: 3
 ---
