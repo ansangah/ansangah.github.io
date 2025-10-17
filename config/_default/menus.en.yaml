@@ -16,13 +16,15 @@ main:
   - name: Blog
     identifier: blog
     url: '/blog/'
+    weight: 40
   - name: Deep Learning
     parent: blog
     url: '/blog/deep'
+    weight: 41
   - name: Hmm
     parent: blog
     url: '/blog/Hmm'
-    weight: 40
+    weight: 42
   - name: Contact
     identifier: contact
     url: '/contact/'
