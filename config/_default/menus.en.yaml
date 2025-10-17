@@ -19,11 +19,11 @@ main:
     weight: 40
   - name: Deep Learning
     parent: blog
-    url: '/blog/deep'
+    url: '/blog/deep/'
     weight: 41
   - name: Hmm
     parent: blog
-    url: '/blog/Hmm'
+    url: '/blog/Hmm/'
     weight: 42
   - name: Contact
     identifier: contact

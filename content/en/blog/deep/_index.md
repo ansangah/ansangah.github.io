@@ -1,4 +1,4 @@
 ---
-title: Blog
+title: 'Deep Learning'
 view: article-grid
 ---
