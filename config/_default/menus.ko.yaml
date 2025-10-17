@@ -21,9 +21,9 @@ main:
     parent: blog
     url: '/blog/deep/'
     weight: 41
-  - name: 흠
+  - name: 과목별 정리
     parent: blog
-    url: '/blog/Hmm/'
+    url: '/blog/subjects/'
     weight: 42
   - name: 연락하기
     identifier: contact

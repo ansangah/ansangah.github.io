@@ -21,9 +21,9 @@ main:
     parent: blog
     url: '/blog/deep/'
     weight: 41
-  - name: Hmm
+  - name: Subjects
     parent: blog
-    url: '/blog/Hmm/'
+    url: '/blog/subjects/'
     weight: 42
   - name: Contact
     identifier: contact
