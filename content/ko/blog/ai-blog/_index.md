@@ -1,4 +1,4 @@
 ---
-title: '딥러닝'
+title: '인공지능'
 layout: "ai-blog"
 ---
