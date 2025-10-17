@@ -16,6 +16,7 @@ content_meta:
 
 exclude_search: false
 math: true
+dl_kind: "notes"
 ---
 
 Welcome 👋

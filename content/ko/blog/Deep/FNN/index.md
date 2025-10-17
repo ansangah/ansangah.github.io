@@ -12,6 +12,7 @@ tags:
   - Classification
   - Regression
 math: true
+dl_kind: "textbook"
 ---
 
 ## 1. 순방향 신경망(FNN) 개요
