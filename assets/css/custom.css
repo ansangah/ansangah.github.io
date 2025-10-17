@@ -155,3 +155,20 @@ section.custom-hero {
 @media (prefers-color-scheme: light){
   .custom-hero [class*="title"], .custom-hero h1 { color:#fff !important; }
 }
+
+/* Resume page: give experience block wider breathing room */
+.resume-wide .max-w-prose {
+  max-width: min(960px, 100%);
+}
+
+.resume-wide .px-6 {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .resume-wide .sm\:px-0 {
+    padding-left: clamp(2.5rem, 6vw, 4.5rem) !important;
+    padding-right: clamp(2.5rem, 6vw, 4.5rem) !important;
+  }
+}
