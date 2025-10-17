@@ -1,7 +1,7 @@
 {{ define "main" }}
 <main class="container mx-auto px-4 py-8">
   <header class="mb-8">
-    <h1 class="text-3xl font-bold text-gray-900 dark:text-white">{{ .Title }}</h1>
+    <h1 class="deep-title text-3xl font-bold text-gray-900">{{ .Title }}</h1>
     {{ with .Content }}<div class="prose mt-4">{{ . }}</div>{{ end }}
   </header>
 
@@ -12,7 +12,7 @@
 
   {{ if gt (len $textbook) 0 }}
     <section class="mb-10">
-      <h2 class="text-2xl font-semibold mb-4 text-gray-900 dark:text-white">딥러닝 교과서 정리</h2>
+      <h2 class="deep-section-title text-2xl font-semibold mb-4 text-gray-900">딥러닝 교과서 정리</h2>
       <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {{ range $textbook.ByDate.Reverse }}
           {{ partial "views/card-minimal.html" . }}
@@ -23,7 +23,7 @@
 
   {{ if gt (len $notes) 0 }}
     <section class="mb-10">
-      <h2 class="text-2xl font-semibold mb-4 text-gray-900 dark:text-white">딥러닝 노트 · 논문 정리</h2>
+      <h2 class="deep-section-title text-2xl font-semibold mb-4 text-gray-900">딥러닝 노트 · 논문 정리</h2>
       <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {{ range $notes.ByDate.Reverse }}
           {{ partial "views/card-minimal.html" . }}
@@ -34,7 +34,7 @@
 
   {{ if gt (len $others) 0 }}
     <section>
-      <h2 class="text-2xl font-semibold mb-4 text-gray-900 dark:text-white">기타</h2>
+      <h2 class="deep-section-title text-2xl font-semibold mb-4 text-gray-900">기타</h2>
       <ul class="space-y-2">
         {{ range $others.ByDate.Reverse }}
           <li><a class="underline hover:no-underline" href="{{ .RelPermalink }}">{{ .Title }}</a></li>
