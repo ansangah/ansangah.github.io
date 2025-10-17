@@ -1,0 +1,160 @@
+{{/* Load Preact for component-based blocks */}}
+{{ if .Page.Store.Get "needs_preact" }}
+  {{ $preact_blocks := .Page.Store.Get "preact_blocks" | default slice }}
+
+  {{ range $block_type := $preact_blocks }}
+    {{ $client_path := printf "js/hbx/blocks/%s/client.jsx" $block_type }}
+    {{ $client_jsx := resources.Get $client_path }}
+    {{ if $client_jsx }}
+      {{ $jsx_opts := dict
+        "targetPath" (printf "assets/js/preact-built/%s.js" $block_type)
+        "JSX" "automatic"
+        "JSXImportSource" "preact"
+        "format" "iife"
+        "minify" hugo.IsProduction
+        "sourceMap" (cond hugo.IsDevelopment "external" "")
+      }}
+      {{ $built_jsx := $client_jsx | js.Build $jsx_opts }}
+      {{ if hugo.IsProduction }}
+        {{ $built_jsx = $built_jsx | fingerprint "sha256" }}
+      {{ end }}
+      <script defer src="{{ $built_jsx.RelPermalink }}"{{ if hugo.IsProduction }} integrity="{{ $built_jsx.Data.Integrity }}"{{ end }}></script>
+    {{ else }}
+      {{ warnf "Missing Preact client asset at %s" $client_path }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{/* Load Alpine JS extension? */}}
+{{ if (.Page.Store.Get "has_alpine") }}
+  <script>console.log('✓ Alpine.js loading on demand');</script>
+  {{ with resources.Get "dist/lib/alpinejs/cdn.min.js" }}
+    {{ $alpine_js := . | resources.Fingerprint "sha256" }}
+    <script src="{{ $alpine_js.RelPermalink }}" integrity="{{ $alpine_js.Data.Integrity }}" defer></script>
+  {{ else }}
+    {{ warnf "Missing asset dist/lib/alpinejs/cdn.min.js" }}
+  {{ end }}
+{{ end }}
+
+{{/* Show site search? */}}
+{{ $show_search := site.Params.header.navbar.show_search | default false }}
+{{ if $show_search }}
+  {{ with resources.Get "dist/pagefind/pagefind-ui.css" }}
+    {{ $pf_css := . | resources.Fingerprint "sha256" }}
+    <link type="text/css" rel="stylesheet" href="{{ $pf_css.RelPermalink }}" integrity="{{ $pf_css.Data.Integrity }}" />
+  {{ else }}
+    {{ warnf "Missing asset dist/pagefind/pagefind-ui.css" }}
+  {{ end }}
+  {{ with resources.Get "dist/pagefind/pagefind-ui.js" }}
+    {{ $pf_js := . | resources.Fingerprint "sha256" }}
+    <script src="{{ $pf_js.RelPermalink }}" integrity="{{ $pf_js.Data.Integrity }}"></script>
+  {{ else }}
+    {{ warnf "Missing asset dist/pagefind/pagefind-ui.js" }}
+  {{ end }}
+
+  {{ $search_config := dict "baseUrl" (relURL "") }}
+  <script id="search-config" type="application/json">{{ $search_config | jsonify | safeJS }}</script>
+
+  <style>
+    html.dark {
+      --pagefind-ui-primary: #eeeeee;
+      --pagefind-ui-text: #eeeeee;
+      --pagefind-ui-background: #152028;
+      --pagefind-ui-border: #152028;
+      --pagefind-ui-tag: #152028;
+    }
+
+    .search-close > svg {
+      height: calc(64px * var(--pagefind-ui-scale));
+      width: calc(64px * var(--pagefind-ui-scale));
+    }
+  </style>
+
+  {{ with resources.Get "js/hb-search.js" }}
+    {{ $search_js := . | resources.Minify }}
+    {{ if hugo.IsProduction }}
+      {{ $search_js = $search_js | fingerprint "sha256" }}
+    {{ end }}
+    <script defer src="{{ $search_js.RelPermalink }}"{{ if hugo.IsProduction }} integrity="{{ $search_js.Data.Integrity }}" crossorigin="anonymous"{{ end }}></script>
+  {{ else }}
+    {{ warnf "Missing asset js/hb-search.js" }}
+  {{ end }}
+{{ end }}
+
+{{/* Mermaid */}}
+{{ if (.Page.Store.Get "has_mermaid") }}
+  {{ $mermaid_js := resources.Get "dist/lib/mermaid/mermaid.min.js" }}
+  {{ $mermaid_config_js := resources.Get "js/hb-mermaid-config.js" }}
+  {{ if and $mermaid_js $mermaid_config_js }}
+    {{ $mermaid_bundle := slice $mermaid_js ($mermaid_config_js | resources.Minify) | resources.Concat "js/mermaid.bundle.js" | resources.Fingerprint "sha256" }}
+    <script defer src="{{ $mermaid_bundle.RelPermalink }}" integrity="{{ $mermaid_bundle.Data.Integrity }}"></script>
+  {{ else }}
+    {{ warnf "Missing mermaid assets for rendering diagrams" }}
+  {{ end }}
+{{ end }}
+
+{{/* Markmap */}}
+{{ if (.Page.Store.Get "has_markmap") }}
+<style>
+  .markmap > svg {
+    width: 100%;
+    height: 100%;
+  }
+</style>
+<script>
+  window.markmap = {
+    autoLoader: {
+      manual: false,
+      onReady() {
+        const { autoLoader, builtInPlugins } = window.markmap;
+        autoLoader.transformPlugins = builtInPlugins.filter(plugin => plugin.name !== 'prism');
+      },
+    },
+  };
+</script>
+  {{ with resources.Get "dist/lib/markmap/index.js" }}
+    {{ $markmap_js := . | resources.Minify | resources.Fingerprint "sha256" }}
+    <script defer src="{{ $markmap_js.RelPermalink }}" integrity="{{ $markmap_js.Data.Integrity }}"></script>
+  {{ else }}
+    {{ warnf "Missing asset dist/lib/markmap/index.js" }}
+  {{ end }}
+{{ end }}
+
+{{/* Katex */}}
+{{ if (.Page.HasShortcode "math") | or .Params.math | or site.Params.features.math.enable }}
+  {{ with resources.Get "dist/lib/katex/katex.min.css" }}
+    {{ $katex_css := . | resources.Fingerprint "sha256" }}
+    <link type="text/css" rel="stylesheet" href="{{ $katex_css.RelPermalink }}" integrity="{{ $katex_css.Data.Integrity }}" />
+  {{ else }}
+    {{ warnf "Missing asset dist/lib/katex/katex.min.css" }}
+  {{ end }}
+  {{ with resources.Get "dist/lib/katex/katex.min.js" }}
+    {{ $katex_js := . | resources.Fingerprint "sha256" }}
+    <script defer src="{{ $katex_js.RelPermalink }}" integrity="{{ $katex_js.Data.Integrity }}"></script>
+  {{ else }}
+    {{ warnf "Missing asset dist/lib/katex/katex.min.js" }}
+  {{ end }}
+  {{ $katex_render_js := resources.Get "dist/lib/katex/auto-render.min.js" }}
+  {{ $katex_config_js := resources.Get "js/katex-config.js" }}
+  {{ if and $katex_render_js $katex_config_js }}
+    {{ $katex_bundle := slice $katex_render_js ($katex_config_js | resources.Minify) | resources.Concat "js/katex-renderer.js" | resources.Fingerprint "sha256" }}
+    <script defer src="{{ $katex_bundle.RelPermalink }}" integrity="{{ $katex_bundle.Data.Integrity }}"></script>
+  {{ else }}
+    {{ warnf "Missing assets for KaTeX rendering" }}
+  {{ end }}
+  {{ with resources.Match "dist/lib/katex/fonts/*" }}
+    {{ range . }}
+      {{ .Publish }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{/* Plotly */}}
+{{ if .Page.HasShortcode "chart" }}
+  {{ with resources.Get "dist/lib/plotly/plotly.min.js" }}
+    {{ $plotly_js := . | resources.Fingerprint "sha256" }}
+    <script defer src="{{ $plotly_js.RelPermalink }}" integrity="{{ $plotly_js.Data.Integrity }}"></script>
+  {{ else }}
+    {{ warnf "Missing asset dist/lib/plotly/plotly.min.js" }}
+  {{ end }}
+{{ end }}
