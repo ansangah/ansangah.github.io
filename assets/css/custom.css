@@ -204,12 +204,13 @@ section.custom-hero {
 }
 
 html[data-wc-theme="dark"] .course-semester__badge {
-  background: linear-gradient(120deg, rgba(99,102,241,0.35), rgba(129,140,248,0.55));
-  color: #e0e7ff;
+  background: linear-gradient(140deg, rgba(99,102,241,0.25), rgba(129,140,248,0.42));
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  color: #f8fafc;
 }
 
 html[data-wc-theme="dark"] .course-semester__label {
-  color: #cbd5f5;
+  color: rgba(248, 250, 252, 0.85);
 }
 
 .course-semester__grid {
