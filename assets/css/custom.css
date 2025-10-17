@@ -326,6 +326,35 @@ html[data-wc-theme="dark"] .course-card__topics li {
   color: #ffffff;
 }
 
+@media (prefers-color-scheme: dark) {
+  .course-card {
+    background: linear-gradient(160deg, rgba(17, 24, 39, 0.95), rgba(15, 23, 42, 0.98));
+    border-color: rgba(148, 163, 184, 0.25);
+    box-shadow: 0 10px 28px rgba(8, 14, 35, 0.48);
+  }
+  .course-card:hover {
+    border-color: rgba(129, 140, 248, 0.55);
+    box-shadow: 0 18px 38px rgba(15, 23, 42, 0.6);
+  }
+  .course-card__meta {
+    color: #f8fafc;
+  }
+  .course-card__tag {
+    background: rgba(129, 140, 248, 0.55);
+    color: #ffffff;
+  }
+  .course-card__title {
+    color: #ffffff;
+  }
+  .course-card__summary {
+    color: #f8fafc;
+  }
+  .course-card__topics li {
+    background: rgba(148, 163, 184, 0.35);
+    color: #ffffff;
+  }
+}
+
 @media (max-width: 640px) {
   .course-archive {
     padding-left: 1.25rem;
