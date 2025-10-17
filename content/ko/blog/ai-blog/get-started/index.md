@@ -11,6 +11,12 @@ tags:
   - Hugo Blox
   - Markdown
 
+semester: "3-1"
+course_topics:
+  - 블로그 구축
+  - 테마 커스터마이징
+  - 워크플로우 자동화
+
 content_meta:
   trending: true
 

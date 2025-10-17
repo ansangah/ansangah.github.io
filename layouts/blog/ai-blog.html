@@ -7,41 +7,17 @@
   </header>
 
   {{ $pages := .RegularPages }}
-  {{ $textbook := where $pages "Params.dl_kind" "textbook" }}
-  {{ $notes := where $pages "Params.dl_kind" "notes" }}
-  {{ $others := where $pages "Params.dl_kind" "not in" (slice "textbook" "notes") }}
-
-  {{ if gt (len $textbook) 0 }}
-    <section class="mb-10">
-      <h2 class="text-2xl font-semibold mb-4 text-gray-900 dark:text-white">딥러닝 교과서 정리</h2>
-      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {{ range $textbook.ByDate.Reverse }}
-          {{ partial "views/card-minimal.html" . }}
+  {{ range $pages.ByDate.Reverse }}
+    <article class="rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm p-4 bg-white dark:bg-gray-800 transition-colors">
+      <a href="{{ .RelPermalink }}">
+        {{ with .Params.featured.image }}
+          <img src="{{ . }}" alt="" class="w-full h-40 object-cover rounded-lg mb-3">
         {{ end }}
-      </div>
-    </section>
-  {{ end }}
-
-  {{ if gt (len $notes) 0 }}
-    <section class="mb-10">
-      <h2 class="text-2xl font-semibold mb-4 text-gray-900 dark:text-white">인공지능 정리</h2>
-      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {{ range $notes.ByDate.Reverse }}
-          {{ partial "views/card-minimal.html" . }}
-        {{ end }}
-      </div>
-    </section>
-  {{ end }}
-
-  {{ if gt (len $others) 0 }}
-    <section>
-      <h2 class="text-2xl font-semibold mb-4 text-gray-900 dark:text-white">기타</h2>
-      <ul class="space-y-2">
-        {{ range $others.ByDate.Reverse }}
-          <li><a class="underline hover:no-underline" href="{{ .RelPermalink }}">{{ .Title }}</a></li>
-        {{ end }}
-      </ul>
-    </section>
+        <h3 class="text-lg font-semibold mb-1 text-gray-900 dark:text-white">{{ .Title }}</h3>
+        {{ with .Summary }}<p class="text-sm text-gray-600 dark:text-gray-300">{{ . }}</p>{{ end }}
+        <p class="mt-2 text-xs text-gray-500 dark:text-gray-400">{{ .Date.Format "2006-01-02" }}</p>
+      </a>
+    </article>
   {{ end }}
 </main>
 {{ end }}

@@ -13,6 +13,11 @@ tags:
   - Regression
 math: true
 dl_kind: "textbook"
+semester: "3-2"
+course_topics:
+  - 순방향 신경망 구조
+  - 활성 함수
+  - 분류/회귀
 ---
 
 ## 1. 순방향 신경망(FNN) 개요
