@@ -15,31 +15,31 @@
     {{ if gt (len $semesterPages) 0 }}
       <section class="course-semester mb-14">
         <div class="course-semester__heading">
-          <span class="course-semester__badge">{{ $semester }}</span>
-          {{ with index $labels $semester }}
-            <span class="course-semester__label">{{ . }}</span>
-          {{ end }}
-        </div>
-        <div class="course-semester__grid">
-          {{ range $semesterPages.ByDate.Reverse }}
-            <article class="course-card border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900/70 shadow-xl dark:shadow-[0_20px_45px_-22px_rgba(59,130,246,0.45)] p-6 sm:p-7">
-              <div class="course-card__meta flex items-center gap-3 text-[0.7rem] font-semibold uppercase tracking-[0.35em] text-slate-500 dark:text-slate-300">
-                <span class="course-card__date">{{ .Date.Format "2006-01-02" }}</span>
-              </div>
-              <h3 class="course-card__title text-lg font-semibold text-slate-900 dark:text-white">
-                <a href="{{ .RelPermalink }}" class="course-card__link hover:text-indigo-500 dark:hover:text-indigo-300 transition-colors">{{ .Title }}</a>
-              </h3>
-              {{ with .Summary }}
-                <p class="course-card__summary mt-2 text-sm leading-6 text-slate-600 dark:text-slate-200">{{ . }}</p>
-              {{ end }}
-              {{ with .Params.course_topics }}
-                <ul class="course-card__topics mt-4 flex flex-wrap gap-2">
-                  {{ range . }}
-                    <li class="rounded-full bg-slate-100 dark:bg-slate-800/80 px-3 py-1 text-xs font-medium text-slate-500 dark:text-slate-200">{{ . }}</li>
-                  {{ end }}
-                </ul>
-              {{ end }}
-            </article>
+        <span class="course-semester__badge">{{ $semester }}</span>
+        {{ with index $labels $semester }}
+          <span class="course-semester__label text-slate-600 dark:text-white/80">{{ . }}</span>
+        {{ end }}
+      </div>
+      <div class="course-semester__grid">
+        {{ range $semesterPages.ByDate.Reverse }}
+          <article class="course-card border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900/70 shadow-xl dark:shadow-[0_20px_45px_-22px_rgba(59,130,246,0.45)] p-6 sm:p-7">
+            <div class="course-card__meta flex items-center gap-3 text-[0.7rem] font-semibold uppercase tracking-[0.35em] text-slate-500 dark:text-white/60">
+              <span class="course-card__date text-slate-500 dark:text-white/70">{{ .Date.Format "2006-01-02" }}</span>
+            </div>
+            <h3 class="course-card__title text-lg font-semibold text-slate-900 dark:text-white">
+              <a href="{{ .RelPermalink }}" class="course-card__link hover:text-indigo-500 dark:hover:text-indigo-200 transition-colors">{{ .Title }}</a>
+            </h3>
+            {{ with .Summary }}
+              <p class="course-card__summary mt-2 text-sm leading-6 text-slate-600 dark:text-white/80">{{ . }}</p>
+            {{ end }}
+            {{ with .Params.course_topics }}
+              <ul class="course-card__topics mt-4 flex flex-wrap gap-2">
+                {{ range . }}
+                  <li class="rounded-full bg-slate-100 dark:bg-slate-800/80 px-3 py-1 text-xs font-medium text-slate-500 dark:text-white/80">{{ . }}</li>
+                {{ end }}
+              </ul>
+            {{ end }}
+          </article>
           {{ end }}
         </div>
       </section>
@@ -53,22 +53,22 @@
     <section class="course-semester mb-14">
       <div class="course-semester__heading">
         <span class="course-semester__badge">기타</span>
-        <span class="course-semester__label">학기 미분류</span>
+        <span class="course-semester__label text-slate-600 dark:text-white/80">학기 미분류</span>
       </div>
       <div class="course-semester__grid">
         {{ range $others.ByDate.Reverse }}
           <article class="course-card border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900/70 shadow-xl dark:shadow-[0_20px_45px_-22px_rgba(59,130,246,0.45)] p-6 sm:p-7">
-            <div class="course-card__meta flex items-center gap-3 text-[0.7rem] font-semibold uppercase tracking-[0.35em] text-slate-500 dark:text-slate-300">
+            <div class="course-card__meta flex items-center gap-3 text-[0.7rem] font-semibold uppercase tracking-[0.35em] text-slate-500 dark:text-white/60">
               {{ with .Params.semester }}
                 <span class="course-card__tag inline-flex items-center rounded-full border border-indigo-200 dark:border-indigo-400/40 bg-indigo-50 dark:bg-indigo-500/20 px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.3em] text-indigo-600 dark:text-indigo-200">{{ . }}</span>
               {{ end }}
-              <span class="course-card__date">{{ .Date.Format "2006-01-02" }}</span>
+              <span class="course-card__date text-slate-500 dark:text-white/70">{{ .Date.Format "2006-01-02" }}</span>
             </div>
             <h3 class="course-card__title text-lg font-semibold text-slate-900 dark:text-white">
-              <a href="{{ .RelPermalink }}" class="course-card__link hover:text-indigo-500 dark:hover:text-indigo-300 transition-colors">{{ .Title }}</a>
+              <a href="{{ .RelPermalink }}" class="course-card__link hover:text-indigo-500 dark:hover:text-indigo-200 transition-colors">{{ .Title }}</a>
             </h3>
             {{ with .Summary }}
-              <p class="course-card__summary mt-2 text-sm leading-6 text-slate-600 dark:text-slate-200">{{ . }}</p>
+              <p class="course-card__summary mt-2 text-sm leading-6 text-slate-600 dark:text-white/80">{{ . }}</p>
             {{ end }}
           </article>
         {{ end }}
