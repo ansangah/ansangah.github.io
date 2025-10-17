@@ -1,0 +1,63 @@
+{{ $page := .page }}
+{{ $index := .index | default 0 }}
+{{ $featured := partial "functions/get_featured_image.html" $page }}
+{{ $dlKindLabels := dict "textbook" "딥러닝 교과서" "notes" "딥러닝 노트 · 논문" }}
+{{ $dlKind := index $dlKindLabels $page.Params.dl_kind | default "AI 학습" }}
+{{ $isTrending := $page.Params.content_meta.trending }}
+
+<article class="group flex h-full flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm ring-1 ring-black/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl dark:border-slate-700 dark:bg-slate-900 dark:ring-white/10">
+  <a href="{{ $page.RelPermalink }}" class="flex h-full flex-col focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500">
+    <div class="relative aspect-[16/9] overflow-hidden bg-gradient-to-br from-slate-200 via-slate-100 to-slate-300 dark:from-slate-800 dark:via-slate-700 dark:to-slate-800">
+      {{ if $featured }}
+        {{ $img := $featured.Fill "800x450 Center" }}
+        <img
+          src="{{ $img.RelPermalink }}"
+          width="{{ $img.Width }}"
+          height="{{ $img.Height }}"
+          loading="lazy"
+          decoding="async"
+          alt="{{ $page.Title | plainify }} featured image"
+          class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+        >
+      {{ else }}
+        <div class="flex h-full w-full items-center justify-center text-4xl text-slate-400">
+          <span>🤖</span>
+        </div>
+      {{ end }}
+      {{ if $isTrending }}
+        <span class="absolute left-3 top-3 inline-flex items-center gap-1 rounded-full bg-blue-600/80 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white backdrop-blur-sm">
+          Trending
+          <span aria-hidden="true">🔥</span>
+        </span>
+      {{ end }}
+    </div>
+
+    <div class="flex flex-1 flex-col gap-4 p-6">
+      <div class="flex items-center justify-between text-[11px] font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-300">
+        <span>{{ $dlKind }}</span>
+        <time datetime="{{ $page.Date.Format "2006-01-02" }}" class="tracking-normal text-slate-400 dark:text-slate-200">{{ $page.Date.Format "2006-01-02" }}</time>
+      </div>
+
+      <h3 id="ai-card-title-{{ $page.File.UniqueID }}" class="text-xl font-semibold leading-snug text-slate-900 transition-colors duration-300 group-hover:text-blue-600 dark:text-white dark:group-hover:text-blue-300">
+        {{ $page.Title }}
+      </h3>
+
+      {{ with $page.Summary }}
+        <p class="text-sm leading-6 text-slate-600 line-clamp-4 dark:text-slate-200">
+          {{ . }}
+        </p>
+      {{ end }}
+
+      {{ with $page.Params.course_topics }}
+        <ul class="mt-auto flex flex-wrap gap-2">
+          {{ range first 4 . }}
+            <li class="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-600 dark:bg-slate-800 dark:text-slate-200">{{ . }}</li>
+          {{ end }}
+          {{ if gt (len .) 4 }}
+            <li class="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-600 dark:bg-slate-800 dark:text-slate-200">+{{ sub (len .) 4 }}</li>
+          {{ end }}
+        </ul>
+      {{ end }}
+    </div>
+  </a>
+</article>
