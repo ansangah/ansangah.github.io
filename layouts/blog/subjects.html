@@ -1,6 +1,5 @@
-<!-- 커스텀 뷰 2 -->
 {{ define "main" }}
-<main class="container mx-auto px-4 py-8 course-archive">
+<main class="container mx-auto px-4 py-8">
   <header class="mb-10 text-center">
     <h1 class="text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">{{ .Title }}</h1>
     {{ with .Content }}<div class="prose mt-4 mx-auto text-left max-w-2xl">{{ . }}</div>{{ end }}
@@ -14,29 +13,35 @@
     {{ $semester := . }}
     {{ $semesterPages := where $pages "Params.semester" $semester }}
     {{ if gt (len $semesterPages) 0 }}
-      <section class="course-semester mb-14">
+      <section class="mb-12">
         {{ with index $labels $semester }}
-          <h2 class="mb-5 text-2xl font-semibold text-slate-800 dark:text-white">{{ . }}</h2>
+          <h2 class="mb-5 text-2xl font-semibold text-gray-900 dark:text-white">{{ . }}</h2>
         {{ end }}
-        <div class="course-semester__grid">
+        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {{ range $semesterPages.ByDate.Reverse }}
-            <article class="course-card rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-100 dark:bg-[#1f2a44] shadow-sm p-5 transition-all hover:shadow-lg hover:-translate-y-1">
-              <div class="text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-slate-500 dark:text-slate-200">
-                <span class="course-card__date">{{ .Date.Format "2006-01-02" }}</span>
-              </div>
-              <h3 class="mt-2 text-lg font-semibold text-gray-900 dark:text-white">
-                <a href="{{ .RelPermalink }}" class="hover:text-indigo-500 dark:hover:text-indigo-200 transition-colors">{{ .Title }}</a>
-              </h3>
-              {{ with .Summary }}
-                <p class="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-100">{{ . }}</p>
-              {{ end }}
-              {{ with .Params.course_topics }}
-                <ul class="mt-4 flex flex-wrap gap-2">
-                  {{ range . }}
-                    <li class="rounded-full bg-slate-200 dark:bg-[#274061] px-3 py-1 text-xs font-medium text-slate-600 dark:text-slate-100">{{ . }}</li>
-                  {{ end }}
-                </ul>
-              {{ end }}
+            <article class="rounded-2xl border border-gray-200 dark:border-gray-700 bg-slate-100 dark:bg-[#1f2a44] shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg">
+              <a class="block h-full p-5" href="{{ .RelPermalink }}">
+                <div class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-200">
+                  {{ .Date.Format "2006-01-02" }}
+                </div>
+                <h3 class="mt-2 text-lg font-semibold text-gray-900 dark:text-white">
+                  {{ .Title }}
+                </h3>
+                {{ with .Summary }}
+                  <p class="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-100">
+                    {{ . }}
+                  </p>
+                {{ end }}
+                {{ with .Params.course_topics }}
+                  <ul class="mt-4 flex flex-wrap gap-2">
+                    {{ range . }}
+                      <li class="rounded-full bg-slate-200 dark:bg-[#283a57] px-3 py-1 text-xs font-medium text-slate-600 dark:text-slate-100">
+                        {{ . }}
+                      </li>
+                    {{ end }}
+                  </ul>
+                {{ end }}
+              </a>
             </article>
           {{ end }}
         </div>
@@ -48,20 +53,24 @@
   {{ $unordered := where $pages "Params.semester" "not in" $order }}
   {{ $others := union $catchall $unordered }}
   {{ if gt (len $others) 0 }}
-    <section class="course-semester mb-14">
-      <h2 class="mb-5 text-2xl font-semibold text-slate-800 dark:text-white">학기 미분류</h2>
-      <div class="course-semester__grid">
+    <section class="mb-12">
+      <h2 class="mb-5 text-2xl font-semibold text-gray-900 dark:text-white">학기 미분류</h2>
+      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {{ range $others.ByDate.Reverse }}
-          <article class="course-card rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-100 dark:bg-[#1f2a44] shadow-sm p-5 transition-all hover:shadow-lg hover:-translate-y-1">
-            <div class="flex items-center gap-2 text-[0.75rem] font-semibold uppercase tracking-[0.32em] text-slate-500 dark:text-slate-200">
-              <span class="course-card__date">{{ .Date.Format "2006-01-02" }}</span>
-            </div>
-            <h3 class="mt-2 text-lg font-semibold text-gray-900 dark:text-white">
-              <a href="{{ .RelPermalink }}" class="hover:text-indigo-500 dark:hover:text-indigo-200 transition-colors">{{ .Title }}</a>
-            </h3>
-            {{ with .Summary }}
-              <p class="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-100">{{ . }}</p>
-            {{ end }}
+          <article class="rounded-2xl border border-gray-200 dark:border-gray-700 bg-slate-100 dark:bg-[#1f2a44] shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg">
+            <a class="block h-full p-5" href="{{ .RelPermalink }}">
+              <div class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-200">
+                {{ .Date.Format "2006-01-02" }}
+              </div>
+              <h3 class="mt-2 text-lg font-semibold text-gray-900 dark:text-white">
+                {{ .Title }}
+              </h3>
+              {{ with .Summary }}
+                <p class="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-100">
+                  {{ . }}
+                </p>
+              {{ end }}
+            </a>
           </article>
         {{ end }}
       </div>
