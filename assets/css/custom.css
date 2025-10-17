@@ -222,16 +222,16 @@ html[data-wc-theme="dark"] .course-semester__label {
   position: relative;
   padding: 1.5rem;
   border-radius: 1rem;
-  border: 1px solid rgba(148, 163, 184, 0.3);
-  background: linear-gradient(145deg, #ffffff, #f8fafc);
-  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  border: 1px solid rgba(148, 163, 184, 0.28);
+  background: #ffffff;
+  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.06);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background 0.25s ease;
 }
 
 .course-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.12);
-  border-color: rgba(99, 102, 241, 0.45);
+  box-shadow: 0 18px 34px rgba(15, 23, 42, 0.12);
+  border-color: rgba(99, 102, 241, 0.38);
 }
 
 .course-card__meta {
@@ -292,6 +292,36 @@ html[data-wc-theme="dark"] .course-semester__label {
   font-size: 0.8rem;
   color: #334155;
 }
+
+html[data-wc-theme="light"] .course-card,
+html:not([data-wc-theme]) .course-card {
+  background: #ffffff;
+  border-color: rgba(148, 163, 184, 0.28);
+  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.06);
+}
+
+html[data-wc-theme="light"] .course-card:hover,
+html:not([data-wc-theme]) .course-card:hover {
+  border-color: rgba(99, 102, 241, 0.38);
+  box-shadow: 0 18px 34px rgba(15, 23, 42, 0.12);
+}
+
+html[data-wc-theme="light"] .course-card__title,
+html:not([data-wc-theme]) .course-card__title {
+  color: #111827;
+}
+
+html[data-wc-theme="light"] .course-card__summary,
+html:not([data-wc-theme]) .course-card__summary {
+  color: #475569;
+}
+
+html[data-wc-theme="light"] .course-card__topics li,
+html:not([data-wc-theme]) .course-card__topics li {
+  background: rgba(148, 163, 184, 0.18);
+  color: #334155;
+}
+
 
 html[data-wc-theme="dark"] .course-card {
   background: linear-gradient(160deg, rgba(17, 24, 39, 0.95), rgba(15, 23, 42, 0.98));
