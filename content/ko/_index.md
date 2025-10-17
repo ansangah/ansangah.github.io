@@ -86,5 +86,5 @@ sections:
       order: desc
     design:
       view: article-grid
-      column: '3'
+      column: '2'
 ---
