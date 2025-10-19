@@ -68,14 +68,22 @@ $$
   대표 손실 = 평균제곱오차(MSE).
 
   $$
-  \mathcal{L}_{\mathrm{MSE}}(\theta) = \frac{1}{N}\sum_{n=1}^{N} \bigl\| t_n - f_\theta(x_n) \bigr\|^2
+  \begin{aligned}
+  &\underset{\theta}{\text{minimize}} && \frac{1}{N} \sum_{i=1}^{N} (f(\mathbf{x}_i; \theta) - t_i)^2 \\
+  &\text{subject to} \\
+  &&& \text{No constraints}
+  \end{aligned}
   $$
 
 - **분류 문제**: 관측 확률분포 $t$와 예측 확률분포 $y$ 차이를 줄이는 $\theta$ 찾음.  
   대표 손실 = 크로스 엔트로피(CE).
 
   $$
-  \mathcal{L}_{\mathrm{CE}}(\theta) = -\frac{1}{N}\sum_{n=1}^{N} \sum_{k=1}^{K} t_{n,k} \log y_{n,k}
+  \begin{aligned}
+  &\underset{\theta}{\text{minimize}} && - \frac{1}{N} \sum_{i=1}^{N} \sum_{k=1}^{K} t_{ik} \log \hat{y}_{ik} \\
+  &\text{subject to} \\
+  &&& \text{No constraints}
+  \end{aligned}
   $$
 
 손실 정의 끝나면, 해당 손실을 최소화하는 방향으로 파라미터 갱신 루프 돌림.
