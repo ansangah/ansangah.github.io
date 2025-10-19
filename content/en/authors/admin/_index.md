@@ -176,8 +176,11 @@ languages:
 #       Recognized for contributions to scaling laws in deep learning.
 ---
 <div data-pagefind-body>
-<strong>Sang-A Ahn</strong> is a third-year undergraduate student at Jeonbuk National University, majoring in Computer Science and Artificial Intelligence. Having recently completed foundational studies in deep learning, they are now building upon this knowledge as a student member of the Medical AI and Computational Science Lab.
+<strong>Sang-A Ahn</strong> is a third-year undergraduate researcher in the Department of Computer & Artificial Intelligence at Jeonbuk National University. She is building a solid foundation in the mathematics and implementation of deep learning, with the goal of running large-scale experiments in GPU-accelerated environments. She currently belongs to the Medical AI & Computational Science Lab, where she is gaining hands-on research experience.
 
-As someone just beginning their journey into the vast world of deep learning,<br>
-<strong>Sang-A Ahn</strong> is currently exploring various subfields and applications of AI. They are actively seeking a career path that will allow them to continue learning and develop their skills in a dynamic and challenging environment.
+She has completed advanced machine learning courses grounded in linear algebra, probability, and optimization, and she maintains a Hugo-based technical blog to document research notes, project retrospectives, and paper reviews—strengthening her ability to communicate findings.
+
+Having just taken her first steps into the broad field of deep learning, she is actively exploring career paths that allow her to engage with diverse AI technologies and applications rather than limiting herself to a single niche.
+
+Looking ahead, she aims to experience a wide spectrum of AI domains—including multimodal models, prompt engineering, and high-performance computing—to identify her core strengths. She places high value on research that extracts meaningful insights from data and on applying those insights to real-world services and collaborative settings.
 </div>
