@@ -50,28 +50,39 @@ html, body {
   position: absolute;
   inset: -6px 0;
   background: rgba(255, 208, 66, 0.14);
-  border-radius: 999px;
+  border-radius: 10px;
   z-index: -1;
 }
 
+.navbar .dropdown-menu,
+.navbar .dropdown-menu * {
+  border-radius: 0 !important;
+}
+
 .navbar .dropdown-menu a {
-  border-radius: 6px !important;
-  transition: background 0.2s ease;
+  transition: color 0.2s ease, border-color 0.2s ease;
+  position: relative;
+  padding-bottom: 6px;
 }
 
 .navbar .dropdown-menu a:hover {
-  background: rgba(255, 208, 66, 0.18) !important;
   color: var(--hover-text-yellow) !important;
 }
 
-.navbar .dropdown-menu a:hover {
-  border-radius: 6px !important;
-  background: rgba(255, 208, 66, 0.18) !important;
+.navbar .dropdown-menu a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 55%;
+  bottom: 2px;
+  height: 2px;
+  background: transparent;
+  transition: right 0.2s ease, background 0.2s ease;
 }
 
-.navbar .dropdown-menu a:hover::before {
-  content: "";
-  display: none;
+.navbar .dropdown-menu a:hover::after {
+  right: 0;
+  background: var(--hover-text-yellow);
 }
 .navbar a.active,
 .navbar-item.active {
