@@ -198,6 +198,16 @@ section.custom-hero {
   color: #312e81;
 }
 
+/* 공통 본문 양쪽 정렬 */
+.text-justify,
+.text-justify p,
+.prose.text-justify p,
+.prose p {
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+}
+
 .course-semester__label {
   font-size: 0.95rem;
   color: #475569;

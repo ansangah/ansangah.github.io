@@ -2,7 +2,7 @@
 <main class="container mx-auto px-4 py-8">
   <header class="mb-10 text-center">
     <h1 class="text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">{{ .Title }}</h1>
-    {{ with .Content }}<div class="prose mt-4 mx-auto text-left max-w-2xl">{{ . }}</div>{{ end }}
+    {{ with .Content }}<div class="prose text-justify mt-4 mx-auto text-left max-w-2xl">{{ . }}</div>{{ end }}
   </header>
 
   {{ $pages := .RegularPages }}
@@ -28,7 +28,7 @@
                   {{ .Title }}
                 </h3>
                 {{ with .Summary }}
-                  <p class="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-100">
+                  <p class="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-100 text-justify">
                     {{ . }}
                   </p>
                 {{ end }}
@@ -66,7 +66,7 @@
                 {{ .Title }}
               </h3>
               {{ with .Summary }}
-                <p class="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-100">
+                <p class="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-100 text-justify">
                   {{ . }}
                 </p>
               {{ end }}

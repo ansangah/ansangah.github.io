@@ -33,7 +33,7 @@ sections:
         interests: '관심 분야'
     design:
       # Apply a gradient background
-      css_class: pill-cards custom-hero
+      css_class: pill-cards custom-hero text-justify
       # Avatar customization
       avatar:
         size: medium # Options: small (150px), medium (200px, default), large (320px), xl (400px), xxl (500px)
@@ -61,6 +61,7 @@ sections:
     design:
       view: article-grid
       columns: '3'
+      css_class: text-justify
   - block: collection
     id: news
     content:
@@ -87,4 +88,5 @@ sections:
     design:
       view: article-grid
       column: '2'
+      css_class: text-justify
 ---
