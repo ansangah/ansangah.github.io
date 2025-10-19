@@ -127,19 +127,19 @@ section.custom-hero {
   content: none !important;
 }
 
-/* 반투명 오버레이 (라이트 기본: 0.35) */
+/* 반투명 오버레이 (라이트 기본: 0.2) */
 .custom-hero::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.35);
+  background: rgba(0,0,0,0.20);
   pointer-events: none;
   z-index: 0;
 }
 /* 🌙 다크 모드에서는 오버레이를 더 진하게 */
 @media (prefers-color-scheme: dark) {
   .custom-hero::before {
-    background: rgba(0,0,0,0.55);
+    background: rgba(0,0,0,0.45);
   }
 }
 
