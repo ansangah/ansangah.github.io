@@ -13,7 +13,13 @@ sections:
   - block: markdown
     content:
       title: ''
-      text: '{{< slider >}}'
+      text: '{{< slider >}}
+
+<div class="slider-hero-copy">
+  <span class="tag">Creative AI Journey</span>
+  <h1> Sang-A Ahn&apos;s Portfolio </h1>
+  <p>Capturing experience, AI projects, and deep learning notes in one place.</p>
+</div>'
     design:
       spacing:
         padding: [0, 0, 0, 0]

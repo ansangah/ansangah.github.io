@@ -13,7 +13,13 @@ sections:
   - block: markdown
     content:
       title: ''
-      text: '{{< slider >}}'
+      text: '{{< slider >}}
+
+<div class="slider-hero-copy">
+  <span class="tag">Creative AI Journey</span>
+  <h1> 안상아의 포트폴리오 </h1>
+  <p>지금까지의 경험과 AI, 딥러닝 연구 기록을 담았습니다.</p>
+</div>'
     design:
       spacing:
         padding: [0, 0, 0, 0]
