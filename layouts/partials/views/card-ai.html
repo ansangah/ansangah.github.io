@@ -3,7 +3,6 @@
 {{ $featured := partial "functions/get_featured_image.html" $page }}
 {{ $dlKindLabels := dict "textbook" "딥러닝 교과서" "notes" "딥러닝 노트 · 논문" }}
 {{ $dlKind := index $dlKindLabels $page.Params.dl_kind | default "AI 학습" }}
-{{ $isTrending := $page.Params.content_meta.trending }}
 
 <article class="group flex h-full flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm ring-1 ring-black/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl dark:border-slate-700 dark:bg-slate-900 dark:ring-white/10">
   <a href="{{ $page.RelPermalink }}" class="flex h-full flex-col focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500">
@@ -23,12 +22,6 @@
         <div class="flex h-full w-full items-center justify-center text-4xl text-slate-400">
           <span>🤖</span>
         </div>
-      {{ end }}
-      {{ if $isTrending }}
-        <span class="absolute left-3 top-3 inline-flex items-center gap-1 rounded-full bg-blue-600/80 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white backdrop-blur-sm">
-          Trending
-          <span aria-hidden="true">🔥</span>
-        </span>
       {{ end }}
     </div>
 

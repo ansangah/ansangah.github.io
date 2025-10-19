@@ -25,21 +25,9 @@
     </dl>
   </section>
 
-  {{ $trending := where $pages "Params.content_meta.trending" true }}
-  {{ $textbook := where (where $pages "Params.dl_kind" "textbook") "Params.content_meta.trending" "ne" true }}
-  {{ $notes := where (where $pages "Params.dl_kind" "notes") "Params.content_meta.trending" "ne" true }}
-  {{ $others := where (where $pages "Params.dl_kind" "not in" (slice "textbook" "notes")) "Params.content_meta.trending" "ne" true }}
-
-  {{ if gt (len $trending) 0 }}
-    <section class="container mx-auto max-w-6xl px-4">
-      <h2 class="mb-6 text-2xl font-semibold text-slate-900 dark:text-white">🔥 지금 주목해야 할 콘텐츠</h2>
-      <div class="grid gap-6 md:grid-cols-2">
-        {{ range $index, $page := $trending.ByDate.Reverse }}
-          {{ partial "views/card-ai.html" (dict "page" $page "index" $index) }}
-        {{ end }}
-      </div>
-    </section>
-  {{ end }}
+  {{ $textbook := where $pages "Params.dl_kind" "textbook" }}
+  {{ $notes := where $pages "Params.dl_kind" "notes" }}
+  {{ $others := where $pages "Params.dl_kind" "not in" (slice "textbook" "notes") }}
 
   {{ if gt (len $textbook) 0 }}
     <section class="container mx-auto max-w-6xl px-4">
