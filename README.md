@@ -18,6 +18,7 @@ Hugo Blox Builder(Tailwind CSS v4)를 커스터마이징해 딥러닝 학습 노
   - 다크/라이트 모드 대응, 슬라이더, 카드 스타일, `text-justify` 유틸리티 등을 직접 정의했습니다.
 - **Slider Hero (`layouts/partials/slider.html`)**
   - Swiper 기반 캐러셀을 메인 페이지에서 코드 한 줄(`{{< slider >}}`)로 삽입할 수 있습니다.
+  - `slider-hero-copy` 및 노란빛 오버레이를 추가해 환영 문구/CTA를 자연스럽게 배치하고 브랜딩을 강화했습니다.
 
 ## Quick Start
 | 항목 | 권장 버전 |
