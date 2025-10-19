@@ -1,6 +1,8 @@
+title: "연락처 정보"
+css_class: contact-layout
 ---
-title: "Contact Information"
----
+title: "연락처 정보"
+css_class: contact-layout
 <div data-pagefind-body>
 
 ##  ✉️ 문의하기
