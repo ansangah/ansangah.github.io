@@ -35,7 +35,7 @@
         <h2 class="text-2xl font-semibold text-slate-900 dark:text-white">📚 딥러닝 교과서 정리</h2>
         <p class="text-sm text-slate-500 dark:text-slate-300">기본기를 탄탄하게 다지는 핵심 이론 및 필수 개념을 모았습니다.</p>
       </div>
-      <div class="grid gap-6 sm:grid-cols-2">
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {{ range $index, $page := $textbook.ByDate.Reverse }}
           {{ partial "views/card-ai.html" (dict "page" $page "index" $index) }}
         {{ end }}
