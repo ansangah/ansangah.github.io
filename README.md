@@ -82,7 +82,6 @@ math: true
 - 전역 스타일 및 유틸리티: `assets/css/custom.css`
 - 슬라이더 파셜: `layouts/partials/slider.html`
 - 카드 레이아웃: `layouts/partials/views/card-ai.html`
-- Tailwind CLI 사용 시 `pnpm exec tailwindcss …`로 별도 번들링 가능 (필수 아님).
 
 ## Build & Deploy
 ```bash
