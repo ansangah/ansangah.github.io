@@ -37,16 +37,18 @@
     width:100vw;
     position:relative;
     left:50%;
-    margin-left:-50vw;
+    transform:translateX(-50%);
+    margin-left:0;
     background:#000;
     margin-top:-40px;
+    overflow:hidden;
   }
 
-  /* 슬라이더 크기: 화면 비율에 맞춰 높이 지정 */
+  /* 슬라이더 크기: 화면을 꽉 채우도록 높이 지정 */
   .hb-swiper{
     width:100%;
-    height:60vh;      /* 데스크톱 */
-    min-height:240px; /* 너무 낮아지지 않도록 */
+    height:calc(100vh - 72px + 2px);  /* 헤더 높이를 제외 + 약간 보정 */
+    min-height:420px;
     background:#000;
   }
 
@@ -94,7 +96,7 @@
 
   /* 모바일에서 높이 조금 줄이기 */
   @media (max-width: 768px){
-    .hb-swiper{ height: 32vh; min-height: 200px; }
+    .hb-swiper{ height:calc(100vh - 64px + 2px); min-height: 280px; }
   }
 </style>
 

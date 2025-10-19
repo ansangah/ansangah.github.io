@@ -65,6 +65,14 @@ education:
       학점: 3.8/4.5
 
 work:
+  - position: 산학협력 인턴십
+    company_name: 올콘텐츠에이아이
+    company_url: 'https://allcontentsai.com/ko/'
+    company_logo: ''
+    date_start: 2025-09-01
+    date_end: '2025-09-30'
+    summary: |2-
+      산학협력 인턴십을 통해 웹툰 AI 관련 서비스의 프론트엔드 개발과 데이터베이스 관리 업무를 수행함. 
   - position: 의료 AI 및 계산과학 연구실
     company_name: 전북대학교
     company_url: 'https://jbnu.macs.or.kr/'

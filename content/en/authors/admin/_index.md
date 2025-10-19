@@ -65,6 +65,15 @@ education:
     summary: |
 
 work:
+  - position: Industry-Academia Internship
+    company_name: AllcontentsAI
+    company_url: 'https://allcontentsai.com/en/'
+    company_logo: ''
+    date_start: 2025-09-01
+    date_end: '2025-09-30'
+    summary: |2-
+      Conducted front-end development and database management tasks 
+      for a webtoon AI service as part of an industry-academia internship program.
   - position: Medical AI and Computational Science Lab (MACS)
     company_name: Jeonbuk National University
     company_url: 'https://jbnu.macs.or.kr/'

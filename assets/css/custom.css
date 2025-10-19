@@ -24,6 +24,10 @@ a[aria-label="Email"]{ display:none !important; }
   --hover-bg-yellow: rgba(255, 208, 66, 0.25);
   --hover-text-yellow: #FFD23F;
 }
+
+html, body {
+  overflow-x: hidden;
+}
 @media (prefers-color-scheme: dark) {
   :root {
     --hover-bg-yellow: rgba(255, 213, 79, 0.20);
