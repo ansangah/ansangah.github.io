@@ -11,9 +11,9 @@ tags:
   - Activation Function
   - Classification
   - Regression
+
 math: true
 dl_kind: "textbook"
-semester: "3-2"
 course_topics:
   - 순방향 신경망 구조
   - 활성 함수
@@ -141,6 +141,6 @@ FNN은 **데이터가 한 방향으로만 흐르는** 연결을 가짐. 각 뉴�
 
 ---
 
-{{< button url="/uploads/deeplearning/fnn-notes.pdf" style="primary" size="lg" icon="document-arrow-down" align="center" >}}
+{{< button url="/uploads/deeplearning/2-순방향신경망.pdf" style="primary" size="lg" icon="document-arrow-down" align="center" >}}
 PDF 다운로드
 {{< /button >}}
