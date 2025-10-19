@@ -53,10 +53,16 @@ education:
     date_start: 2023-03-02
     date_end: ''
     summary: |
-      GPA: 3.8/4.5
+      학점: 3.8/4.5
     # button:
     #   text: 'Read Thesis'
     #   url: 'https://example.com/thesis.pdf'
+  - area: 금호중앙여자고등학교 졸업
+    institution: 전북대학교
+    date_start: 2020-03-02
+    date_end: 2023-01-15
+    summary: |
+      학점: 3.8/4.5
 
 work:
   - position: 의료 AI 및 계산과학 연구실
@@ -109,7 +115,7 @@ skills:
         description: ''
         percent: 50
         icon: cloud
-      - name: 프론트엔드
+      - name: 프론트엔드 개발
         description: ''
         percent: 50
         icon: hero/computer-desktop

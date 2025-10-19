@@ -58,6 +58,11 @@ education:
     # button:
     #   text: 'Read Thesis'
     #   url: 'https://example.com/thesis.pdf'
+  - area: Graduated from Keumho Jungang Girls' High School
+    institution: Jeonbuk National University
+    date_start: 2020-03-02
+    date_end: 2023-01-15
+    summary: |
 
 work:
   - position: Medical AI and Computational Science Lab (MACS)
@@ -112,7 +117,7 @@ skills:
         description: ''
         percent: 50
         icon: cloud
-      - name: Frontend Development
+      - name: Front-end Development
         description: ''
         percent: 50
         icon: hero/computer-desktop
