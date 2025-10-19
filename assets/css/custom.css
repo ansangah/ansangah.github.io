@@ -33,12 +33,41 @@ a[aria-label="Email"]{ display:none !important; }
 .navbar a:hover,
 .navbar-item:hover,
 .navbar-nav > li:hover > a,
-.navbar .nav-item:hover > a,
-.dropdown-item:hover,
-.navbar .dropdown-menu a:hover {
-  background-color: var(--hover-bg-yellow) !important;
+.navbar .nav-item:hover > a {
   color: var(--hover-text-yellow) !important;
-  border-radius: 8px;
+  position: relative;
+}
+
+.navbar a:hover::before,
+.navbar-item:hover::before,
+.navbar-nav > li:hover > a::before,
+.navbar .nav-item:hover > a::before {
+  content: "";
+  position: absolute;
+  inset: -6px 0;
+  background: rgba(255, 208, 66, 0.14);
+  border-radius: 999px;
+  z-index: -1;
+}
+
+.navbar .dropdown-menu a {
+  border-radius: 6px !important;
+  transition: background 0.2s ease;
+}
+
+.navbar .dropdown-menu a:hover {
+  background: rgba(255, 208, 66, 0.18) !important;
+  color: var(--hover-text-yellow) !important;
+}
+
+.navbar .dropdown-menu a:hover {
+  border-radius: 6px !important;
+  background: rgba(255, 208, 66, 0.18) !important;
+}
+
+.navbar .dropdown-menu a:hover::before {
+  content: "";
+  display: none;
 }
 .navbar a.active,
 .navbar-item.active {
