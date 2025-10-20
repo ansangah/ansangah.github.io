@@ -29,7 +29,16 @@
 </section>
 
 <style>
-  .hb-slider-wrap.full-bleed{position:relative;width:100vw;max-width:100vw;margin-left:calc(50% - 50vw);}
+  .hb-slider-wrap.full-bleed{
+    position:relative;
+    width:100vw;
+    max-width:100vw;
+    left:50%;
+    right:50%;
+    margin-left:-50vw;
+    margin-right:-50vw;
+    box-sizing:border-box;
+  }
 
   /* 페이지 전체 폭으로 꽉 차게 (헤더 아래 여백 제거) */
   .hb-slider-wrap{
