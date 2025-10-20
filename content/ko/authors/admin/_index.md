@@ -62,7 +62,7 @@ education:
     date_start: 2020-03-02
     date_end: 2023-01-15
     summary: |
-      학점: 3.8/4.5
+  
 
 work:
   - position: 산학협력 인턴십

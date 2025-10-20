@@ -31,8 +31,8 @@
         <time datetime="{{ $page.Date.Format "2006-01-02" }}" class="tracking-normal text-slate-400 dark:text-slate-200">{{ $page.Date.Format "2006-01-02" }}</time>
       </div>
 
-      <h3 id="ai-card-title-{{ $page.File.UniqueID }}" class="text-xl font-semibold leading-snug text-slate-900 transition-colors duration-300 group-hover:text-blue-600 dark:text-white dark:group-hover:text-blue-300">
-        {{ $page.Title | replace " " "\u00A0" | safeHTML }}
+      <h3 id="ai-card-title-{{ $page.File.UniqueID }}" class="ai-card-title text-xl font-semibold leading-snug text-slate-900 transition-colors duration-300 group-hover:text-blue-600 dark:text-white dark:group-hover:text-blue-300">
+        {{ $page.LinkTitle | default ($page.Title | plainify) }}
       </h3>
 
       {{ with $page.Summary }}

@@ -80,6 +80,49 @@ html, body {
   transition: right 0.2s ease, background 0.2s ease;
 }
 
+.resume-biography .btn-primary,
+.resume-biography .btn-primary:focus,
+.resume-biography .btn-primary:hover {
+  background: linear-gradient(120deg, rgba(255,214,102,0.65), rgba(166,121,37,0.85));
+  color: #fff;
+  border: 1px solid rgba(255,214,102,0.6);
+  box-shadow: 0 18px 35px rgba(255,214,102,0.25);
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  padding: 0.9rem 2.6rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  transition: transform 0.25s ease;
+}
+
+.resume-biography .btn-primary:hover {
+  transform: translateY(-2px);
+}
+
+.resume-biography .btn-primary::before {
+  content: "";
+  display: inline-block;
+  width: 1.2rem;
+  height: 1.2rem;
+  mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M7 10l5 5m0 0l5-5m-5 5V4"/></svg>') center/contain no-repeat;
+  background: currentColor;
+  opacity: 0.9;
+}
+
+.ai-card-title {
+  color: rgba(33, 34, 38, 0.92) !important;
+  text-shadow: 0 6px 14px rgba(0, 0, 0, 0.18);
+}
+
+html[data-wc-theme="dark"] .ai-card-title,
+html.dark .ai-card-title {
+  color: #ffe699 !important;
+  text-shadow: 0 12px 28px rgba(0, 0, 0, 0.55);
+}
+
 .navbar .dropdown-menu a:hover::after {
   right: 0;
   background: var(--hover-text-yellow);
@@ -179,21 +222,44 @@ section.custom-hero {
   }
 }
 
-/* 🎓 학위 카드 유리효과 제거하고 불투명 흰색 배경으로 */
-.degree, 
-.hb-card.degree, 
-.custom-hero .degree, 
+/* 🎓 학위 카드: 기존 색상 유지하면서 투명도만 높임 */
+.degree,
+.hb-card.degree,
+.custom-hero .degree,
 .custom-hero .hb-card.degree {
-  background: #fff !important;       /* 완전 흰색 */
-  backdrop-filter: none !important;  /* 블러 제거 */
-  -webkit-backdrop-filter: none !important;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08); /* 살짝 입체감만 */
-  border: 1px solid rgba(0,0,0,0.05);    /* 얇은 테두리 */
+  background: linear-gradient(
+    145deg,
+    rgba(80, 70, 60, 0.55),   /* 기존보다 더 투명 (0.55) */
+    rgba(40, 35, 30, 0.45)    /* 기존보다 더 투명 (0.45) */
+  ) !important;
+
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  border-radius: 16px;
+  transition: background 0.25s ease, transform 0.25s ease;
 }
 
-/* 학위 카드 내부 글자 색 안정화 */
+/* 🌙 다크 모드에서는 너무 투명하면 글자 가독성이 떨어지므로 살짝 진하게 */
+@media (prefers-color-scheme: dark) {
+  .degree,
+  .hb-card.degree,
+  .custom-hero .degree,
+  .custom-hero .hb-card.degree {
+    background: linear-gradient(
+      145deg,
+      rgba(30, 25, 20, 0.55),
+      rgba(15, 10, 5, 0.5)
+    ) !important;
+  }
+}
+
+/* 텍스트 선명도 유지 */
 .degree * {
-  color: #3a3a3a !important;
+  color: #fff !important;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.3);
 }
 
 @media (prefers-color-scheme: light){
