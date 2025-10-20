@@ -119,8 +119,8 @@ html, body {
 
 html[data-wc-theme="dark"] .ai-card-title,
 html.dark .ai-card-title {
-  color: #ffe699 !important;
-  text-shadow: 0 12px 28px rgba(0, 0, 0, 0.55);
+  color: #fff !important;
+  text-shadow: none;
 }
 
 .navbar .dropdown-menu a:hover::after {
