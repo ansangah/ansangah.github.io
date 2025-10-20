@@ -19,7 +19,7 @@ main:
     weight: 40
   - name: Deep Learning
     parent: blog
-    url: '/blog/deep/'
+    url: '/blog/ai-blog/'
     weight: 41
   - name: Subjects
     parent: blog
