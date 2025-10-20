@@ -25,6 +25,10 @@ a[aria-label="Email"]{ display:none !important; }
   --hover-text-yellow: #FFD23F;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 .hb-tagline {
   color: var(--hover-text-yellow);
   letter-spacing: 0.32em;

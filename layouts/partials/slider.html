@@ -3,7 +3,7 @@
       href="https://unpkg.com/swiper@9/swiper-bundle.min.css">
 <script defer src="https://unpkg.com/swiper@9/swiper-bundle.min.js"></script>
 
-<section class="hb-slider-wrap">
+<section class="hb-slider-wrap full-bleed">
   <div class="swiper hb-swiper">
     <div class="swiper-wrapper">
 
@@ -29,13 +29,12 @@
 </section>
 
 <style>
+  .hb-slider-wrap.full-bleed{position:relative;width:100vw;max-width:100vw;margin-left:calc(50% - 50vw);}
+
   /* 페이지 전체 폭으로 꽉 차게 (헤더 아래 여백 제거) */
   .hb-slider-wrap{
-    width:100vw;
     position:relative;
-    left:50%;
-    transform:translateX(-50%);
-    margin-left:0;
+    width:100%;
     background:#000;
     margin-top:-40px;
     overflow:hidden;
