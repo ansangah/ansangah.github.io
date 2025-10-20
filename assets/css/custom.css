@@ -229,12 +229,12 @@ section.custom-hero {
 .custom-hero .hb-card.degree {
   background: linear-gradient(
     145deg,
-    rgba(80, 70, 60, 0.55),   /* 기존보다 더 투명 (0.55) */
-    rgba(40, 35, 30, 0.45)    /* 기존보다 더 투명 (0.45) */
+    rgba(80, 70, 60, 0.40),
+    rgba(32, 26, 20, 0.30)
   ) !important;
 
-  backdrop-filter: blur(10px) !important;
-  -webkit-backdrop-filter: blur(10px) !important;
+  backdrop-filter: blur(4px) !important;
+  -webkit-backdrop-filter: blur(4px) !important;
 
   border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
@@ -250,8 +250,8 @@ section.custom-hero {
   .custom-hero .hb-card.degree {
     background: linear-gradient(
       145deg,
-      rgba(30, 25, 20, 0.55),
-      rgba(15, 10, 5, 0.5)
+      rgba(20, 16, 12, 0.50),
+      rgba(8, 6, 4, 0.42)
     ) !important;
   }
 }
