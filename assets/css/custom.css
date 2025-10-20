@@ -318,6 +318,10 @@ section.custom-hero {
   hyphens: auto;
 }
 
+.resume-biography .space-y-3 > p.text-2xl {
+  text-align: center !important;
+}
+
 .course-semester__label {
   font-size: 0.95rem;
   color: #475569;
