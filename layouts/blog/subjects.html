@@ -4,9 +4,9 @@
     {{ $defaultTagline := cond (eq .Site.Language.Lang "ko") "COURSE STUDY HUB" "COURSE STUDY HUB" }}
     {{ $tagline := .Params.tagline | default $defaultTagline }}
     {{ if $tagline }}
-      <p class="text-xs uppercase tracking-[0.4em] text-emerald-500 dark:text-emerald-300">{{ $tagline }}</p>
+      <p class="hb-tagline">{{ $tagline }}</p>
     {{ end }}
-    <h1 class="text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">{{ .Title }}</h1>
+    <h1 class="hb-tag-title text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">{{ .Title }}</h1>
     {{ with .Content }}<div class="prose text-justify mt-4 mx-auto text-left max-w-2xl">{{ . }}</div>{{ end }}
   </header>
 
