@@ -410,16 +410,16 @@ html[data-wc-theme="dark"] .course-semester__label {
 
 html[data-wc-theme="dark"] .ai-blog-stats,
 html.dark .ai-blog-stats {
-  background: #0e1a2d !important;
-  border-color: #1c2d47 !important;
+  background: #1f2a44 !important;
+  border-color: #283a57 !important;
 }
 
 html[data-wc-theme="dark"] .ai-blog-stats__label,
 html.dark .ai-blog-stats__label {
-  color: #9caad0 !important;
+  color: #a7b7d6 !important;
 }
 
 html[data-wc-theme="dark"] .ai-blog-stats__value,
 html.dark .ai-blog-stats__value {
-  color: #d4ddf1 !important;
+  color: #e3e9f8 !important;
 }
