@@ -9,18 +9,18 @@
       {{ with .Content }}<div class="prose text-justify mx-auto mt-4 max-w-3xl text-left">{{ . }}</div>{{ end }}
     </header>
 
-    <dl class="mt-10 grid gap-4 rounded-2xl border border-slate-200 bg-white/70 p-6 text-slate-700 shadow-sm backdrop-blur sm:grid-cols-3 dark:border-slate-700 dark:bg-slate-900/70 dark:text-slate-200">
+    <dl class="ai-blog-stats mt-10 grid gap-4 rounded-2xl border border-gray-200 bg-slate-100 p-6 text-slate-700 sm:grid-cols-3 dark:border-[#1c2d47] dark:bg-[#0e1a2d] dark:text-slate-100">
       <div class="flex flex-col items-center gap-1 py-2">
-        <dt class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-400 dark:text-slate-500">전체 글</dt>
-        <dd class="text-2xl font-semibold blog-total-count">{{ len $pages }}</dd>
+        <dt class="ai-blog-stats__label text-xs font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-300">전체 글</dt>
+        <dd class="ai-blog-stats__value text-2xl font-semibold blog-total-count">{{ len $pages }}</dd>
       </div>
       <div class="flex flex-col items-center gap-1 py-2">
-        <dt class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-400 dark:text-slate-500">교과서 정리</dt>
-        <dd class="text-2xl font-semibold">{{ len (where $pages "Params.dl_kind" "textbook") }}</dd>
+        <dt class="ai-blog-stats__label text-xs font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-300">교과서 정리</dt>
+        <dd class="ai-blog-stats__value text-2xl font-semibold">{{ len (where $pages "Params.dl_kind" "textbook") }}</dd>
       </div>
       <div class="flex flex-col items-center gap-1 py-2">
-        <dt class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-400 dark:text-slate-500">노트 · 논문</dt>
-        <dd class="text-2xl font-semibold">{{ len (where $pages "Params.dl_kind" "notes") }}</dd>
+        <dt class="ai-blog-stats__label text-xs font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-300">노트 · 논문</dt>
+        <dd class="ai-blog-stats__value text-2xl font-semibold">{{ len (where $pages "Params.dl_kind" "notes") }}</dd>
       </div>
     </dl>
   </section>

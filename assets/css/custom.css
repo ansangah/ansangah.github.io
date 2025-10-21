@@ -431,3 +431,19 @@ html.dark .subjects-card__pill {
   color: #d8e3ff !important;
   border: 1px solid rgba(76, 106, 155, 0.3);
 }
+
+html[data-wc-theme="dark"] .ai-blog-stats,
+html.dark .ai-blog-stats {
+  background: #0e1a2d !important;
+  border-color: #1c2d47 !important;
+}
+
+html[data-wc-theme="dark"] .ai-blog-stats__label,
+html.dark .ai-blog-stats__label {
+  color: #9caad0 !important;
+}
+
+html[data-wc-theme="dark"] .ai-blog-stats__value,
+html.dark .ai-blog-stats__value {
+  color: #d4ddf1 !important;
+}

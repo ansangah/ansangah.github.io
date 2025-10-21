@@ -43,12 +43,12 @@
   {{ $intro = $block.content.text }}
 {{ end }}
 
-<section class="container mx-auto -mt-8 max-w-6xl px-4 pb-10 pt-8 text-white lg:px-6">
-  <header class="flex flex-col items-center gap-3 text-center text-white">
+<section class="container mx-auto -mt-8 max-w-6xl px-4 pb-10 pt-8 lg:px-6">
+  <header class="flex flex-col items-center gap-3 text-center">
     <span class="hb-tagline block text-sm uppercase tracking-[0.35em] text-sky-400">Study Hub</span>
-    <h2 class="hb-tag-title mt-3 text-3xl font-extrabold text-white md:text-4xl">{{ $title }}</h2>
+    <h2 class="hb-tag-title mt-3 text-3xl font-extrabold text-slate-900 dark:text-white md:text-4xl">{{ $title }}</h2>
     {{ with $intro }}
-      <div class="prose prose-invert prose-sm mx-auto mt-4 max-w-3xl text-left text-slate-200/90">
+      <div class="prose dark:prose-invert prose-sm mx-auto mt-4 max-w-3xl text-left text-slate-700 dark:text-slate-200/90">
         {{ if $introIsHTML }}
           {{ . }}
         {{ else }}
@@ -58,22 +58,22 @@
     {{ end }}
   </header>
 
-  <dl class="mt-10 grid grid-cols-1 gap-4 rounded-2xl border border-slate-200 bg-white/70 p-6 text-slate-700 shadow-sm backdrop-blur sm:grid-cols-2 md:grid-cols-4 dark:border-slate-700 dark:bg-slate-900/70 dark:text-slate-200">
+  <dl class="ai-blog-stats mt-10 grid grid-cols-1 gap-4 rounded-2xl border border-gray-200 bg-slate-100 p-6 text-slate-700 sm:grid-cols-2 md:grid-cols-4 dark:border-[#1c2d47] dark:bg-[#0e1a2d] dark:text-slate-100">
     <div class="flex flex-col items-center gap-1 py-2">
-      <dt class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-400 dark:text-slate-500">전체 글</dt>
-      <dd class="text-2xl font-semibold blog-total-count">{{ $total }}</dd>
+      <dt class="ai-blog-stats__label text-xs font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-300">전체 글</dt>
+      <dd class="ai-blog-stats__value text-2xl font-semibold blog-total-count">{{ $total }}</dd>
     </div>
     <div class="flex flex-col items-center gap-1 py-2">
-      <dt class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-400 dark:text-slate-500">교과서 정리</dt>
-      <dd class="text-2xl font-semibold">{{ $textbookCount }}</dd>
+      <dt class="ai-blog-stats__label text-xs font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-300">교과서 정리</dt>
+      <dd class="ai-blog-stats__value text-2xl font-semibold">{{ $textbookCount }}</dd>
     </div>
     <div class="flex flex-col items-center gap-1 py-2">
-      <dt class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-400 dark:text-slate-500">노트 · 논문</dt>
-      <dd class="text-2xl font-semibold">{{ $notesCount }}</dd>
+      <dt class="ai-blog-stats__label text-xs font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-300">노트 · 논문</dt>
+      <dd class="ai-blog-stats__value text-2xl font-semibold">{{ $notesCount }}</dd>
     </div>
     <div class="flex flex-col items-center gap-1 py-2">
-      <dt class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-400 dark:text-slate-500">과목별 정리</dt>
-      <dd class="text-2xl font-semibold">{{ $subjectsCount }}</dd>
+      <dt class="ai-blog-stats__label text-xs font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-300">과목별 정리</dt>
+      <dd class="ai-blog-stats__value text-2xl font-semibold">{{ $subjectsCount }}</dd>
     </div>
   </dl>
 </section>
