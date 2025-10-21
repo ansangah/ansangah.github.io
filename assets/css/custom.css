@@ -399,3 +399,11 @@ html[data-wc-theme="dark"] .course-semester__label {
   padding-left: clamp(1.5rem, 6vw, 4rem) !important;
   padding-right: clamp(1.5rem, 6vw, 4rem) !important;
 }
+
+
+.blog-total-count {
+  color: #facc15 !important;
+}
+.dark .blog-total-count {
+  color: #facc15 !important;
+}

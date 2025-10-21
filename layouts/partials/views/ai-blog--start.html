@@ -14,18 +14,25 @@
 {{ else }}
   {{ $pages = where $site.RegularPages "Type" ($block.content.page_type | default "blog") }}
 {{ end }}
-{{ $total := len $pages }}
 {{ $textbookPages := where $pages "Params.dl_kind" "textbook" }}
 {{ $notesPages := where $pages "Params.dl_kind" "notes" }}
 {{ $textbookCount := len $textbookPages }}
 {{ $notesCount := len $notesPages }}
-{{ $title := "" }}
-{{ if $aiSection }}
-  {{ $title = $aiSection.Title }}
-{{ else if $block.content.title }}
+{{ $localizedPages := where $site.RegularPages "Lang" $site.Language.Lang }}
+{{ $subjectsPages := where $localizedPages "Params.dl_kind" "subjectsCount" }}
+{{ $subjectsCount := len $subjectsPages }}
+{{ $scratch := newScratch }}
+{{ $scratch.Set "totalPages" (slice) }}
+{{ range $pages }}
+  {{ $scratch.Add "totalPages" (slice .) }}
+{{ end }}
+{{ range $subjectsPages }}
+  {{ $scratch.Add "totalPages" (slice .) }}
+{{ end }}
+{{ $total := len (uniq ($scratch.Get "totalPages")) }}
+{{ $title := i18n "blog_title" | default (cond (eq $site.Language.Lang "ko") "블로그" "Blog") }}
+{{ if and (not $aiSection) $block.content.title }}
   {{ $title = $block.content.title }}
-{{ else }}
-  {{ $title = "AI Blog" }}
 {{ end }}
 {{ $intro := "" }}
 {{ $introIsHTML := false }}
@@ -36,9 +43,9 @@
   {{ $intro = $block.content.text }}
 {{ end }}
 
-<section class="container mx-auto max-w-6xl px-4 pb-10 pt-12 text-white lg:px-6">
+<section class="container mx-auto -mt-8 max-w-6xl px-4 pb-10 pt-8 text-white lg:px-6">
   <header class="flex flex-col items-center gap-3 text-center text-white">
-    <span class="hb-tagline block text-sm uppercase tracking-[0.35em] text-sky-400">AI Study Hub</span>
+    <span class="hb-tagline block text-sm uppercase tracking-[0.35em] text-sky-400">Study Hub</span>
     <h2 class="hb-tag-title mt-3 text-3xl font-extrabold text-white md:text-4xl">{{ $title }}</h2>
     {{ with $intro }}
       <div class="prose prose-invert prose-sm mx-auto mt-4 max-w-3xl text-left text-slate-200/90">
@@ -51,21 +58,25 @@
     {{ end }}
   </header>
 
-  <dl class="mt-10 grid gap-4 rounded-2xl border border-slate-200 bg-white/70 p-6 text-slate-700 shadow-sm backdrop-blur sm:grid-cols-3 dark:border-slate-700 dark:bg-slate-900/70 dark:text-slate-200">
+  <dl class="mt-10 grid grid-cols-1 gap-4 rounded-2xl border border-slate-200 bg-white/70 p-6 text-slate-700 shadow-sm backdrop-blur sm:grid-cols-2 md:grid-cols-4 dark:border-slate-700 dark:bg-slate-900/70 dark:text-slate-200">
     <div class="flex flex-col items-center gap-1 py-2">
       <dt class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-400 dark:text-slate-500">전체 글</dt>
-      <dd class="text-2xl font-semibold">{{ len $pages }}</dd>
+      <dd class="text-2xl font-semibold blog-total-count">{{ $total }}</dd>
     </div>
     <div class="flex flex-col items-center gap-1 py-2">
       <dt class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-400 dark:text-slate-500">교과서 정리</dt>
-      <dd class="text-2xl font-semibold">{{ len (where $pages "Params.dl_kind" "textbook") }}</dd>
+      <dd class="text-2xl font-semibold">{{ $textbookCount }}</dd>
     </div>
     <div class="flex flex-col items-center gap-1 py-2">
       <dt class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-400 dark:text-slate-500">노트 · 논문</dt>
-      <dd class="text-2xl font-semibold">{{ len (where $pages "Params.dl_kind" "notes") }}</dd>
+      <dd class="text-2xl font-semibold">{{ $notesCount }}</dd>
+    </div>
+    <div class="flex flex-col items-center gap-1 py-2">
+      <dt class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-400 dark:text-slate-500">과목별 정리</dt>
+      <dd class="text-2xl font-semibold">{{ $subjectsCount }}</dd>
     </div>
   </dl>
 </section>
 
-<div class="container mx-auto mt-10 max-w-2xl px-2 pb-10 lg:px-3 {{ if eq $len 0 }}hidden{{ end }}">
+<div class="container mx-auto mt-8 max-w-6xl px-4 pb-16 lg:px-6 {{ if eq $len 0 }}hidden{{ end }}">
   <div class="{{ $grid }}">

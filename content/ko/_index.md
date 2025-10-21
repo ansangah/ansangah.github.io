@@ -93,6 +93,6 @@ sections:
       order: desc
     design:
       view: ai-blog
-      column: '3'
+      columns: '3'
       css_class: text-justify
 ---

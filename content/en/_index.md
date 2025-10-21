@@ -69,7 +69,7 @@ sections:
   - block: collection
     id: news
     content:
-      title: Blog
+      title: ''
       subtitle: ''
       text: ''
       # Page type to display. E.g. post, talk, publication...
@@ -90,8 +90,9 @@ sections:
       # Page order: descending (desc) or ascending (asc) date.
       order: desc
     design:
-      view: article-grid
-      column: '2'
+      view: ai-blog
+      columns: '3'
+      css_class: text-justify
 
 exclude_search: false
 ---

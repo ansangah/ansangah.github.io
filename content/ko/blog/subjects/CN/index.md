@@ -13,7 +13,7 @@ image:
   caption: 'Embed rich media such as videos and LaTeX math'
 
 exclude_search: true
-dl_kind: "notes"
+dl_kind: "subjectsCount"
 semester: "3-1"
 course_topics:
   - 지식 베이스 구축

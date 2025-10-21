@@ -1,8 +1,16 @@
 {{ $page := .page }}
 {{ $index := .index | default 0 }}
 {{ $featured := partial "functions/get_featured_image.html" $page }}
-{{ $dlKindLabels := dict "textbook" "딥러닝 교과서" "notes" "딥러닝 노트 · 논문" }}
-{{ $dlKind := index $dlKindLabels $page.Params.dl_kind | default "AI 학습" }}
+{{ $dlKindLabels := dict "textbook" "딥러닝 교과서" "notes" "딥러닝 노트 · 논문" "subjectsCount" "과목별 정리" }}
+{{ $dlKind := "AI 학습" }}
+{{ with $page.Params.dl_kind }}
+  {{ $kind := . }}
+  {{ with index $dlKindLabels $kind }}
+    {{ $dlKind = . }}
+  {{ else }}
+    {{ $dlKind = $kind }}
+  {{ end }}
+{{ end }}
 
 <article class="group flex h-full flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm ring-1 ring-black/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl dark:border-slate-700 dark:bg-slate-900 dark:ring-white/10">
   <a href="{{ $page.RelPermalink }}" class="flex h-full flex-col focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500">
