@@ -1,0 +1,5 @@
+{{ $item := .item }}
+{{ $index := .index | default 0 }}
+{{ if $item }}
+  {{ partial "views/card-ai.html" (dict "page" $item "index" $index) }}
+{{ end }}

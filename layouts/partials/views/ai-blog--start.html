@@ -1,0 +1,71 @@
+{{ $cols := int (.config.columns | default 3) }}
+{{ $len := .config.len | default 0 }}
+{{ $grid := "grid gap-6" }}
+{{ if ge $cols 2 }}{{ $grid = printf "%s md:grid-cols-2" $grid }}{{ end }}
+{{ if ge $cols 3 }}{{ $grid = printf "%s xl:grid-cols-3" $grid }}{{ end }}
+{{ if ge $cols 4 }}{{ $grid = printf "%s 2xl:grid-cols-4" $grid }}{{ end }}
+{{ $context := .item | default site.Home }}
+{{ $site := $context.Site | default site }}
+{{ $block := .page }}
+{{ $aiSection := $site.GetPage "section" "blog/ai-blog" }}
+{{ $pages := slice }}
+{{ if $aiSection }}
+  {{ $pages = $aiSection.RegularPages }}
+{{ else }}
+  {{ $pages = where $site.RegularPages "Type" ($block.content.page_type | default "blog") }}
+{{ end }}
+{{ $total := len $pages }}
+{{ $textbookPages := where $pages "Params.dl_kind" "textbook" }}
+{{ $notesPages := where $pages "Params.dl_kind" "notes" }}
+{{ $textbookCount := len $textbookPages }}
+{{ $notesCount := len $notesPages }}
+{{ $title := "" }}
+{{ if $aiSection }}
+  {{ $title = $aiSection.Title }}
+{{ else if $block.content.title }}
+  {{ $title = $block.content.title }}
+{{ else }}
+  {{ $title = "AI Blog" }}
+{{ end }}
+{{ $intro := "" }}
+{{ $introIsHTML := false }}
+{{ if $aiSection }}
+  {{ $intro = $aiSection.Content }}
+  {{ $introIsHTML = true }}
+{{ else if $block.content.text }}
+  {{ $intro = $block.content.text }}
+{{ end }}
+
+<section class="container mx-auto max-w-6xl px-4 pb-10 pt-12 text-white lg:px-6">
+  <header class="flex flex-col items-center gap-3 text-center text-white">
+    <span class="hb-tagline block text-sm uppercase tracking-[0.35em] text-sky-400">AI Study Hub</span>
+    <h2 class="hb-tag-title mt-3 text-3xl font-extrabold text-white md:text-4xl">{{ $title }}</h2>
+    {{ with $intro }}
+      <div class="prose prose-invert prose-sm mx-auto mt-4 max-w-3xl text-left text-slate-200/90">
+        {{ if $introIsHTML }}
+          {{ . }}
+        {{ else }}
+          {{ . | markdownify }}
+        {{ end }}
+      </div>
+    {{ end }}
+  </header>
+
+  <dl class="mt-10 grid gap-4 rounded-2xl border border-slate-200 bg-white/70 p-6 text-slate-700 shadow-sm backdrop-blur sm:grid-cols-3 dark:border-slate-700 dark:bg-slate-900/70 dark:text-slate-200">
+    <div class="flex flex-col items-center gap-1 py-2">
+      <dt class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-400 dark:text-slate-500">전체 글</dt>
+      <dd class="text-2xl font-semibold">{{ len $pages }}</dd>
+    </div>
+    <div class="flex flex-col items-center gap-1 py-2">
+      <dt class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-400 dark:text-slate-500">교과서 정리</dt>
+      <dd class="text-2xl font-semibold">{{ len (where $pages "Params.dl_kind" "textbook") }}</dd>
+    </div>
+    <div class="flex flex-col items-center gap-1 py-2">
+      <dt class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-400 dark:text-slate-500">노트 · 논문</dt>
+      <dd class="text-2xl font-semibold">{{ len (where $pages "Params.dl_kind" "notes") }}</dd>
+    </div>
+  </dl>
+</section>
+
+<div class="container mx-auto mt-10 max-w-2xl px-2 pb-10 lg:px-3 {{ if eq $len 0 }}hidden{{ end }}">
+  <div class="{{ $grid }}">
