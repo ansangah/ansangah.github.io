@@ -24,23 +24,23 @@
         {{ end }}
         <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {{ range $semesterPages.ByDate.Reverse }}
-            <article class="rounded-2xl border border-gray-200 dark:border-gray-700 bg-slate-100 dark:bg-[#1f2a44] shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg">
+            <article class="subjects-card rounded-2xl border border-gray-200 dark:border-[#1c2d47] bg-slate-100 dark:bg-[#0e1a2d] shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg">
               <a class="block h-full p-5" href="{{ .RelPermalink }}">
-                <div class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-200">
+                <div class="subjects-card__meta text-xs font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-200">
                   {{ .Date.Format "2006-01-02" }}
                 </div>
                 <h3 class="mt-2 text-lg font-semibold text-gray-900 dark:text-white">
                   {{ .Title }}
                 </h3>
                 {{ with .Summary }}
-                  <p class="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-100 text-justify">
+                  <p class="subjects-card__summary mt-2 text-sm leading-6 text-slate-600 dark:text-slate-100 text-justify">
                     {{ . }}
                   </p>
                 {{ end }}
                 {{ with .Params.course_topics }}
                   <ul class="mt-4 flex flex-wrap gap-2">
                     {{ range . }}
-                      <li class="rounded-full bg-slate-200 dark:bg-[#283a57] px-3 py-1 text-xs font-medium text-slate-600 dark:text-slate-100">
+                      <li class="subjects-card__pill rounded-full bg-slate-200 dark:bg-[#1c2b45] px-3 py-1 text-xs font-medium text-slate-600 dark:text-slate-100">
                         {{ . }}
                       </li>
                     {{ end }}
@@ -62,16 +62,16 @@
       <h2 class="mb-5 text-2xl font-semibold text-gray-900 dark:text-white">학기 미분류</h2>
       <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {{ range $others.ByDate.Reverse }}
-          <article class="rounded-2xl border border-gray-200 dark:border-gray-700 bg-slate-100 dark:bg-[#1f2a44] shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg">
+          <article class="subjects-card rounded-2xl border border-gray-200 dark:border-[#1c2d47] bg-slate-100 dark:bg-[#0e1a2d] shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg">
             <a class="block h-full p-5" href="{{ .RelPermalink }}">
-              <div class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-200">
+              <div class="subjects-card__meta text-xs font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-200">
                 {{ .Date.Format "2006-01-02" }}
               </div>
               <h3 class="mt-2 text-lg font-semibold text-gray-900 dark:text-white">
                 {{ .Title }}
               </h3>
               {{ with .Summary }}
-                <p class="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-100 text-justify">
+                <p class="subjects-card__summary mt-2 text-sm leading-6 text-slate-600 dark:text-slate-100 text-justify">
                   {{ . }}
                 </p>
               {{ end }}
