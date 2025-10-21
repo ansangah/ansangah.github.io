@@ -17,7 +17,7 @@ main:
     identifier: blog
     url: '/blog/'
     weight: 40
-  - name: Deep Learning
+  - name: AI
     parent: blog
     url: '/blog/ai-blog/'
     weight: 41
