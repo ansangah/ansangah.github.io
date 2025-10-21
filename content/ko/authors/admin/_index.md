@@ -167,7 +167,7 @@ languages:
 #       Awarded for groundbreaking work on efficient training of large models.
 ---
 <div data-pagefind-body>
-<strong>안상아</strong>는 전북대학교 컴퓨터인공지능학부 3학년에 재학 중인 학부 연구생입니다. 
+안상아는 전북대학교 컴퓨터인공지능학부 3학년에 재학 중인 학부 연구생입니다. 
 딥러닝의 수학적 기초와 구현 방법을 체계적으로 학습하며, 앞으로 GPU 가속 환경에서 대규모 실험을 운영할 수 있는 역량을 키우고 있습니다. 
 현재는 '의료 AI 및 계산과학 연구실'에 소속되어 학부생으로서 기초 연구 경험을 쌓고 있습니다.
 

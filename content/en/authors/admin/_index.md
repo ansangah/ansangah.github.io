@@ -185,7 +185,7 @@ languages:
 #       Recognized for contributions to scaling laws in deep learning.
 ---
 <div data-pagefind-body>
-<strong>Sang-A Ahn</strong> is a third-year undergraduate researcher in the Department of Computer & Artificial Intelligence at Jeonbuk National University. She is building a solid foundation in the mathematics and implementation of deep learning, with the goal of running large-scale experiments in GPU-accelerated environments. She currently belongs to the Medical AI & Computational Science Lab, where she is gaining hands-on research experience.
+Sang-A Ahn is a third-year undergraduate researcher in the Department of Computer & Artificial Intelligence at Jeonbuk National University. She is building a solid foundation in the mathematics and implementation of deep learning, with the goal of running large-scale experiments in GPU-accelerated environments. She currently belongs to the Medical AI & Computational Science Lab, where she is gaining hands-on research experience.
 
 She has completed advanced machine learning courses grounded in linear algebra, probability, and optimization, and she maintains a Hugo-based technical blog to document research notes, project retrospectives, and paper reviews—strengthening her ability to communicate findings.
 

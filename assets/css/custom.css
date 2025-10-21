@@ -423,3 +423,8 @@ html[data-wc-theme="dark"] .ai-blog-stats__value,
 html.dark .ai-blog-stats__value {
   color: #e3e9f8 !important;
 }
+
+html[data-wc-theme="dark"] .ai-blog-stats__value.blog-total-count,
+html.dark .ai-blog-stats__value.blog-total-count {
+  color: #facc15 !important;
+}
