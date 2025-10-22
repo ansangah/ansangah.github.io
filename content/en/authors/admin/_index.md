@@ -59,7 +59,7 @@ education:
     #   text: 'Read Thesis'
     #   url: 'https://example.com/thesis.pdf'
   - area: Graduated from Keumho Jungang Girls' High School
-    institution: Jeonbuk National University
+    institution: ''
     date_start: 2020-03-02
     date_end: 2023-01-15
     summary: |

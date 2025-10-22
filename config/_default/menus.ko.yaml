@@ -7,7 +7,7 @@ main:
   - name: 홈
     url: '/'
     weight: 10
-  - name: 이력서
+  - name: 이력
     url: '/experience/'
     weight: 20
   - name: 프로젝트

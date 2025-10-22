@@ -58,7 +58,7 @@ education:
     #   text: 'Read Thesis'
     #   url: 'https://example.com/thesis.pdf'
   - area: 금호중앙여자고등학교 졸업
-    institution: 전북대학교
+    institution: ''
     date_start: 2020-03-02
     date_end: 2023-01-15
     summary: |
