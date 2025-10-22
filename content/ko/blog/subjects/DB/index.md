@@ -1,7 +1,7 @@
 ---
-title: 👩🏼‍🏫 데이터베이스
+title: 데이터베이스
 summary: 정규화·뷰·인덱스·트리거·프로시저·트랜잭션 핵심 개념 정리
-date: 2024-10-24
+date: 2025-04-30
 math: true
 authors:
   - admin
@@ -9,7 +9,11 @@ tags:
   - Database
   - RDBMS
 image:
+  filename: featured.jpg
   caption: '관계형 데이터베이스 설계 노트'
+resources:
+  - src: featured.jpg
+    name: featured
 
 exclude_search: false
 dl_kind: "subjectsCount"

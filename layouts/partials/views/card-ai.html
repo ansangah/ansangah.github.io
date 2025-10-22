@@ -15,7 +15,11 @@
 <article class="group flex h-full flex-col overflow-hidden rounded-3xl border border-gray-200 bg-slate-100 shadow-sm ring-1 ring-black/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl dark:border-gray-700 dark:bg-[#1f2a44] dark:ring-white/10">
   <a href="{{ $page.RelPermalink }}" class="flex h-full flex-col focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500">
     <div class="relative aspect-[16/9] overflow-hidden bg-gradient-to-br from-slate-200 via-slate-100 to-slate-300 dark:from-slate-800 dark:via-slate-700 dark:to-slate-800">
-      {{ if $featured }}
+      {{ if eq $dlKind "과목별 정리" }}
+        <div class="flex h-full w-full items-center justify-center text-4xl text-slate-400 dark:text-slate-200">
+          <span>📚</span>
+        </div>
+      {{ else if $featured }}
         {{ $img := $featured.Fill "800x450 Center" }}
         <img
           src="{{ $img.RelPermalink }}"

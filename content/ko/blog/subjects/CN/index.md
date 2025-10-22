@@ -1,7 +1,7 @@
 ---
-title: 👩🏼‍🏫 컴퓨터네트워크
+title: 컴퓨터네트워크
 summary: 네트워크 진화부터 라우팅·보안 프로토콜까지 핵심 개념 정리
-date: 2024-10-24
+date: 2025-04-15
 math: true
 authors:
   - admin
@@ -9,7 +9,11 @@ tags:
   - ComputerNetwork
   - InternetProtocols
 image:
+  filename: featured.jpg
   caption: '네트워크 계층 구조 다이어그램'
+resources:
+  - src: featured.jpg
+    name: featured
 
 exclude_search: false
 dl_kind: "subjectsCount"

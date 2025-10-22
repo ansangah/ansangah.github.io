@@ -1,7 +1,7 @@
 ---
-title: 👩🏼‍🏫 알고리즘
+title: 알고리즘
 summary: 정렬, 트리, 해시, 그래프 등 알고리즘 핵심 주제 요약
-date: 2024-10-24
+date: 2024-10-10
 math: true
 authors:
   - admin
@@ -9,7 +9,11 @@ tags:
   - Algorithm
   - DataStructure
 image:
+  filename: featured.jpg
   caption: '알고리즘 핵심 개념 정리 노트'
+resources:
+  - src: featured.jpg
+    name: featured
 
 exclude_search: false
 dl_kind: "subjectsCount"

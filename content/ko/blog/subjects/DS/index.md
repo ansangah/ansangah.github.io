@@ -1,7 +1,7 @@
 ---
-title: 👩🏼‍🏫 자료구조
+title: 자료구조
 summary: 자료구조 핵심 개념과 구현 포인트 정리
-date: 2024-10-24
+date: 2024-04-15
 math: true
 authors:
   - admin
@@ -9,7 +9,11 @@ tags:
   - DataStructure
   - Programming
 image:
+  filename: featured.jpg
   caption: '자료구조 개념 지도'
+resources:
+  - src: featured.jpg
+    name: featured
 
 exclude_search: false
 dl_kind: "subjectsCount"

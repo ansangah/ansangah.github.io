@@ -1,7 +1,7 @@
 ---
-title: 👩🏼‍🏫 운영체제
+title: 운영체제
 summary: 운영체제 역사부터 커널 구조까지 핵심 개념 정리
-date: 2024-10-24
+date: 2025-04-30
 math: true
 authors:
   - admin
@@ -9,7 +9,11 @@ tags:
   - OperatingSystem
   - SystemProgramming
 image:
+  filename: featured.jpg
   caption: '운영체제 구조 다이어그램 메모'
+resources:
+  - src: featured.jpg
+    name: featured
 
 exclude_search: false
 dl_kind: "subjectsCount"

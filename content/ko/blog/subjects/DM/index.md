@@ -1,7 +1,7 @@
 ---
-title: 👩🏼‍🏫 데이터마이닝
+title: 데이터마이닝
 summary: 빈발 아이템셋부터 LSH, 군집화, 차원 축소까지 핵심 이론 정리
-date: 2024-10-24
+date: 2024-04-16
 math: true
 authors:
   - admin
@@ -9,7 +9,11 @@ tags:
   - DataMining
   - MachineLearning
 image:
+  filename: featured.jpg
   caption: '데이터마이닝 분석 파이프라인 노트'
+resources:
+  - src: featured.jpg
+    name: featured
 
 exclude_search: false
 dl_kind: "subjectsCount"

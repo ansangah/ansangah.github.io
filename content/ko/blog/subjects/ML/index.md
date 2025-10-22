@@ -1,7 +1,7 @@
 ---
-title: 👩🏼‍🏫 기계학습
+title: 기계학습
 summary: 귀납 학습 정의부터 결정트리·최근접이웃·퍼셉트론·선형모델까지 핵심 정리
-date: 2024-10-24
+date: 2025-10-20
 math: true
 authors:
   - admin
@@ -9,7 +9,11 @@ tags:
   - MachineLearning
   - PatternRecognition
 image:
+  filename: featured.jpg
   caption: '기계학습 모델 지형도'
+resources:
+  - src: featured.jpg
+    name: featured
 
 exclude_search: false
 dl_kind: "subjectsCount"

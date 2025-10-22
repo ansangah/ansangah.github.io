@@ -1,7 +1,7 @@
 ---
-title: 👩🏼‍🏫 소프트웨어공학
+title: 소프트웨어공학
 summary: 요구분석부터 테스트까지 소프트웨어공학 핵심 개념 정리
-date: 2024-10-24
+date: 2025-10-17
 math: true
 authors:
   - admin
@@ -9,7 +9,11 @@ tags:
   - SoftwareEngineering
   - ProjectManagement
 image:
+  filename: featured.jpg
   caption: '소프트웨어 개발 생명주기 다이어그램'
+resources:
+  - src: featured.jpg
+    name: featured
 
 exclude_search: false
 dl_kind: "subjectsCount"
