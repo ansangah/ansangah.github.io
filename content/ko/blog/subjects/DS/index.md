@@ -1,154 +1,154 @@
 ---
 title: 👩🏼‍🏫 자료구조
-summary: Embed videos, podcasts, code, LaTeX math, and even test students!
-date: 2023-10-24
+summary: 자료구조 핵심 개념과 구현 포인트 정리
+date: 2024-10-24
 math: true
 authors:
   - admin
 tags:
-  - Hugo
-  - Hugo Blox Builder
-  - Markdown
+  - DataStructure
+  - Programming
 image:
-  caption: 'Embed rich media such as videos and LaTeX math'
+  caption: '자료구조 개념 지도'
 
-exclude_search: true
+exclude_search: false
 dl_kind: "subjectsCount"
 semester: "2-1"
 course_topics:
-  - 지식 베이스 구축
-  - 협업 툴 활용
-  - 문서 자동화
+  - 기본 자료구조
+  - 재귀와 트리
+  - 그래프 및 탐색
 ---
 
-[Hugo Blox Builder](https://hugoblox.com) is designed to give technical content creators a seamless experience. You can focus on the content and the Hugo Blox Builder which this template is built upon handles the rest.
+## 1. 개요
 
-**Embed videos, podcasts, code, LaTeX math, and even test students!**
+자료구조는 데이터를 메모리와 디스크에 조직화하여 알고리즘이 효율적으로 작동하도록 돕는 기반 기술이다. 문제 해결 시에는 추상 자료형(ADT)이 제공하는 연산과 실제 구현 기법의 장단점을 함께 고려해야 한다.
 
-On this page, you'll find some examples of the types of technical content that can be rendered with Hugo Blox.
+---
 
-## Citation
+## 2. 배열과 클래스
 
-Here's an example of citing a publication using the cite shortcode:
+### 2.1 배열(Array)
+- **특징**: 연속된 메모리 블록, 인덱스를 통한 O(1) 랜덤 접근.
+- **제약**: 크기 고정, 중간 삽입·삭제 시 평균 O(n)의 이동 비용.
+- **활용**: 캐시 효율이 높아 수치 계산, DP 테이블, 게임 루프 상태 관리 등에 적합.
 
-{{< cite page="/publications/preprint" view="citation" >}}
+### 2.2 클래스 래핑
+- 배열을 래핑한 클래스는 **경계 검사**, **동적 크기 조정**, **반복자 제공** 같은 안정 장치를 제공한다.
+- C++ `std::vector`, Java `ArrayList`는 내부적으로 동적 배열을 사용하며, 용량이 가득 차면 2배 확장(Amortized O(1) push).
 
-You can also use the default view by omitting the view parameter:
+---
 
-{{< cite page="/publications/conference-paper" >}}
+## 3. 스택과 큐
 
-## Video
+### 3.1 스택(Stack)
+- 후입선출(LIFO) 구조. 함수 호출 스택, 괄호 검사, DFS 역추적에 활용.
+- 핵심 연산: `push`, `pop`, `top`. 배열·연결 리스트로 구현 가능.
 
-Teach your course by sharing videos with your students. Choose from one of the following approaches:
+### 3.2 큐(Queue)
+- 선입선출(FIFO) 구조. BFS, 작업 스케줄링, 스트림 버퍼에서 사용.
+- 핵심 연산: `enqueue`, `dequeue`, `front`. 원형 배열을 쓰면 인덱스가 자동으로 순환한다.
 
-**Youtube**:
+### 3.3 덱(Deque)
+- 양쪽에서 삽입·삭제 가능. 슬라이딩 윈도우, 모노톤 큐 최적화에 자주 등장.
 
-    {{</* youtube D2vj0WcvH5c */>}}
+---
 
-{{< youtube D2vj0WcvH5c >}}
+## 4. 포인터와 연결 리스트
 
-**Bilibili**:
+### 4.1 포인터
+- 포인터는 메모리 주소를 보관하는 변수. 동적 메모리(`malloc`, `new`)로 생성한 객체를 가리킨다.
+- **주의**: 널 포인터 방지, Dangling Pointer(해제 후 사용), 이중 해제를 경계해야 한다.
 
-    {{</* bilibili BV1WV4y1r7DF */>}}
+### 4.2 단일 연결 리스트(Singly Linked List)
+- 노드: `(데이터, 다음 포인터)`. 삽입·삭제가 O(1), 임의 접근은 O(n).
+- 머리 삽입, 꼬리 포인터 유지, 더미 헤드 사용으로 구현 복잡도를 낮춘다.
 
+### 4.3 이중 연결 리스트(Doubly Linked List)
+- 앞·뒤 포인터를 모두 보유하여 양방향 순회 가능. LRU 캐시, 에디터 구현에 유용.
+- 포인터 업데이트가 두 배로 많아 실수 발생 여지가 있으므로 테스트가 필수.
 
-**Video file**
+---
 
-Videos may be added to a page by either placing them in your `assets/media/` media library or in your [page's folder](https://gohugo.io/content-management/page-bundles/), and then embedding them with the _video_ shortcode:
+## 5. 리스트 추상 자료형
 
-    {{</* video src="my_video.mp4" controls="yes" */>}}
+- 리스트 ADT는 순서를 가진 요소 컬렉션을 정의하며, 구현체에 따라 성능이 달라진다.
+- **동적 배열 리스트**: 인덱스 접근 O(1), 중간 삽입·삭제 O(n).
+- **연결 리스트**: 삽입·삭제 O(1) (포인터 확보 시), 검색 O(n). Iteration이 잦다면 커서 기반 인터페이스를 활용한다.
 
-## Podcast
+---
 
-You can add a podcast or music to a page by placing the MP3 file in the page's folder or the media library folder and then embedding the audio on your page with the _audio_ shortcode:
+## 6. 재귀(Recursion)
 
-    {{</* audio src="ambient-piano.mp3" */>}}
+- 함수가 자기 자신을 호출해 문제를 하위 문제로 쪼갠다.
+- 구성 요소: **기저 사례(Base Case)**, **재귀 관계**, **상태 전파**.
+- 시스템 호출 스택 깊이 제한을 고려해야 하며, Tail Recursion은 반복문으로 변환해 최적화 가능.
 
-Try it out:
+---
 
-{{< audio src="ambient-piano.mp3" >}}
+## 7. 트리(Tree)
 
-## Test students
+- 비선형 계층 자료구조. 루트에서 자식으로 분기하며 사이클이 없다.
+- 용어 정리: 깊이(depth), 높이(height), 차수(degree), 서브트리(subtree).
+- 순회: 전위(preorder), 중위(inorder), 후위(postorder), 레벨 순서(level-order). 재귀 또는 큐를 활용한다.
 
-Provide a simple yet fun self-assessment by revealing the solutions to challenges with the `spoiler` shortcode:
+---
 
-```markdown
-{{</* spoiler text="👉 Click to view the solution" */>}}
-You found me!
-{{</* /spoiler */>}}
-```
+## 8. 이진 탐색 트리(BST)
 
-renders as
+- 왼쪽 서브트리 < 루트 < 오른쪽 서브트리 규칙을 유지하는 이진 트리.
+- 평균적으로 탐색·삽입·삭제 O(log n), 편향 시 O(n).
+- **균형화 기법**: AVL, Red-Black Tree, Treap, Splay Tree 등. 균형 트리를 사용하면 최악 시간 복잡도를 보장할 수 있다.
 
-{{< spoiler text="👉 Click to view the solution" >}} You found me 🎉 {{< /spoiler >}}
+---
 
-## Math
+## 9. 우선순위 큐(Priority Queue)
 
-Hugo Blox Builder supports a Markdown extension for $\LaTeX$ math. Enable math by setting the `math: true` option in your page's front matter, or enable math for your entire site by toggling math in your `config/_default/params.yaml` file:
+- 각 요소에 우선순위를 부여하고 가장 높은(또는 낮은) 우선순위 요소를 반환.
+- **힙(Heap)** 기반 구현이 일반적: `insert`, `extract` O(log n), `peek` O(1).
+- Applications: Dijkstra, 작업 스케줄링, 이벤트 시뮬레이션, Median 유지.
 
-```yaml
-features:
-  math:
-    enable: true
-```
+---
 
-To render _inline_ or _block_ math, wrap your LaTeX math with `$...$` or `$$...$$`, respectively.
+## 10. 그래프(Graph)
 
-Example **math block**:
+- 정점(V)과 간선(E)으로 구성. 방향성, 다중 간선, 자기 루프 유무로 분류.
+- 표현 방식:
+  - **인접 리스트**: 희소 그래프에 적합, 공간 O(V+E).
+  - **인접 행렬**: 간선 여부 확인 O(1), 공간 O(V²).
+- 탐색 기법: DFS(스택/재귀), BFS(큐). 컴포넌트 분리, 위상 정렬, 사이클 검출 등 다양한 문제의 기본.
 
-```latex
-$$
-\gamma_{n} = \frac{ \left | \left (\mathbf x_{n} - \mathbf x_{n-1} \right )^T \left [\nabla F (\mathbf x_{n}) - \nabla F (\mathbf x_{n-1}) \right ] \right |}{\left \|\nabla F(\mathbf{x}_{n}) - \nabla F(\mathbf{x}_{n-1}) \right \|^2}
-$$
-```
+---
 
-renders as
+## 11. 가중치 그래프(Weighted Graph)
 
-$$\gamma_{n} = \frac{ \left | \left (\mathbf x_{n} - \mathbf x_{n-1} \right )^T \left [\nabla F (\mathbf x_{n}) - \nabla F (\mathbf x_{n-1}) \right ] \right |}{\left \|\nabla F(\mathbf{x}_{n}) - \nabla F(\mathbf{x}_{n-1}) \right \|^2}$$
+- 간선마다 비용이 있는 그래프. 지도, 네트워크, 물류 최적화 등에서 활용.
+- 단일 출발 최단 거리: Dijkstra(음수 가중치X), Bellman-Ford(음수 허용), SPFA(평균 개선).
+- 전체 최단 거리: Floyd-Warshall(O(V³)), Johnson 알고리즘(희소 그래프에 효율적).
+- 최소 신장 트리: Kruskal(Union-Find), Prim(우선순위 큐).
 
-Example **inline math** `$\nabla F(\mathbf{x}_{n})$` renders as $\nabla F(\mathbf{x}_{n})$.
+---
 
-Example **multi-line math** using the math linebreak (`\\`):
+## 12. 정렬(Sorting)
 
-```latex
-$$f(k;p_{0}^{*}) = \begin{cases}p_{0}^{*} & \text{if }k=1, \\
-1-p_{0}^{*} & \text{if }k=0.\end{cases}$$
-```
+- 데이터 순서를 재구성해 탐색이나 통계를 용이하게 하는 기본 연산.
+- **비교 기반**: 퀵·병합·힙 정렬, 하한 O(n log n).
+- **비교 비기반**: 계수, 기수, 버킷 정렬. 데이터 범위나 자릿수를 활용해 O(n+k) 달성.
+- 조건 비교: 안정성, 제자리(in-place), 메모리, 분할 정복 여부 등을 평가해 선택한다.
 
-renders as
+---
 
-$$
-f(k;p_{0}^{*}) = \begin{cases}p_{0}^{*} & \text{if }k=1, \\
-1-p_{0}^{*} & \text{if }k=0.\end{cases}
-$$
+## 13. 탐색(Searching)
 
-## Code
+- **선형 탐색**: 순차 검사, 정렬 불필요, O(n).
+- **이진 탐색**: 정렬된 배열에서 중간값 비교로 범위를 절반씩 축소, O(log n).
+- **해시 탐색**: 평균 O(1), 충돌 대비 체이닝/개방 주소법을 설계.
+- **트리 탐색**: BST, B-Tree 등에서 노드 비교로 O(log n) 기대. 균형 유지가 핵심.
 
-Hugo Blox Builder utilises Hugo's Markdown extension for highlighting code syntax. The code theme can be selected in the `config/_default/params.yaml` file.
+---
 
+## 14. 학습 팁
 
-    ```python
-    import pandas as pd
-    data = pd.read_csv("data.csv")
-    data.head()
-    ```
-
-renders as
-
-```python
-import pandas as pd
-data = pd.read_csv("data.csv")
-data.head()
-```
-
-## Inline Images
-
-```go
-{{</* icon name="python" */>}} Python
-```
-
-renders as
-
-{{< icon name="python" >}} Python
-
-## Did you find this page helpful? Consider sharing it 🙌
+- 각 자료구조 연산의 시간·공간 복잡도를 직접 표로 정리해 반복 암기한다.
+- IDE 디버거로 포인터 변화를 추적하면 연결 구조와 재귀 호출 흐름이 명확해진다.
+- 실전 문제에서는 입력 크기, 갱신 빈도, 임의 접근 필요성 등을 분석해 최적의 자료구조를 선택하라.
