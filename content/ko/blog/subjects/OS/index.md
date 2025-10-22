@@ -1,5 +1,5 @@
 ---
-title: 👩🏼‍🏫 인공지능
+title: 👩🏼‍🏫 데이터베이스
 summary: Embed videos, podcasts, code, LaTeX math, and even test students!
 date: 2023-10-24
 math: true

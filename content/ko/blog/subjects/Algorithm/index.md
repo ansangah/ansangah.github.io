@@ -1,154 +1,140 @@
 ---
 title: 👩🏼‍🏫 알고리즘
-summary: Embed videos, podcasts, code, LaTeX math, and even test students!
-date: 2023-10-24
+summary: 정렬, 트리, 해시, 그래프 등 알고리즘 핵심 주제 요약
+date: 2024-10-24
 math: true
 authors:
   - admin
 tags:
-  - Hugo
-  - Hugo Blox Builder
-  - Markdown
+  - Algorithm
+  - DataStructure
 image:
-  caption: 'Embed rich media such as videos and LaTeX math'
+  caption: '알고리즘 핵심 개념 정리 노트'
 
-exclude_search: true
+exclude_search: false
 dl_kind: "subjectsCount"
 semester: "2-2"
 course_topics:
-  - 강의 자료 제작
-  - 실습 과제 설계
-  - 수업 평가 자동화
+  - 정렬 알고리즘
+  - 균형 이진 탐색 트리
+  - 해시 및 그래프 알고리즘
 ---
 
-[Hugo Blox Builder](https://hugoblox.com) is designed to give technical content creators a seamless experience. You can focus on the content and the Hugo Blox Builder which this template is built upon handles the rest.
+## 1. 개요
 
-**Embed videos, podcasts, code, LaTeX math, and even test students!**
+알고리즘 과목은 데이터를 구조화하고 문제를 효율적으로 해결하기 위한 방법론을 학습한다. 아래 정리는 강의에서 다루는 대표 주제를 빠르게 복습하거나, 각 개념의 관계를 한눈에 파악하기 위해 구성되었다.
 
-On this page, you'll find some examples of the types of technical content that can be rendered with Hugo Blox.
+---
 
-## Citation
+## 2. 정렬 알고리즘
 
-Here's an example of citing a publication using the cite shortcode:
+정렬은 대부분의 문제 해결 과정에서 선행되어야 하는 기본 연산이다. 알고리즘 선택 시 입력 크기, 데이터 분포, 메모리 사용량, 안정성(안정 정렬 여부) 등을 고려한다.
 
-{{< cite page="/publications/preprint" view="citation" >}}
+| 알고리즘 | 평균 시간복잡도 | 최악 시간복잡도 | 추가 공간 | 특징 |
+| --- | --- | --- | --- | --- |
+| 병합 정렬 (Merge Sort) | O(n log n) | O(n log n) | O(n) | 안정 정렬, 외부 정렬에 적합 |
+| 퀵 정렬 (Quick Sort) | O(n log n) | O(n²) | O(log n) | 분할 정복, 피벗 선택이 핵심 |
+| 선택 정렬 (Selection Sort) | O(n²) | O(n²) | O(1) | 교환 횟수가 적음, 불안정 |
+| 버블 정렬 (Bubble Sort) | O(n²) | O(n²) | O(1) | 구현이 단순, 이미 정렬된 경우 빠름 |
+| 삽입 정렬 (Insertion Sort) | O(n²) | O(n²) | O(1) | 부분적으로 정렬된 데이터에 효율적, 안정 |
+| 기수 정렬 (Radix Sort) | O(d·n) | O(d·n) | O(n+k) | 자릿수 기반, 비교 연산 불필요 |
+| 계수·버킷 정렬 (Counting/Bucket) | O(n+k) | O(n+k) | O(n+k) | 데이터 범위가 작거나 균등 분포일 때 강력 |
 
-You can also use the default view by omitting the view parameter:
+### 2.1 병합 정렬
+- 분할 정복 패턴을 통해 배열을 절반씩 나누고, 정렬된 부분 배열을 병합한다.
+- 안정 정렬이므로 동일 키의 상대적 순서가 유지된다.
+- 단점: 추가 메모리 요구, 재귀 호출로 인한 오버헤드.
 
-{{< cite page="/publications/conference-paper" >}}
+### 2.2 퀵 정렬
+- 피벗을 기준으로 작은 값과 큰 값으로 파티셔닝 후 재귀 정렬.
+- 평균적으로 가장 빠르지만, 이미 정렬된 데이터에서 최악의 O(n²)가 발생하므로 랜덤 피벗 선택, median-of-three 등의 기법을 활용한다.
 
-## Video
+### 2.3 선택 정렬
+- 남아 있는 원소 중 최솟값(또는 최댓값)을 찾아 앞으로 보낸다.
+- 교환 횟수가 O(n)으로 제한되지만 전반적으로 느려 교육용으로 주로 사용된다.
 
-Teach your course by sharing videos with your students. Choose from one of the following approaches:
+### 2.4 버블 정렬
+- 인접한 두 원소를 비교하여 순서가 틀리면 교환한다.
+- 패스마다 가장 큰 값이 뒤로 이동한다. 버전마다 조기 종료 플래그를 사용하면 부분 정렬된 데이터를 빠르게 처리 가능.
 
-**Youtube**:
+### 2.5 삽입 정렬
+- 현재 원소를 이미 정렬된 구간에 삽입한다.
+- 리스트 길이가 작거나 사실상 정렬된 상태라면 매우 효율적이며, 각 단계에서 안정성이 유지된다.
 
-    {{</* youtube D2vj0WcvH5c */>}}
+### 2.6 기수 정렬
+- 정수나 고정 길이 문자열을 자릿수별로 정렬한다. LSD(Least Significant Digit) 방식은 낮은 자릿수부터, MSD(Most Significant Digit)는 높은 자릿수부터 처리한다.
+- 내부적으로 안정 정렬(예: 계수 정렬)을 사용해야 전체 정렬의 안정성이 유지된다.
 
-{{< youtube D2vj0WcvH5c >}}
+### 2.7 계수 정렬과 버킷 정렬
+- 계수 정렬은 값의 범위 k가 작을 때 O(n+k)의 성능을 보장하고, 버킷 정렬은 입력이 균등 분포일 때 평균 O(n) 성능을 기대한다.
+- 메모리 사용량이 크며, 실제 값의 범위를 사전에 알아야 한다.
 
-**Bilibili**:
+---
 
-    {{</* bilibili BV1WV4y1r7DF */>}}
+## 3. 트리: 레드-블랙 트리
 
+Balanced Binary Search Tree의 대표 구현 중 하나로, 삽입·삭제 후에도 높이가 O(log n)으로 유지되도록 색상 규칙을 적용한다.
 
-**Video file**
+- **불변 조건**: (1) 각 노드는 빨강 또는 검정, (2) 루트·리프(NIL)는 검정, (3) 빨강 노드의 자식은 모두 검정, (4) 어떤 노드에서 리프까지 가는 모든 경로의 검정 노드 수 동일.
+- **연산**: 삽입은 이진 탐색 트리에 삽입 후 색 재조정과 회전을 수행한다. 삭제는 대체 노드 선택 후 `double black` 문제를 해결하기 위해 추가 회전/재색.
+- **장점**: AVL 트리보다 회전 횟수가 적어 삽입/삭제가 빈번한 환경에서 유리.
+- **응용**: STL의 `std::map`, `std::set`, Java의 `TreeMap`, Linux Completely Fair Scheduler 등.
 
-Videos may be added to a page by either placing them in your `assets/media/` media library or in your [page's folder](https://gohugo.io/content-management/page-bundles/), and then embedding them with the _video_ shortcode:
+---
 
-    {{</* video src="my_video.mp4" controls="yes" */>}}
+## 4. 해시 테이블
 
-## Podcast
+- **개념**: 키를 해시 함수로 변환하여 배열 인덱스를 직접 접근함으로써 평균 O(1)의 탐색/삽입/삭제 성능을 목표로 하는 자료구조.
+- **충돌(Collision)**: 다른 키가 같은 해시 버킷을 점유하는 현상. 해시 함수 품질과 로드 팩터(load factor = n / m)가 성능을 좌우한다.
 
-You can add a podcast or music to a page by placing the MP3 file in the page's folder or the media library folder and then embedding the audio on your page with the _audio_ shortcode:
+### 4.1 충돌 해결 전략
+1. **체이닝(Separate Chaining)**: 같은 버킷에서 연결 리스트/동적 배열을 사용. 구현이 단순하며 확장이 유연하지만 추가 포인터 메모리가 필요.
+2. **개방 주소법(Open Addressing)**: 빈 버킷을 탐색해 데이터를 저장. 선형 조사(linear probing), 제곱 조사(quadratic probing), 이중 해싱(double hashing) 등이 있다. 캐시 친화적이지만 클러스터링 문제가 발생할 수 있다.
+3. **재해싱(Rehashing)**: 로드 팩터가 임계치를 넘으면 테이블 크기를 확장하고 모든 요소를 다시 해시한다.
 
-    {{</* audio src="ambient-piano.mp3" */>}}
+### 4.2 설계 팁
+- 좋은 해시 함수는 균등 분포, 계산 효율성, 의도적 공격에 대한 저항성을 갖춰야 한다.
+- 동시성 환경에서는 락프리 해시, 세그먼트 락 등 추가 고려가 필요하다.
 
-Try it out:
+---
 
-{{< audio src="ambient-piano.mp3" >}}
+## 5. 그래프 알고리즘
 
-## Test students
+그래프는 정점과 간선으로 구성된 추상화로, 네트워크, 경로 탐색, 위상 관계를 모델링한다. 구현 시 인접 리스트가 공간 효율적이며, 밀집 그래프는 인접 행렬이 연산을 단순화한다.
 
-Provide a simple yet fun self-assessment by revealing the solutions to challenges with the `spoiler` shortcode:
+### 5.1 위상 정렬 (Topological Sort)
+- 방향 비순환 그래프(DAG)의 선행 관계를 선형 순서로 나열한다.
+- Kahn 알고리즘(진입 차수 0 큐)과 DFS 기반 알고리즘이 대표적. 순환이 존재하면 수행이 불가능하므로 검출 역할도 수행한다.
+- 과목 선후수 관계, 빌드 시스템, 작업 스케줄링에 활용.
 
-```markdown
-{{</* spoiler text="👉 Click to view the solution" */>}}
-You found me!
-{{</* /spoiler */>}}
-```
+### 5.2 벨만-포드 알고리즘 (Bellman-Ford)
+- 음수 가중치가 존재하는 그래프에서 단일 출발점 최단 경로를 구한다.
+- 총 V-1회 간선 완화(relaxation)를 수행하며, V번째 완화에서 값이 갱신되면 음수 사이클이 존재함을 의미한다.
+- Dijkstra가 적용되지 않는 네트워크 라우팅(RIP) 등에 필수.
 
-renders as
+### 5.3 페블 게임 (Pebble Game)
+- DAG상의 노드에 조약돌(pebble)을 배치하면서 계산 순서를 분석하는 모델.
+- 레지스터 할당, 메모리 최소화 문제, 증명 복잡도 등에서 필요한 자원 수의 하한을 유도할 때 사용한다.
+- 목표는 목표 노드에 pebble을 올리기 위해 필요한 최소 pebble 수 또는 이동 횟수를 찾는 것. 동적 계획법, 탐욕 전략으로 표현 가능하지만 일반 그래프에서는 난이도가 높다.
 
-{{< spoiler text="👉 Click to view the solution" >}} You found me 🎉 {{< /spoiler >}}
+### 5.4 기타 그래프 알고리즘 개요
+- **DFS/BFS**: 탐색 기본기. 경로 유무, 컴포넌트, 위상 정렬의 토대.
+- **Strongly Connected Components (SCC)**: Kosaraju, Tarjan 알고리즘으로 DAG 축약 그래프 파악.
+- **최소 신장 트리(MST)**: Kruskal, Prim 알고리즘. 네트워크 비용 최소화 문제의 기본.
 
-## Math
+---
 
-Hugo Blox Builder supports a Markdown extension for $\LaTeX$ math. Enable math by setting the `math: true` option in your page's front matter, or enable math for your entire site by toggling math in your `config/_default/params.yaml` file:
+## 6. 문자열 매칭: 라빈-카프 (Rabin-Karp)
 
-```yaml
-features:
-  math:
-    enable: true
-```
+- 롤링 해시를 이용해 패턴의 해시값과 텍스트 부분 문자열 해시값을 비교한다.
+- O(n+m) 기대시간을 제공하며, 해시 충돌 발생 시 실제 문자열 비교로 검증한다.
+- 여러 패턴을 동시에 검색할 때 패턴 해시를 미리 계산해두면 효율적이다.
 
-To render _inline_ or _block_ math, wrap your LaTeX math with `$...$` or `$$...$$`, respectively.
+---
 
-Example **math block**:
+## 7. 학습 팁
 
-```latex
-$$
-\gamma_{n} = \frac{ \left | \left (\mathbf x_{n} - \mathbf x_{n-1} \right )^T \left [\nabla F (\mathbf x_{n}) - \nabla F (\mathbf x_{n-1}) \right ] \right |}{\left \|\nabla F(\mathbf{x}_{n}) - \nabla F(\mathbf{x}_{n-1}) \right \|^2}
-$$
-```
-
-renders as
-
-$$\gamma_{n} = \frac{ \left | \left (\mathbf x_{n} - \mathbf x_{n-1} \right )^T \left [\nabla F (\mathbf x_{n}) - \nabla F (\mathbf x_{n-1}) \right ] \right |}{\left \|\nabla F(\mathbf{x}_{n}) - \nabla F(\mathbf{x}_{n-1}) \right \|^2}$$
-
-Example **inline math** `$\nabla F(\mathbf{x}_{n})$` renders as $\nabla F(\mathbf{x}_{n})$.
-
-Example **multi-line math** using the math linebreak (`\\`):
-
-```latex
-$$f(k;p_{0}^{*}) = \begin{cases}p_{0}^{*} & \text{if }k=1, \\
-1-p_{0}^{*} & \text{if }k=0.\end{cases}$$
-```
-
-renders as
-
-$$
-f(k;p_{0}^{*}) = \begin{cases}p_{0}^{*} & \text{if }k=1, \\
-1-p_{0}^{*} & \text{if }k=0.\end{cases}
-$$
-
-## Code
-
-Hugo Blox Builder utilises Hugo's Markdown extension for highlighting code syntax. The code theme can be selected in the `config/_default/params.yaml` file.
-
-
-    ```python
-    import pandas as pd
-    data = pd.read_csv("data.csv")
-    data.head()
-    ```
-
-renders as
-
-```python
-import pandas as pd
-data = pd.read_csv("data.csv")
-data.head()
-```
-
-## Inline Images
-
-```go
-{{</* icon name="python" */>}} Python
-```
-
-renders as
-
-{{< icon name="python" >}} Python
-
-## Did you find this page helpful? Consider sharing it 🙌
+- 구현 연습 시 시간복잡도 분석과 함께 최악·평균 케이스 데이터를 직접 만들어 시험해 본다.
+- 시각화 도구(VisuAlgo, CS Academy 등)로 단계별 동작을 확인하면 개념 이해가 빠르다.
+- 실제 코딩 테스트에서는 공간 제한과 입력 범위를 먼저 파악해 적절한 알고리즘을 선택한다.
+- 참고 교재: CLRS, Algorithms (Sedgewick), Problem Solving with Algorithms and Data Structures (Miller & Ranum).
