@@ -1,154 +1,218 @@
 ---
 title: 👩🏼‍🏫 데이터베이스
-summary: Embed videos, podcasts, code, LaTeX math, and even test students!
-date: 2023-10-24
+summary: 정규화·뷰·인덱스·트리거·프로시저·트랜잭션 핵심 개념 정리
+date: 2024-10-24
 math: true
 authors:
   - admin
 tags:
-  - Hugo
-  - Hugo Blox Builder
-  - Markdown
+  - Database
+  - RDBMS
 image:
-  caption: 'Embed rich media such as videos and LaTeX math'
+  caption: '관계형 데이터베이스 설계 노트'
 
-exclude_search: true
+exclude_search: false
 dl_kind: "subjectsCount"
 semester: "3-1"
 course_topics:
-  - 지식 베이스 구축
-  - 협업 툴 활용
-  - 문서 자동화
+  - 데이터 정규화
+  - 고급 SQL 개념
+  - 트랜잭션 관리
 ---
 
-[Hugo Blox Builder](https://hugoblox.com) is designed to give technical content creators a seamless experience. You can focus on the content and the Hugo Blox Builder which this template is built upon handles the rest.
+## 1. 데이터베이스 정규화
 
-**Embed videos, podcasts, code, LaTeX math, and even test students!**
+### 1.1 정규화 개념
+- **정규화(Normalization)**: 릴레이션을 관련 있는 속성들만 포함하도록 분해하여 이상 현상을 제거하는 과정.
+- 이상 현상(Anomaly) 예방 목적. 데이터 중복을 최소화하고 데이터 무결성을 향상한다.
 
-On this page, you'll find some examples of the types of technical content that can be rendered with Hugo Blox.
+### 1.2 이상 현상(Anomalies)
+1. **삽입 이상**: 새 데이터를 추가하기 위해 불필요한 다른 데이터를 함께 삽입해야 하는 문제.
+2. **갱신 이상**: 중복된 튜플 중 일부만 수정되어 데이터 불일치가 발생.
+3. **삭제 이상**: 특정 데이터를 삭제하면 같이 저장된 유의미한 정보도 함께 손실.
 
-## Citation
+> 정규화는 이러한 이상 현상을 제거하기 위해 **함수 종속성**을 활용한다.
 
-Here's an example of citing a publication using the cite shortcode:
+---
 
-{{< cite page="/publications/preprint" view="citation" >}}
+## 2. 함수 종속
 
-You can also use the default view by omitting the view parameter:
+### 2.1 정의
+- 릴레이션 R에서 속성 집합 X가 Y를 결정한다면 $X \rightarrow Y$ (Y가 X에 함수 종속).
+- 모든 튜플에 대해 X의 값이 같다면 Y의 값도 동일하다.
 
-{{< cite page="/publications/conference-paper" >}}
+### 2.2 판단 기준
+- 속성의 의미와 비즈니스 규칙을 기반으로 파악해야 하며, 단순히 현재 데이터 값으로 판단하지 않는다.
+- 기본키/후보키는 일반적으로 다른 모든 속성을 함수적으로 결정한다.
 
-## Video
+### 2.3 완전 함수 종속(Full Functional Dependency)
+- $X \rightarrow Y$이지만 X의 부분집합 어느 것도 Y를 결정하지 못할 때.
+- 기본키 전체에 의존하는 속성. 부분적으로 의존하면 안 된다.
 
-Teach your course by sharing videos with your students. Choose from one of the following approaches:
+### 2.4 부분 함수 종속(Partial Functional Dependency)
+- 합성키 X = {A,B} 중 일부(A 또는 B)에만 의존하는 경우.
+- 부분 함수 종속이 존재하면 제1 정규형을 넘어 제2 정규형으로 분해해야 한다.
 
-**Youtube**:
+---
 
-    {{</* youtube D2vj0WcvH5c */>}}
+## 3. 정규화 단계
 
-{{< youtube D2vj0WcvH5c >}}
+### 3.1 제1정규형 (1NF)
+- 모든 속성값이 원자값(더 분해 불가능)이어야 한다.
+- 반복 그룹 제거, 다중값 속성을 분리.
+- 기본키에 완전 함수 종속되지 않으면 이상 현상 발생 → 제2정규형으로 분해 필요.
 
-**Bilibili**:
+### 3.2 제2정규형 (2NF)
+- 1NF 만족 + 기본키가 아닌 모든 속성이 기본키에 **완전 함수 종속**.
+- 부분 함수 종속 제거. 합성키일 경우 각각의 속성이 부키 전체에 의존하도록 릴레이션 분해.
+- 여전히 이행적 종속(Transitive Dependency)이 있을 수 있다.
 
-    {{</* bilibili BV1WV4y1r7DF */>}}
+### 3.3 제3정규형 (3NF)
+- 2NF 만족 + 기본키가 아닌 속성이 기본키에 **이행적으로 종속되지 않음**.
+- 즉, A→B, B→C가 있을 때 A→C 관계를 제거.
+- 속성 간 종속으로 인한 갱신 이상 해결.
 
+### 3.4 보이스/코드 정규형 (BCNF)
+- 3NF보다 강한 형태. 모든 함수 종속의 **결정자(Determinant)** 가 후보키.
+- 하나의 릴레이션에 여러 후보키가 있을 때 3NF만으로는 이상 현상이 남을 수 있어 BCNF로 정규화.
 
-**Video file**
+> 정규형을 너무 높이면 조인 비용이 커질 수 있으므로 실무에서는 성능과 무결성 사이에서 균형을 맞춘다. 제5정규형까지 항상 필요하지는 않다.
 
-Videos may be added to a page by either placing them in your `assets/media/` media library or in your [page's folder](https://gohugo.io/content-management/page-bundles/), and then embedding them with the _video_ shortcode:
+### 3.5 무손실 분해와 종속성 보존
+- 릴레이션 분해 시 원래 데이터를 잃지 않고(무손실) 주요 함수 종속성을 유지해야 한다.
+- 분해 후 조인하면 원래 관계를 복원할 수 있어야 함.
 
-    {{</* video src="my_video.mp4" controls="yes" */>}}
+---
 
-## Podcast
+## 4. 뷰(View)
 
-You can add a podcast or music to a page by placing the MP3 file in the page's folder or the media library folder and then embedding the audio on your page with the _audio_ shortcode:
+### 4.1 정의
+- 하나 이상의 기본 테이블을 기반으로 한 **가상 테이블**. 데이터는 실제 저장되지 않으며 SELECT 결과를 논리적으로 캡슐화한다.
+- 보안, 편의성, 추상화 목적으로 사용. 복잡한 SQL을 재사용하거나 민감한 칼럼을 숨길 수 있다.
 
-    {{</* audio src="ambient-piano.mp3" */>}}
-
-Try it out:
-
-{{< audio src="ambient-piano.mp3" >}}
-
-## Test students
-
-Provide a simple yet fun self-assessment by revealing the solutions to challenges with the `spoiler` shortcode:
-
-```markdown
-{{</* spoiler text="👉 Click to view the solution" */>}}
-You found me!
-{{</* /spoiler */>}}
+### 4.2 생성 구문
+```sql
+CREATE VIEW 뷰명 [(속성리스트)]
+AS
+SELECT ...
+[WITH CHECK OPTION];
 ```
+- `WITH CHECK OPTION`: 뷰를 통해 DML 수행 시 뷰 조건을 항상 만족하도록 강제.
+- `ORDER BY`는 사용할 수 없으며 필요 시 뷰 SELECT에서 정렬.
 
-renders as
+### 4.3 DML 제한
+- 뷰를 통한 삽입/수정/삭제는 기본 테이블에 반영될 수 있으나 제약 존재:
+  1. 기본키 또는 NOT NULL 속성을 포함하지 않으면 변경 불가.
+  2. 집계 함수, DISTINCT, GROUP BY, UNION 포함 시 대부분 읽기 전용.
+  3. 여러 테이블 조인으로 정의된 뷰는 업데이트가 제한적.
+- 뷰 삭제는 기본 테이블에 영향을 주지 않지만, 다른 제약조건이 뷰를 참조하면 먼저 제거해야 한다.
 
-{{< spoiler text="👉 Click to view the solution" >}} You found me 🎉 {{< /spoiler >}}
+### 4.4 장점
+- 복잡한 질의를 단순화.
+- 데이터 접근 제어(열 수준 보안).
+- 논리적 독립성 확보: 기본 테이블 구조가 바뀌어도 뷰를 통해 기존 인터페이스 유지 가능.
 
-## Math
+---
 
-Hugo Blox Builder supports a Markdown extension for $\LaTeX$ math. Enable math by setting the `math: true` option in your page's front matter, or enable math for your entire site by toggling math in your `config/_default/params.yaml` file:
+## 5. 인덱스(Indexing)
 
-```yaml
-features:
-  math:
-    enable: true
+### 5.1 정의와 역할
+- 테이블에서 원하는 레코드를 **빠르게 검색**하기 위한 자료구조.
+- B-Tree, B+Tree, 해시 기반 등 다양한 구조 사용. 대부분 RDBMS는 정렬된 B+Tree 이용.
+- 인덱스는 테이블 데이터의 일부 사본으로, 키-값 쌍(키: 인덱스 컬럼값, 값: 레코드 위치)을 저장한다.
+
+### 5.2 동작 방식
+1. 인덱스 구조에서 검색 조건에 맞는 키값 탐색.
+2. 해당 키가 가리키는 레코드 주소를 이용해 테이블에서 데이터 조회.
+- 테이블 전체 탐색(Full Scan) 대신 로그 시간(O(log n)) 복잡도로 접근.
+
+### 5.3 인덱스 설계 시 고려
+- **적합한 상황**: 조건 기반 조회, 정렬/그룹핑, 조인 키, 읽기 작업이 많은 테이블.
+- **주의 사항**:
+  - 삽입/수정/삭제 시 인덱스도 갱신되어 추가 비용 발생.
+  - 컬럼에 함수/연산 적용 시 인덱스가 사용되지 않을 수 있다.
+  - 자료형 불일치, OR 조건 다수, 낮은 선택도(중복 값이 많음) 상황은 효과 제한.
+
+### 5.4 클러스터형 vs 비클러스터형
+- **클러스터형 인덱스**: 테이블 자체가 인덱스 순서로 정렬되는 구조(예: InnoDB의 PK).
+- **비클러스터형 인덱스**: 별도의 인덱스 구조가 데이터 위치를 가리킨다.
+
+---
+
+## 6. 트리거(Trigger)
+
+### 6.1 개념
+- 특정 이벤트(DML: INSERT/UPDATE/DELETE, DDL, 로그온 등)가 발생했을 때 자동으로 실행되는 저장 프로시저.
+- 데이터 무결성 유지, 감사 로그 기록, 파생 값 유지 등에 활용.
+
+### 6.2 종류
+- **BEFORE 트리거**: 이벤트 수행 전에 실행. 입력값 검증, 변경 가능.
+- **AFTER 트리거**: 이벤트 후 실행. 감사 로그 작성, 후속 처리.
+- **INSTEAD OF 트리거**: 뷰에서 DML을 가로채 직접 처리(주로 SQL Server).
+
+### 6.3 주의 사항
+- 복잡한 로직이나 다중 트리거로 인해 성능 저하나 순환 호출이 발생할 수 있다.
+- 트리거 실패 시 전체 트랜잭션이 롤백될 수 있으므로 예외 처리 필수.
+
+---
+
+## 7. 저장 프로시저(Stored Procedure)
+
+### 7.1 정의
+- 데이터베이스에 저장된 SQL 코드 블록으로, 매개변수를 받아 반복 업무를 자동화.
+- 서버 측에서 실행 → 네트워크 트래픽 감소, 일관된 로직 유지.
+
+### 7.2 구조 예시
+```sql
+CREATE PROCEDURE 프로시저명(IN 파라미터 INT, OUT 결과 VARCHAR(50))
+BEGIN
+  -- SQL 문장들
+END;
 ```
+- 호출: `CALL 프로시저명(값, @out);`
 
-To render _inline_ or _block_ math, wrap your LaTeX math with `$...$` or `$$...$$`, respectively.
+### 7.3 장단점
+- 장점: 재사용성, 보안(권한 제어), 성능 최적화.
+- 단점: 복잡성 증가, 버전 관리/테스트 어려움, DBMS 종속성.
 
-Example **math block**:
+### 7.4 프로시저 vs 함수
+- 함수(Function)는 값을 반환해야 하며 SELECT 내에서 사용 가능.  
+- 프로시저는 반환값이 없거나 OUT 파라미터 사용, 트랜잭션 제어 가능.
 
-```latex
-$$
-\gamma_{n} = \frac{ \left | \left (\mathbf x_{n} - \mathbf x_{n-1} \right )^T \left [\nabla F (\mathbf x_{n}) - \nabla F (\mathbf x_{n-1}) \right ] \right |}{\left \|\nabla F(\mathbf{x}_{n}) - \nabla F(\mathbf{x}_{n-1}) \right \|^2}
-$$
-```
+---
 
-renders as
+## 8. 트랜잭션(Transaction)
 
-$$\gamma_{n} = \frac{ \left | \left (\mathbf x_{n} - \mathbf x_{n-1} \right )^T \left [\nabla F (\mathbf x_{n}) - \nabla F (\mathbf x_{n-1}) \right ] \right |}{\left \|\nabla F(\mathbf{x}_{n}) - \nabla F(\mathbf{x}_{n-1}) \right \|^2}$$
+### 8.1 정의
+- 데이터베이스에서 수행되는 **논리적 작업 단위**. 여러 SQL 문장을 하나의 묶음으로 처리.
+- 성공 시 모두 커밋(Commit), 실패 시 모두 롤백(Rollback) → 일관성 유지.
 
-Example **inline math** `$\nabla F(\mathbf{x}_{n})$` renders as $\nabla F(\mathbf{x}_{n})$.
+### 8.2 ACID 특성
+1. **Atomicity(원자성)**: 전부 수행되거나 전혀 수행되지 않아야 한다.
+2. **Consistency(일관성)**: 트랜잭션 전/후에 데이터 무결성 제약이 유지.
+3. **Isolation(격리성)**: 동시에 실행되는 트랜잭션 간 간섭 방지.
+4. **Durability(지속성)**: 커밋된 변경은 시스템 장애 후에도 보존.
 
-Example **multi-line math** using the math linebreak (`\\`):
+### 8.3 격리 수준(Isolation Level)
+- **Read Uncommitted**: Dirty Read 허용.
+- **Read Committed**: 커밋된 데이터만 읽음 (Dirty Read 방지).
+- **Repeatable Read**: 같은 행 재조회 시 항상 동일 결과 (Non-repeatable Read 방지).
+- **Serializable**: 완전한 직렬 실행과 동일. 가장 안전하지만 성능 저하.
 
-```latex
-$$f(k;p_{0}^{*}) = \begin{cases}p_{0}^{*} & \text{if }k=1, \\
-1-p_{0}^{*} & \text{if }k=0.\end{cases}$$
-```
+### 8.4 동시성 제어 기법
+- 잠금(Locking): 공유락/배타락, 2단계 잠금(2PL).
+- 낙관적 제어(Optimistic Concurrency Control), 타임스탬프 순서, 멀티버전 동시성 제어(MVCC).
 
-renders as
+### 8.5 트랜잭션 설계 팁
+- 트랜잭션은 가능한 짧게 유지. 긴 트랜잭션은 교착상태, 잠금 경합을 유발.
+- 자주 사용하는 패턴: `BEGIN TRAN; ...; COMMIT;` / 예외 발생 시 `ROLLBACK;`.
 
-$$
-f(k;p_{0}^{*}) = \begin{cases}p_{0}^{*} & \text{if }k=1, \\
-1-p_{0}^{*} & \text{if }k=0.\end{cases}
-$$
+---
 
-## Code
+## 9. 실무 설계 체크리스트
 
-Hugo Blox Builder utilises Hugo's Markdown extension for highlighting code syntax. The code theme can be selected in the `config/_default/params.yaml` file.
-
-
-    ```python
-    import pandas as pd
-    data = pd.read_csv("data.csv")
-    data.head()
-    ```
-
-renders as
-
-```python
-import pandas as pd
-data = pd.read_csv("data.csv")
-data.head()
-```
-
-## Inline Images
-
-```go
-{{</* icon name="python" */>}} Python
-```
-
-renders as
-
-{{< icon name="python" >}} Python
-
-## Did you find this page helpful? Consider sharing it 🙌
+- 정규화와 비정규화 균형: 읽기 성능과 무결성 요구를 고려해 결정.
+- 핵심 작업에 필요한 인덱스만 유지하고, 주기적으로 사용 통계 분석.
+- 트리거/프로시저에는 예외 처리와 로깅을 포함해 추적 가능성 확보.
+- 트랜잭션 격리 수준을 업무 시나리오에 맞춰 선택하고, 교착 상태 모니터링.
+- 백업·복구 전략, 감사 로그 정책, 권한 관리(최소 권한 원칙)를 문서화한다.
