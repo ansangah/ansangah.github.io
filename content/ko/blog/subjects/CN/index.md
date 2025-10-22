@@ -10,7 +10,6 @@ tags:
   - InternetProtocols
 image:
   filename: featured.jpg
-  caption: '네트워크 계층 구조 다이어그램'
 resources:
   - src: featured.jpg
     name: featured

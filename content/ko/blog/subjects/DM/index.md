@@ -10,7 +10,6 @@ tags:
   - MachineLearning
 image:
   filename: featured.jpg
-  caption: '데이터마이닝 분석 파이프라인 노트'
 resources:
   - src: featured.jpg
     name: featured

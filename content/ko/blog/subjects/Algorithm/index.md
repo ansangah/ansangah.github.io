@@ -10,7 +10,6 @@ tags:
   - DataStructure
 image:
   filename: featured.jpg
-  caption: '알고리즘 핵심 개념 정리 노트'
 resources:
   - src: featured.jpg
     name: featured

@@ -10,7 +10,6 @@ tags:
   - Programming
 image:
   filename: featured.jpg
-  caption: '자료구조 개념 지도'
 resources:
   - src: featured.jpg
     name: featured

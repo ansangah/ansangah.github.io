@@ -10,7 +10,6 @@ tags:
   - PatternRecognition
 image:
   filename: featured.jpg
-  caption: '기계학습 모델 지형도'
 resources:
   - src: featured.jpg
     name: featured

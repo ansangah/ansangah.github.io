@@ -73,7 +73,7 @@ math: true
 - **Dark/Light & Theming**: 커스텀 CSS로 다크/라이트 모드 및 기본 색상 변경.
 - **Hero Contact & Socials**: 이름, 사진, 전공, 연락처(이메일)와 GitHub/Instagram 링크 노출.
 - **Maps & Media**: 슬라이더, 지도, FAB 아이콘, PDF 다운로드 버튼 포함.
-- **FAB Icons Usage**: Font Awesome Brands 팩 아이콘을 메인 홈에 4개, 연락처 페이지에 4개 배치해 총 8개 활용.
+- **FAB Icons Usage**: Font Awesome Brands 팩 아이콘을 메인 홈에 3개, 연락처 페이지에 3개 배치해 총 6개 활용.
 - **Search & Icons**: Pagefind 검색, 헤더 검색·다운로드 아이콘 구현.
 - **Custom Views**: `ai-blog`, `subjects` 두 개의 HTML 커스텀 뷰 제작 및 적용.
 - **Korean Default**: `hugo.yaml`에서 기본 언어를 한국어로 설정하고 다국어 메뉴 구성.

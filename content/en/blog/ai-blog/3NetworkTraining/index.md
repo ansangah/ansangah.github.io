@@ -1,7 +1,7 @@
 ---
 title: "📁 Chapter 3: Neural Network Learning and Optimization"
 summary: Summarizes how neural networks learn rules from data and the key ideas of optimization and gradient descent that make this possible.
-date: 2025-10-17
+date: 2025-10-22
 
 authors:
   - admin

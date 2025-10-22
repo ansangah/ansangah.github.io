@@ -10,7 +10,6 @@ tags:
   - SystemProgramming
 image:
   filename: featured.jpg
-  caption: '운영체제 구조 다이어그램 메모'
 resources:
   - src: featured.jpg
     name: featured

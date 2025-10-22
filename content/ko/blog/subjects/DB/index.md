@@ -10,7 +10,6 @@ tags:
   - RDBMS
 image:
   filename: featured.jpg
-  caption: '관계형 데이터베이스 설계 노트'
 resources:
   - src: featured.jpg
     name: featured

@@ -1,7 +1,7 @@
 ---
 title: 정규화 용어 정리
 summary: Regularization, Nomalization, Standardization, Generalization 용어 비교 및 정리
-date: 2025-10-13
+date: 2025-10-22
 authors:
   - admin
 tags:

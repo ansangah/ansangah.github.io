@@ -1,7 +1,7 @@
 ---
 title: "📁 Chapter 2: Feedforward Neural Network (FNN) Summary"
 summary: Summarizes the structure of multilayer perceptrons, activation functions, binary/multi-class classification and regression, and model scaling — all in one place.
-date: 2025-10-16
+date: 2025-10-22
 authors:
   - admin
 tags:

@@ -1,7 +1,7 @@
 ---
 title: Terminology Cheat Sheet for Normalization & Regularization
 summary: Quick reference for normalization, standardization, regularization, and generalization
-date: 2025-10-13
+date: 2025-10-22
 authors:
   - admin
 tags:
@@ -44,7 +44,7 @@ exclude_search: false
 
 
 
-  
+
 - Formula  
   $$z = \frac{x - \mu}{\sigma}$$
 

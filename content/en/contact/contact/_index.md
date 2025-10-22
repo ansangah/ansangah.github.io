@@ -12,5 +12,5 @@ Reach me anytime via:
 {{< icon name="brands/instagram" pack="fab" >}} [@ahnneu_](https://instagram.com/ahnneu_)  
 {{< icon name="brands/discord" pack="fab" >}} [ahnneu](https://discord.com/users/ahnneu)  
 {{< icon name="brands/github" pack="fab" >}} [ansangah](https://github.com/ansangah)
-<!-- fab 아이콘 메인 홈 4개, 연락처 페이지 4개 총 8개 -->
+<!-- fab 아이콘 메인 홈 3개, 연락처 페이지 3개 총 6개 -->
 <div>
