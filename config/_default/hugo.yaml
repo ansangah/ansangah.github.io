@@ -55,7 +55,6 @@ markup:
 sitemap:
   changefreq: weekly
   priority: 0.5
-sitemap:
   _merge: deep
 icons:
   fontawesome: true
