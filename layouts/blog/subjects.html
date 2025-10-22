@@ -12,7 +12,12 @@
 
   {{ $pages := .RegularPages }}
   {{ $order := slice "3-2" "3-1" "2-2" "2-1" }}
-  {{ $labels := dict "3-2" "3학년 2학기" "3-1" "3학년 1학기" "2-2" "2학년 2학기" "2-1" "2학년 1학기" }}
+  {{ $labels := dict
+    "3-2" (i18n "subjects_semester_3_2" | default "Year 3 · Semester 2")
+    "3-1" (i18n "subjects_semester_3_1" | default "Year 3 · Semester 1")
+    "2-2" (i18n "subjects_semester_2_2" | default "Year 2 · Semester 2")
+    "2-1" (i18n "subjects_semester_2_1" | default "Year 2 · Semester 1")
+  }}
 
   {{ range $order }}
     {{ $semester := . }}
@@ -59,7 +64,7 @@
   {{ $others := union $catchall $unordered }}
   {{ if gt (len $others) 0 }}
     <section class="mb-12">
-      <h2 class="mb-5 text-2xl font-semibold text-gray-900 dark:text-white">학기 미분류</h2>
+      <h2 class="mb-5 text-2xl font-semibold text-gray-900 dark:text-white">{{ i18n "subjects_unassigned_heading" | default "Unassigned Semester" }}</h2>
       <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {{ range $others.ByDate.Reverse }}
           <article class="rounded-2xl border border-gray-200 dark:border-gray-700 bg-slate-100 dark:bg-[#1f2a44] shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg">

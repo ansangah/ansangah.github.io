@@ -6,3 +6,41 @@ about:
   other: "소개"
 interests:
   other: "관심사"
+ai_blog_total_posts:
+  other: "전체 글"
+ai_blog_textbook_summaries:
+  other: "교과서 정리"
+ai_blog_notes_papers:
+  other: "노트 · 논문"
+ai_blog_subject_guides:
+  other: "과목별 정리"
+ai_blog_textbook_section_title:
+  other: "📚 딥러닝 교과서 정리"
+ai_blog_textbook_section_desc:
+  other: "기본기를 탄탄하게 다지는 핵심 이론 및 필수 개념을 모았습니다."
+ai_blog_notes_section_title:
+  other: "🧪 딥러닝 노트 · 논문 정리"
+ai_blog_notes_section_desc:
+  other: "실험 기록과 논문 정리를 통해 인사이트를 빠르게 확인하세요."
+ai_blog_misc_section_title:
+  other: "📌 기타 학습 자료"
+ai_blog_misc_label:
+  other: "기타"
+ai_blog_dl_kind_textbook:
+  other: "딥러닝 교과서"
+ai_blog_dl_kind_notes:
+  other: "딥러닝 노트 · 논문"
+ai_blog_dl_kind_subjects:
+  other: "과목별 정리"
+ai_blog_dl_kind_default:
+  other: "AI 학습"
+subjects_semester_3_2:
+  other: "3학년 2학기"
+subjects_semester_3_1:
+  other: "3학년 1학기"
+subjects_semester_2_2:
+  other: "2학년 2학기"
+subjects_semester_2_1:
+  other: "2학년 1학기"
+subjects_unassigned_heading:
+  other: "학기 미분류"

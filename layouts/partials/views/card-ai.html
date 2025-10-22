@@ -1,14 +1,19 @@
 {{ $page := .page }}
 {{ $index := .index | default 0 }}
 {{ $featured := partial "functions/get_featured_image.html" $page }}
-{{ $dlKindLabels := dict "textbook" "딥러닝 교과서" "notes" "딥러닝 노트 · 논문" "subjectsCount" "과목별 정리" }}
-{{ $dlKind := "AI 학습" }}
+{{ $dlKindLabels := dict
+  "textbook" (i18n "ai_blog_dl_kind_textbook" | default "Deep Learning Textbook")
+  "notes" (i18n "ai_blog_dl_kind_notes" | default "Deep Learning Notes & Papers")
+  "subjectsCount" (i18n "ai_blog_dl_kind_subjects" | default "Subject Guides")
+}}
+{{ $dlKindKey := "" }}
+{{ $dlKind := i18n "ai_blog_dl_kind_default" | default "AI Study" }}
 {{ with $page.Params.dl_kind }}
-  {{ $kind := . }}
-  {{ with index $dlKindLabels $kind }}
+  {{ $dlKindKey = . }}
+  {{ with index $dlKindLabels $dlKindKey }}
     {{ $dlKind = . }}
   {{ else }}
-    {{ $dlKind = $kind }}
+    {{ $dlKind = $dlKindKey }}
   {{ end }}
 {{ end }}
 
@@ -30,7 +35,7 @@
           alt="{{ $page.Title | plainify }} featured image"
           class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
         >
-      {{ else if and (eq $dlKind "과목별 정리") $page.Params.image.filename }}
+      {{ else if and (eq $dlKindKey "subjectsCount") $page.Params.image.filename }}
         {{ $imgURL := printf "%s%s" $page.RelPermalink $page.Params.image.filename }}
         <img
           src="{{ $imgURL | relURL }}"
@@ -39,7 +44,7 @@
           alt="{{ $page.Title | plainify }} featured image"
           class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
         >
-      {{ else if eq $dlKind "과목별 정리" }}
+      {{ else if eq $dlKindKey "subjectsCount" }}
         <div class="flex h-full w-full items-center justify-center text-4xl text-slate-400 dark:text-slate-200">
           <span>📚</span>
         </div>

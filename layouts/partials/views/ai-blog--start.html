@@ -60,19 +60,19 @@
 
   <dl class="ai-blog-stats mt-10 grid grid-cols-1 gap-4 rounded-2xl border border-gray-200 bg-slate-100 p-6 text-slate-700 sm:grid-cols-2 md:grid-cols-4 dark:border-[#283a57] dark:bg-[#1f2a44] dark:text-slate-100">
     <div class="flex flex-col items-center gap-1 py-2">
-      <dt class="ai-blog-stats__label text-xs font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-300">전체 글</dt>
+      <dt class="ai-blog-stats__label text-xs font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-300">{{ i18n "ai_blog_total_posts" | default "Total Posts" }}</dt>
       <dd class="ai-blog-stats__value text-2xl font-semibold blog-total-count">{{ $total }}</dd>
     </div>
     <div class="flex flex-col items-center gap-1 py-2">
-      <dt class="ai-blog-stats__label text-xs font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-300">교과서 정리</dt>
+      <dt class="ai-blog-stats__label text-xs font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-300">{{ i18n "ai_blog_textbook_summaries" | default "Textbook Summaries" }}</dt>
       <dd class="ai-blog-stats__value text-2xl font-semibold">{{ $textbookCount }}</dd>
     </div>
     <div class="flex flex-col items-center gap-1 py-2">
-      <dt class="ai-blog-stats__label text-xs font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-300">노트 · 논문</dt>
+      <dt class="ai-blog-stats__label text-xs font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-300">{{ i18n "ai_blog_notes_papers" | default "Notes & Papers" }}</dt>
       <dd class="ai-blog-stats__value text-2xl font-semibold">{{ $notesCount }}</dd>
     </div>
     <div class="flex flex-col items-center gap-1 py-2">
-      <dt class="ai-blog-stats__label text-xs font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-300">과목별 정리</dt>
+      <dt class="ai-blog-stats__label text-xs font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-300">{{ i18n "ai_blog_subject_guides" | default "Subject Guides" }}</dt>
       <dd class="ai-blog-stats__value text-2xl font-semibold">{{ $subjectsCount }}</dd>
     </div>
   </dl>

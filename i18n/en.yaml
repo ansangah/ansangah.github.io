@@ -6,3 +6,41 @@ about:
   other: "About Me"
 interests:
   other: "Interests"
+ai_blog_total_posts:
+  other: "Total"
+ai_blog_textbook_summaries:
+  other: "Textbooks"
+ai_blog_notes_papers:
+  other: "Notes & Papers"
+ai_blog_subject_guides:
+  other: "Subjects"
+ai_blog_textbook_section_title:
+  other: "📚 Deep Learning Textbook Notes"
+ai_blog_textbook_section_desc:
+  other: "Curated core theories and essential concepts to strengthen the fundamentals."
+ai_blog_notes_section_title:
+  other: "🧪 Deep Learning Notes & Papers"
+ai_blog_notes_section_desc:
+  other: "Review experiments and paper summaries to capture insights quickly."
+ai_blog_misc_section_title:
+  other: "📌 Additional Resources"
+ai_blog_misc_label:
+  other: "Other"
+ai_blog_dl_kind_textbook:
+  other: "Deep Learning Textbook"
+ai_blog_dl_kind_notes:
+  other: "Deep Learning Notes & Papers"
+ai_blog_dl_kind_subjects:
+  other: "Subject Guides"
+ai_blog_dl_kind_default:
+  other: "AI Study"
+subjects_semester_3_2:
+  other: "Year 3 · Semester 2"
+subjects_semester_3_1:
+  other: "Year 3 · Semester 1"
+subjects_semester_2_2:
+  other: "Year 2 · Semester 2"
+subjects_semester_2_1:
+  other: "Year 2 · Semester 1"
+subjects_unassigned_heading:
+  other: "Unassigned Semester"
