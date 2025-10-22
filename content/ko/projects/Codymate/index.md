@@ -1,6 +1,6 @@
 ---
 title: Codymate
-date: 2023-09-26
+date: 2025-09-26
 links:
   - type: site
     url: https://github.com/ansangah/Codymate
