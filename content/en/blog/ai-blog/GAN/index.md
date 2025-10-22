@@ -10,6 +10,10 @@ tags:
 
 math: false
 dl_kind: "notes"
+course_topics:
+  - Generator-Discriminator Dynamics
+  - Adversarial Training Objective
+  - Latent Space Sampling
 
 exclude_search: false
 ---

@@ -12,6 +12,10 @@ image:
 
 exclude_search: false
 dl_kind: "notes"
+course_topics:
+  - 정규화 vs 표준화
+  - 규제 기법 비교
+  - 일반화 성능 향상 전략
 ---
 
 ## 1. Normalization (Min-Max Scaling)

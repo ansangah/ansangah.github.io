@@ -7,11 +7,13 @@ authors:
 tags:
   - GAN
   - 생성적 적대 신경망
-image:
-  caption: 'Image credit: [**Unsplash**](https://unsplash.com)'
 
 exclude_search: false
 dl_kind: "notes"
+course_topics:
+  - 생성자·판별자 구조
+  - 적대적 학습 목적 함수
+  - 잠재 공간 샘플링
 ---
 
 현재 공부 중..

@@ -10,6 +10,10 @@ tags:
 
 math: true
 dl_kind: "notes"
+course_topics:
+  - Normalization vs Standardization
+  - Regularization Techniques
+  - Improving Model Generalization
 
 exclude_search: false
 ---
