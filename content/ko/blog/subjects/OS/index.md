@@ -1,154 +1,199 @@
 ---
 title: 👩🏼‍🏫 운영체제
-summary: Embed videos, podcasts, code, LaTeX math, and even test students!
-date: 2023-10-24
+summary: 운영체제 역사부터 커널 구조까지 핵심 개념 정리
+date: 2024-10-24
 math: true
 authors:
   - admin
 tags:
-  - Hugo
-  - Hugo Blox Builder
-  - Markdown
+  - OperatingSystem
+  - SystemProgramming
 image:
-  caption: 'Embed rich media such as videos and LaTeX math'
+  caption: '운영체제 구조 다이어그램 메모'
 
-exclude_search: true
+exclude_search: false
 dl_kind: "subjectsCount"
 semester: "3-1"
 course_topics:
-  - 지식 베이스 구축
-  - 협업 툴 활용
-  - 문서 자동화
+  - OS 역사와 개념
+  - 하드웨어·커널 구조
+  - I/O 및 시스템 콜
 ---
 
-[Hugo Blox Builder](https://hugoblox.com) is designed to give technical content creators a seamless experience. You can focus on the content and the Hugo Blox Builder which this template is built upon handles the rest.
+## 1. OS 역사와 개념
 
-**Embed videos, podcasts, code, LaTeX math, and even test students!**
+### 1.1 Batch (배치 처리)
+- 아주 초기 운영체제 형태. 한번에 하나의 작업(job)만 순차 실행.
+- 사람이 직접 작업을 순서대로 적재하고, 앞선 작업이 끝나야 다음 작업이 시작된다.
+- 중간에 사용자 개입이 불가하여 결과를 기다리는 동안 시스템이 비효율적으로 사용된다.
 
-On this page, you'll find some examples of the types of technical content that can be rendered with Hugo Blox.
+### 1.2 Batch의 문제점
+1. **CPU 유휴 시간 증가**: I/O 장치 대비 빠른 CPU가 대기하게 되어 자원이 낭비된다.
+2. **Job Switching 지연**: 사람이 직접 작업을 교체하므로 전환 시간이 길다.
 
-## Citation
+### 1.3 Spooling (문제점 1 해결)
+- I/O와 계산을 겹쳐 수행하도록 버퍼에 작업을 적재하는 기법.
+- 예시: 프린터 스풀링  
+  1) 인쇄 문서를 디스크/메모리 버퍼에 저장  
+  2) 프린터는 버퍼에서 데이터를 가져와 자체 속도로 출력  
+  3) 컴퓨터는 프린터 작업과 무관하게 다른 연산을 이어서 수행
+- 장점: CPU가 I/O 완료를 기다리지 않고 다음 계산을 진행.
+- 단점: CPU 작업이 I/O 결과를 즉시 필요로 할 경우(read 등) 스풀링만으론 문제 해결이 어렵다.
 
-Here's an example of citing a publication using the cite shortcode:
+### 1.4 Automatic Job Sequencing (문제점 2 해결)
+- 사람 개입 없이 운영체제가 작업을 순차적으로 실행하도록 스케줄링 소프트웨어를 도입.
+- 이전 작업 완료 즉시 다음 작업을 실행하여 배치 처리 대비 성능 향상.
+- 다수의 프로그램을 메모리에 준비시키기 위해 **Multiprogramming** 기술이 필요하다.
 
-{{< cite page="/publications/preprint" view="citation" >}}
+### 1.5 Multiprogramming과 Timesharing
+- 2개 이상의 작업을 메모리에 올려 두고 CPU를 교대로 배정.
+- 현재 작업이 I/O에 진입하면 즉시 다른 작업으로 전환하여 CPU 활용률을 높인다.
+- 기본 스케줄링은 FCFS이나 공정성을 위해 우선순위 기반 스케줄링이 도입된다.
+- **Timesharing**: CPU 시간을 일정한 타임 슬라이스로 나눠 모든 프로그램이 조금씩 CPU를 사용.  
+  - 빈번한 컨텍스트 스위칭으로 사용자 체감은 동시 실행에 가깝지만, 스위칭 비용이 성능 저하를 유발할 수 있다.
 
-You can also use the default view by omitting the view parameter:
+---
 
-{{< cite page="/publications/conference-paper" >}}
+## 2. OS와 컴퓨터 시스템 구조
 
-## Video
+### 2.1 네 가지 구성 요소
+1. **하드웨어**: CPU, 메모리, I/O 장치 등 연산 자원 제공.
+2. **운영체제**: 응용 프로그램과 하드웨어 사이를 중재하며 자원 접근을 통제.
+3. **응용 프로그램**: 사용자의 요구를 수행하며 어떤 자원을 어떻게 사용할지 결정.
+4. **사용자(User)**: 시스템과 상호작용하는 주체.
 
-Teach your course by sharing videos with your students. Choose from one of the following approaches:
+### 2.2 시스템 버스 구조
+- 초기 시스템은 단일 버스 구조로 CPU·메모리·I/O가 동일 버스를 공유하여 병목이 발생.
+- 속도 격차 해결을 위해 **계층적 이중 버스** 등장:
+  - **System Bus**: 고속 CPU·메모리 연결.
+  - **I/O Bus**: 상대적으로 느린 장치를 연결해 병목 방지.
+  - **Northbridge**: 고속 장치용 버스 컨트롤러.
+  - **Southbridge**: 저속 장치 및 주변기기 제어.
 
-**Youtube**:
+---
 
-    {{</* youtube D2vj0WcvH5c */>}}
+## 3. 실행 모드: User Mode & Kernel Mode
 
-{{< youtube D2vj0WcvH5c >}}
+- CPU는 **시스템 보호(System Protection)**를 위해 최소 두 가지 권한 모드를 가진다.
+- 모드에 따라 접근 가능한 메모리·명령어가 구분된다.
 
-**Bilibili**:
+### 3.1 Kernel Mode
+- 운영체제가 실행되는 특권 모드로 모든 명령·레지스터에 접근 가능.
+- 드라이버, 자원 관리자 등 핵심 기능이 여기서 동작한다.
 
-    {{</* bilibili BV1WV4y1r7DF */>}}
+### 3.2 User Mode
+- 일반 응용 프로그램이 실행되는 제한 모드.
+- 특권 명령어를 실행할 수 없으며, 하드웨어 접근은 OS 서비스를 통해서만 가능.
 
+### 3.3 모드 전환
+- 시스템 콜, 인터럽트, 트랩 발생 시 CPU는 모드 비트를 변경해 커널에 진입한다.
+- 작업 종료 후 복귀 시 다시 User Mode로 전환한다.
 
-**Video file**
+---
 
-Videos may be added to a page by either placing them in your `assets/media/` media library or in your [page's folder](https://gohugo.io/content-management/page-bundles/), and then embedding them with the _video_ shortcode:
+## 4. CPU 이벤트 처리 기법
 
-    {{</* video src="my_video.mp4" controls="yes" */>}}
+### 4.1 인터럽트(Hardware Interrupt)
+- 비동기 외부 이벤트를 처리하기 위한 메커니즘.
+- 처리 순서: ① 현재 상태 저장 → ② ISR(Interrupt Service Routine) 진입 → ③ 상태 복원 → ④ 중단 지점 재개.
+- 장치별 우선순위를 부여해 긴급도를 조절하며, ISR은 짧고 신속하게 작성해야 한다.
 
-## Podcast
+### 4.2 트랩(Trap, Software Interrupt)
+- 프로그램 내부의 동기 이벤트(예: 0으로 나누기, 시스템 콜)를 처리.
+- 트랩 발생 시 커널 모드로 전환되지만, 하드웨어 인터럽트와 달리 별도의 컨텍스트 저장 단계가 생략될 수 있다.
 
-You can add a podcast or music to a page by placing the MP3 file in the page's folder or the media library folder and then embedding the audio on your page with the _audio_ shortcode:
+### 4.3 I/O Device 구성 요소
+- **Bus**: 데이터(Data), 주소(Address), 제어(Control) 라인으로 구성된 전송 통로.
+- **Device Registers**: 버스 끝단의 제어/상태/Input/Output 레지스터. 메모리 매핑을 통해 CPU가 접근.
+- **Controller**: 장치와 직접 상호작용하며 여러 버스 간 충돌을 조정한다.
 
-    {{</* audio src="ambient-piano.mp3" */>}}
+---
 
-Try it out:
+## 5. Device Access 방식
 
-{{< audio src="ambient-piano.mp3" >}}
+### 5.1 I/O Instruction
+- CPU 내 고유 I/O 명령어로 장치와 직접 통신하는 원초적 방법.
+- 시스템마다 명령 집합이 달라 코드 이식성이 낮다.
 
-## Test students
+### 5.2 Memory-Mapped I/O
+- 장치 레지스터를 시스템 메모리 주소 공간에 매핑.
+- 일반 메모리 접근 명령으로 I/O를 제어하므로 이식성과 프로그래밍 편의성이 높다.
 
-Provide a simple yet fun self-assessment by revealing the solutions to challenges with the `spoiler` shortcode:
+---
 
-```markdown
-{{</* spoiler text="👉 Click to view the solution" */>}}
-You found me!
-{{</* /spoiler */>}}
-```
+## 6. I/O 처리 기법
 
-renders as
+- 운영체제가 I/O 요청 이후 완료 여부를 확인하는 방법.
 
-{{< spoiler text="👉 Click to view the solution" >}} You found me 🎉 {{< /spoiler >}}
+### 6.1 Polling
+- CPU가 루프를 돌며 장치 상태를 주기적으로 확인.
+- 장점: 장치 응답이 빠르면 즉시 처리 가능.
+- 단점: 대기 시간이 길면 CPU 시간을 낭비.
 
-## Math
+### 6.2 Interrupt-Driven I/O
+- CPU가 다른 작업을 수행하다가 장치 인터럽트를 받으면 ISR을 실행.
+- 장점: 불필요한 대기를 줄여 CPU 활용률 향상.
+- 단점: 잦은 컨텍스트 스위치로 오버헤드 발생, 이벤트 즉시 확인은 어려울 수 있음.
 
-Hugo Blox Builder supports a Markdown extension for $\LaTeX$ math. Enable math by setting the `math: true` option in your page's front matter, or enable math for your entire site by toggling math in your `config/_default/params.yaml` file:
+> **요약**: 장치가 빠르면 Polling, 느리면 Interrupt 방식이 효율적이다.
 
-```yaml
-features:
-  math:
-    enable: true
-```
+---
 
-To render _inline_ or _block_ math, wrap your LaTeX math with `$...$` or `$$...$$`, respectively.
+## 7. Data Transfer 방식
 
-Example **math block**:
+### 7.1 Programmed I/O
+- CPU가 버스 상태 확인과 데이터 전송을 직접 담당.
+- 데이터가 크면 CPU 리소스가 크게 소모된다.
 
-```latex
-$$
-\gamma_{n} = \frac{ \left | \left (\mathbf x_{n} - \mathbf x_{n-1} \right )^T \left [\nabla F (\mathbf x_{n}) - \nabla F (\mathbf x_{n-1}) \right ] \right |}{\left \|\nabla F(\mathbf{x}_{n}) - \nabla F(\mathbf{x}_{n-1}) \right \|^2}
-$$
-```
+### 7.2 DMA (Direct Memory Access)
+- 별도의 DMA 컨트롤러가 CPU 대신 데이터 전송을 수행.
+- 동작: CPU가 DMA에 요청 → DMA가 메모리와 장치 사이 데이터 이동 → 완료 시 인터럽트 발생.
+- 장점: CPU offloading, 고속 대량 전송에 적합.
+- 단점: 하드웨어 비용과 설계 복잡도 증가, 버스 경합으로 인한 지연 가능.
 
-renders as
+---
 
-$$\gamma_{n} = \frac{ \left | \left (\mathbf x_{n} - \mathbf x_{n-1} \right )^T \left [\nabla F (\mathbf x_{n}) - \nabla F (\mathbf x_{n-1}) \right ] \right |}{\left \|\nabla F(\mathbf{x}_{n}) - \nabla F(\mathbf{x}_{n-1}) \right \|^2}$$
+## 8. OS 설계 고려사항
 
-Example **inline math** `$\nabla F(\mathbf{x}_{n})$` renders as $\nabla F(\mathbf{x}_{n})$.
+### 8.1 목적에 따른 분류
+- **General Purpose OS**: 범용 환경을 위한 운영체제.
+- **Special Purpose OS**: 임베디드, 실시간 등 특정 요구를 충족하기 위한 OS.
+- 다양한 특성(성능, 공평성, 신뢰성 등) 사이에서 적절한 **Trade-off**가 필요하다.
 
-Example **multi-line math** using the math linebreak (`\\`):
+### 8.2 Layering vs Modularity
+- 시스템 복잡도를 줄이고 유지보수성을 높이기 위한 설계 원칙.
+- **Layering(계층화)**: 상·하위 계층 간 명확한 인터페이스. 상위는 하위 서비스만 사용하며 다른 계층을 직접 호출하지 않는다.
+- **Modularity(모듈화)**: 기능별 독립 모듈을 정의하고 인터페이스로 상호작용. 계층 제약은 없지만 의존성 관리가 중요.
+- 현실의 OS는 계층 구조 안에 여러 모듈을 배치해 안정성과 확장성을 확보한다.
 
-```latex
-$$f(k;p_{0}^{*}) = \begin{cases}p_{0}^{*} & \text{if }k=1, \\
-1-p_{0}^{*} & \text{if }k=0.\end{cases}$$
-```
+---
 
-renders as
+## 9. 커널 구조와 시스템 콜
 
-$$
-f(k;p_{0}^{*}) = \begin{cases}p_{0}^{*} & \text{if }k=1, \\
-1-p_{0}^{*} & \text{if }k=0.\end{cases}
-$$
+### 9.1 System Call과 모드 전환
+- 유저 프로그램이 커널 서비스를 사용하기 위한 진입점.
+- 시스템 콜 API → Trap 발생 → CPU 모드 비트 변경 → 커널의 Trap Handler 실행 → 서비스 수행 후 User Mode로 복귀.
 
-## Code
+### 9.2 시스템 콜 파라미터 전달
+1. **레지스터**: 빠르지만 전달 가능한 인자 수가 제한적.
+2. **메모리 블록**: 인자를 메모리 블록에 저장하고 시작 주소만 레지스터로 전달.
+3. **스택 사용**: 사용자 프로그램이 스택에 push, 커널이 pop하여 읽는다.
 
-Hugo Blox Builder utilises Hugo's Markdown extension for highlighting code syntax. The code theme can be selected in the `config/_default/params.yaml` file.
+### 9.3 Monolithic Kernel
+- 모든 커널 서비스가 하나의 주소 공간에서 실행.
+- 장점: 동일 주소 공간에 위치하므로 시스템 콜/서비스 간 데이터 전달 오버헤드가 작다.
+- 단점: 구성요소 간 결합도가 높아 유지보수가 어렵고, 한 모듈의 버그가 전체 시스템에 영향을 미칠 수 있다.
 
+### 9.4 Address Space 메모
+- 주소 공간은 접근 가능한 주소 범위를 정의.  
+  같은 주소 공간을 공유해야 직접 참조가 가능하며, 분리된 주소 공간은 보호 기능을 제공한다.
 
-    ```python
-    import pandas as pd
-    data = pd.read_csv("data.csv")
-    data.head()
-    ```
+### 9.5 Micro Kernel
+- 커널 기능을 서버 단위로 분할해 독립된 프로세스로 실행.
+- 마이크로 커널 자체는 최소한의 통신/프로세스 관리 기능만 담당.
+- 장점: 서비스 간 의존성이 낮아 유지보수와 기능 교체가 용이, 필요한 서버만 실행해 자원 절약 가능.
+- 단점: 서비스 호출마다 주소 공간 전환과 IPC가 발생해 성능이 저하될 수 있다.
 
-renders as
-
-```python
-import pandas as pd
-data = pd.read_csv("data.csv")
-data.head()
-```
-
-## Inline Images
-
-```go
-{{</* icon name="python" */>}} Python
-```
-
-renders as
-
-{{< icon name="python" >}} Python
-
-## Did you find this page helpful? Consider sharing it 🙌
+### 9.6 Hybrid Kernel
+- 현대 OS는 주로 Monolithic 기반에 동적 모듈/서비스 분리를 도입한 하이브리드 구조를 사용.
+- 핵심 기능은 커널 공간에, 확장 기능은 모듈·서버 형태로 제공해 성능과 확장성을 모두 확보한다.

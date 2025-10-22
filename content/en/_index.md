@@ -76,6 +76,9 @@ sections:
       page_type: blog
       # Choose how many pages you would like to display (0 = all pages)
       count: 9
+      archive:
+        enable: true
+        link: /blog/subjects/
       # Filter on criteria
       filters:
         author: ''
