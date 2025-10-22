@@ -7,12 +7,15 @@ main:
   - name: Home
     url: '/'
     weight: 10
+
   - name: Resumé
     url: '/experience/'
     weight: 20
+
   - name: Projects
     url: '/projects/'
     weight: 30
+
   - name: Blog
     identifier: blog
     url: '/blog/'
@@ -25,6 +28,7 @@ main:
     parent: blog
     url: '/blog/subjects/'
     weight: 42
+    
   - name: Contact
     identifier: contact
     url: '/contact/'
