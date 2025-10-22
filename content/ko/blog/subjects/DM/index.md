@@ -1,154 +1,185 @@
 ---
 title: 👩🏼‍🏫 데이터마이닝
-summary: Embed videos, podcasts, code, LaTeX math, and even test students!
-date: 2023-10-24
+summary: 빈발 아이템셋부터 LSH, 군집화, 차원 축소까지 핵심 이론 정리
+date: 2024-10-24
 math: true
 authors:
   - admin
 tags:
-  - Hugo
-  - Hugo Blox Builder
-  - Markdown
+  - DataMining
+  - MachineLearning
 image:
-  caption: 'Embed rich media such as videos and LaTeX math'
+  caption: '데이터마이닝 분석 파이프라인 노트'
 
-exclude_search: true
+exclude_search: false
 dl_kind: "subjectsCount"
 semester: "3-2"
 course_topics:
-  - 지식 베이스 구축
-  - 협업 툴 활용
-  - 문서 자동화
+  - 빈발 패턴 탐색
+  - 유사도 기반 탐색
+  - 군집 분석과 차원 축소
 ---
 
-[Hugo Blox Builder](https://hugoblox.com) is designed to give technical content creators a seamless experience. You can focus on the content and the Hugo Blox Builder which this template is built upon handles the rest.
+## 1. 데이터마이닝 개요
 
-**Embed videos, podcasts, code, LaTeX math, and even test students!**
+- 대규모 데이터에서 **유의미한 패턴과 지식을 추출**하는 과정.
+- 주된 단계: 데이터 정제 → 특징 추출 → 모델링/패턴 탐색 → 평가 및 시각화.
+- 특징: 대량(Volume), 다양성(Variety), 빠른 속도(Velocity), 정확성(Veracity)을 고려한 알고리즘 설계가 필요.
 
-On this page, you'll find some examples of the types of technical content that can be rendered with Hugo Blox.
+---
 
-## Citation
+## 2. 빈발 아이템셋 탐색(Frequent Itemset Mining)
 
-Here's an example of citing a publication using the cite shortcode:
+### 2.1 개념
+- 거래 데이터(쇼핑 내역 등)에서 함께 등장하는 아이템 묶음을 찾는 문제.
+- **지지도(Support)**: 전체 거래 중 해당 아이템셋이 등장한 비율.  
+  $$\mathrm{support}(X) = \frac{\text{X를 포함한 거래 수}}{\text{전체 거래 수}}$$
+- **신뢰도(Confidence)**: 규칙 $X \rightarrow Y$의 신뢰도는 X가 포함된 거래 중 Y도 함께 등장할 확률.
+- **향상도(Lift)**: $ \frac{P(X,Y)}{P(X)P(Y)} $로 독립성 대비 얼마나 더 자주 같이 등장하는지 측정.
 
-{{< cite page="/publications/preprint" view="citation" >}}
+### 2.2 Apriori 알고리즘
+- **하향식(Top-down)** 탐색: 크기가 작은 빈발 아이템셋에서 시작하여 확장.
+- 원리: **단조성(Apriori Principle)** — 어떤 아이템셋이 빈발하지 않다면 그 초집합도 빈발하지 않음.
+- 단계:
+  1. 크기 1 아이템셋 후보 생성 및 지지도 계산.
+  2. 최소 지지도보다 큰 아이템셋만 남김.
+  3. 남은 아이템셋을 조합해 $k+1$ 크기 후보를 생성.
+  4. 반복하여 전체 빈발 아이템셋 도출.
+- 단점: 후보 생성/지지도 계산 시 많은 스캔이 필요.
 
-You can also use the default view by omitting the view parameter:
+### 2.3 FP-Growth (Frequent Pattern Growth)
+- 후보 생성 없이 **FP-트리** 구조를 이용해 패턴을 압축 저장.
+- 과정:
+  1. 전체 거래를 스캔해 지지도 순으로 아이템 정렬.
+  2. 동일 순서로 트리에 삽입하여 경로 공유.
+  3. 각 아이템에 대한 조건부 트리를 구성해 재귀적으로 패턴 생성.
+- Apriori보다 I/O 비용이 적고 빅데이터에 효율적.
 
-{{< cite page="/publications/conference-paper" >}}
+### 2.4 연관 규칙 생성
+- 빈발 아이템셋에서 모든 가능한 분할을 생성하여 규칙 후보 생성.
+- 지지도·신뢰도·향상도 등 임계값을 적용해 의미 있는 규칙 선택.
+- 응용: 추천 시스템, 장바구니 분석, 침입 탐지.
 
-## Video
+---
 
-Teach your course by sharing videos with your students. Choose from one of the following approaches:
+## 3. 유사 항목 탐색: Locality Sensitive Hashing(LSH)
 
-**Youtube**:
+### 3.1 문제 정의
+- 대규모 데이터셋에서 **유사한 아이템을 빠르게 찾기** 위한 방법.
+- 예: 문서 중복 탐지, 이미지 검색, 레코드 중복 제거.
 
-    {{</* youtube D2vj0WcvH5c */>}}
+### 3.2 기본 아이디어
+- 해시 함수가 **유사한 객체를 동일 버킷에 높은 확률로 매핑**하도록 설계.
+- 유사도 지표에 따라 해시 패밀리를 선택:  
+  - Jaccard 유사도 → MinHash.  
+  - 코사인 유사도 → Random Hyperplane.  
+  - Lp 거리 → p-안정 분포 해시.
 
-{{< youtube D2vj0WcvH5c >}}
+### 3.3 MinHash + 밴드 기법
+- 문서를 **셋**으로 표현하고 MinHash 시그니처(여러 해시 함수의 최소값)를 생성.
+- 시그니처를 r×b 밴드로 나눠 각 밴드마다 동일한 구간을 문자열로 취급해 해시 버킷에 저장.
+- 두 문서가 하나라도 같은 밴드-버킷에 들어가면 **후보(pair)** 로 간주하고 실제 유사도를 계산.
+- 파라미터 (r,b) 조절로 유사도 임계값을 설정.  
+  - 더 많은 밴드(b)는 거짓 음성 감소, 더 많은 행(r)은 거짓 양성 감소.
 
-**Bilibili**:
+### 3.4 LSH 파이프라인
+1. 데이터 전처리 및 특징화(셋/벡터).
+2. LSH 시그니처 생성.
+3. 후보군 추출.
+4. 정확한 거리 계산 후 상위 K개 또는 임계값 이상 반환.
 
-    {{</* bilibili BV1WV4y1r7DF */>}}
+---
 
+## 4. 군집화(Clustering)
 
-**Video file**
+### 4.1 개요
+- 레이블이 없는 데이터에서 **자연스러운 그룹**을 발견.
+- 목적: 군집 내 유사성 극대화, 군집 간 유사성 최소화.
+- 거리 척도: 유클리디언, 코사인, 해밍, DTW 등.
 
-Videos may be added to a page by either placing them in your `assets/media/` media library or in your [page's folder](https://gohugo.io/content-management/page-bundles/), and then embedding them with the _video_ shortcode:
+### 4.2 K-means
+- 구형(球形) 군집에 적합한 대표 알고리즘.
+- 절차:
+  1. 초기 중심 K개 선택 (K-means++, 랜덤).
+  2. 각 데이터 포인트를 가장 가까운 중심에 할당.
+  3. 중심 갱신(할당된 포인트 평균).
+  4. 수렴할 때까지 반복.
+- 주의: K 값 선택(엘보우, 실루엣), 이상치 영향, 초기값 민감성.
 
-    {{</* video src="my_video.mp4" controls="yes" */>}}
+### 4.3 계층적 군집화
+- 데이터 사이 거리를 기반으로 **덴드로그램** 생성.
+- 상향식(Agglomerative): 각 포인트를 독립 군집으로 시작해 병합.  
+  - 연결 기준: 단일(Single), 완전(Complete), 평균(Average), Ward.
+- 하향식(Divisive): 전체를 하나의 군집으로 보고 분할.
+- 원하는 군집 수만큼 수평선으로 잘라 결과 도출.
 
-## Podcast
+### 4.4 밀도 기반 군집화 (DBSCAN, HDBSCAN)
+- 밀도가 높은 영역을 군집으로 정의하고 희소 영역은 노이즈로 처리.
+- 파라미터: $\varepsilon$ (반경), MinPts(최소 포인트 수).
+- 장점: 임의 모양 군집 탐색, 이상치 자동 탐지.
 
-You can add a podcast or music to a page by placing the MP3 file in the page's folder or the media library folder and then embedding the audio on your page with the _audio_ shortcode:
+---
 
-    {{</* audio src="ambient-piano.mp3" */>}}
+## 5. 그래프 기반 커뮤니티 탐지
 
-Try it out:
+### 5.1 Community Detection
+- 그래프의 노드를 **내부적으로 연결이 밀집된 하위 구조**로 분할.
+- 응용: 소셜 네트워크, 추천, 생물학 네트워크 분석.
 
-{{< audio src="ambient-piano.mp3" >}}
+### 5.2 모듈러리티(Modularity)
+- 군집 내 연결 강도와 군집 간 연결 강도의 차이를 지표로 사용.
+- Louvain, Leiden 알고리즘이 대표적: 모듈러리티 최대화를 반복 수행.
 
-## Test students
+### 5.3 스펙트럴 클러스터링(Spectral Clustering)
+- 그래프 라플라시안(Laplacian) 행렬의 고유벡터를 이용해 군집화.
+- 과정:
+  1. 인접 행렬 $W$로 그래프 표현, 정도 행렬 $D$ 계산.
+  2. **정규화 라플라시안** $L = D^{-1/2}(D - W)D^{-1/2}$을 구성.
+  3. $L$의 하위 k개의 고유벡터를 취해 새로운 특징 공간으로 임베딩.
+  4. 해당 공간에서 K-means 등 전통적 군집 알고리즘 수행.
+- 장점: 비선형 구조, 비구형 군집에도 적용 가능.
 
-Provide a simple yet fun self-assessment by revealing the solutions to challenges with the `spoiler` shortcode:
+### 5.4 비교
+- 모듈러리티 기반: 빠르지만 해상도 한계 존재.
+- 스펙트럴: 고유값 분해 비용이 있지만 품질 높은 분할 제공.
+- 실제 프로젝트에서는 그래프 크기, 희소성, 실시간 요구를 고려해 선택.
 
-```markdown
-{{</* spoiler text="👉 Click to view the solution" */>}}
-You found me!
-{{</* /spoiler */>}}
-```
+---
 
-renders as
+## 6. 차원 축소(Dimension Reduction)
 
-{{< spoiler text="👉 Click to view the solution" >}} You found me 🎉 {{< /spoiler >}}
+### 6.1 필요성
+- 고차원 데이터는 계산 비용 증가, 시각화 어려움, 차원의 저주 발생.
+- 차원 축소는 **정보 손실을 최소화하면서 표현 차원 수를 줄이는 과정**.
 
-## Math
+### 6.2 주성분 분석(PCA)
+- 공분산 행렬의 고유값 분해로 분산이 가장 큰 방향(주성분)을 찾는다.
+- 절차: 표준화 → 공분산 행렬 계산 → 고유값/고유벡터 → 상위 k개 선택 → 투영.
+- 주요 성질: 직교 변환, 선형 기법, 최대 정보 보존.
+- 한계: 비선형 패턴, 이상치에 민감.
 
-Hugo Blox Builder supports a Markdown extension for $\LaTeX$ math. Enable math by setting the `math: true` option in your page's front matter, or enable math for your entire site by toggling math in your `config/_default/params.yaml` file:
+### 6.3 선형 판별 분석(LDA)
+- 클래스 간 분산 대비 클래스 내 분산 비율을 최대화.
+- 지도학습 기반 차원 축소, 분류 성능 향상이 목표.
 
-```yaml
-features:
-  math:
-    enable: true
-```
+### 6.4 비선형 차원 축소
+- t-SNE: 국소 구조 유지, 시각화에 탁월하지만 전역 구조 왜곡 가능.
+- UMAP: t-SNE보다 빠르고 전역 구조를 더 잘 유지.
+- Autoencoder: 심층 신경망으로 비선형 임베딩 학습.
 
-To render _inline_ or _block_ math, wrap your LaTeX math with `$...$` or `$$...$$`, respectively.
+### 6.5 차원 축소와 LSH/군집화 연계
+- 고차원 벡터를 축소하여 LSH 효율 개선 및 노이즈 완화.
+- 군집화 전에 PCA로 잡음 제거 → 실루엣 지수 향상 가능.
 
-Example **math block**:
+---
 
-```latex
-$$
-\gamma_{n} = \frac{ \left | \left (\mathbf x_{n} - \mathbf x_{n-1} \right )^T \left [\nabla F (\mathbf x_{n}) - \nabla F (\mathbf x_{n-1}) \right ] \right |}{\left \|\nabla F(\mathbf{x}_{n}) - \nabla F(\mathbf{x}_{n-1}) \right \|^2}
-$$
-```
+## 7. 데이터마이닝 프로젝트 팁
 
-renders as
-
-$$\gamma_{n} = \frac{ \left | \left (\mathbf x_{n} - \mathbf x_{n-1} \right )^T \left [\nabla F (\mathbf x_{n}) - \nabla F (\mathbf x_{n-1}) \right ] \right |}{\left \|\nabla F(\mathbf{x}_{n}) - \nabla F(\mathbf{x}_{n-1}) \right \|^2}$$
-
-Example **inline math** `$\nabla F(\mathbf{x}_{n})$` renders as $\nabla F(\mathbf{x}_{n})$.
-
-Example **multi-line math** using the math linebreak (`\\`):
-
-```latex
-$$f(k;p_{0}^{*}) = \begin{cases}p_{0}^{*} & \text{if }k=1, \\
-1-p_{0}^{*} & \text{if }k=0.\end{cases}$$
-```
-
-renders as
-
-$$
-f(k;p_{0}^{*}) = \begin{cases}p_{0}^{*} & \text{if }k=1, \\
-1-p_{0}^{*} & \text{if }k=0.\end{cases}
-$$
-
-## Code
-
-Hugo Blox Builder utilises Hugo's Markdown extension for highlighting code syntax. The code theme can be selected in the `config/_default/params.yaml` file.
-
-
-    ```python
-    import pandas as pd
-    data = pd.read_csv("data.csv")
-    data.head()
-    ```
-
-renders as
-
-```python
-import pandas as pd
-data = pd.read_csv("data.csv")
-data.head()
-```
-
-## Inline Images
-
-```go
-{{</* icon name="python" */>}} Python
-```
-
-renders as
-
-{{< icon name="python" >}} Python
-
-## Did you find this page helpful? Consider sharing it 🙌
+- 데이터 품질 확보: 결측치 처리, 이상치 탐지, 스케일링 필수.
+- 평가 지표:
+  - 빈발 패턴: 신뢰도, 향상도 외 Conviction, Kulczynski 등.
+  - 군집/커뮤니티: 실루엣, Davies-Bouldin, 모듈러리티.
+  - 차원 축소: 재구성 오차, 분류 성능 변화.
+- 시각화: 히트맵, 상관 행렬, 네트워크 그래프, 2D 임베딩(예: PCA, t-SNE).
+- 실무에서 LSH는 후보 생성, 정확한 판단은 후속 정밀 비교로 조합한다.
+- 반복적 실험과 파라미터 튜닝을 통해 재현 가능한 파이프라인을 문서화한다.
