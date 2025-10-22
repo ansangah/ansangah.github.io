@@ -428,3 +428,17 @@ html[data-wc-theme="dark"] .ai-blog-stats__value.blog-total-count,
 html.dark .ai-blog-stats__value.blog-total-count {
   color: #facc15 !important;
 }
+
+html[data-wc-theme="dark"] .ai-home-see-more,
+html.dark .ai-home-see-more {
+  background: #0f172a !important;
+  border-color: #1e293b !important;
+  color: #cbd5f5 !important;
+}
+
+html[data-wc-theme="dark"] .ai-home-see-more:hover,
+html.dark .ai-home-see-more:hover {
+  background: #111827 !important;
+  border-color: #1f2937 !important;
+  color: #f8fafc !important;
+}
