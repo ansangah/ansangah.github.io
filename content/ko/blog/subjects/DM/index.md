@@ -1,5 +1,5 @@
 ---
-title: 👩🏼‍🏫 Teach academic courses
+title: 👩🏼‍🏫 데이터마이닝
 summary: Embed videos, podcasts, code, LaTeX math, and even test students!
 date: 2023-10-24
 math: true
