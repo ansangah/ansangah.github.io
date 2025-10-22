@@ -1,154 +1,159 @@
 ---
 title: 👩🏼‍🏫 기계학습
-summary: Embed videos, podcasts, code, LaTeX math, and even test students!
-date: 2023-10-24
+summary: 귀납 학습 정의부터 결정트리·최근접이웃·퍼셉트론·선형모델까지 핵심 정리
+date: 2024-10-24
 math: true
 authors:
   - admin
 tags:
-  - Hugo
-  - Hugo Blox Builder
-  - Markdown
+  - MachineLearning
+  - PatternRecognition
 image:
-  caption: 'Embed rich media such as videos and LaTeX math'
+  caption: '기계학습 모델 지형도'
 
-exclude_search: true
+exclude_search: false
 dl_kind: "subjectsCount"
 semester: "3-2"
 course_topics:
-  - 강의 자료 제작
-  - 실습 과제 설계
-  - 수업 평가 자동화
+  - 귀납적 학습 이론
+  - 분류 알고리즘
+  - 실무 적용 이슈
 ---
 
-[Hugo Blox Builder](https://hugoblox.com) is designed to give technical content creators a seamless experience. You can focus on the content and the Hugo Blox Builder which this template is built upon handles the rest.
+## 1. 기계학습 개요
 
-**Embed videos, podcasts, code, LaTeX math, and even test students!**
+- 기계학습(Machine Learning)은 **데이터에서 패턴을 학습해 예측이나 의사결정을 자동화**하는 기술.
+- 학습 유형: 지도학습(분류·회귀), 비지도학습(군집·차원축소), 강화학습.
+- 주요 과제: 일반화(generalization), 데이터 품질, 계산 효율, 설명 가능성.
 
-On this page, you'll find some examples of the types of technical content that can be rendered with Hugo Blox.
+---
 
-## Citation
+## 2. 귀납적 기계학습의 형식적 정의
 
-Here's an example of citing a publication using the cite shortcode:
+### 2.1 학습 문제 서술
+- 입력 공간 $\mathcal{X}$, 출력 공간 $\mathcal{Y}$, 미지의 분포 $\mathcal{D}$가 존재한다고 가정.
+- 훈련 데이터 $S = \{(x_i, y_i)\}_{i=1}^{n}$ 는 $\mathcal{D}$로부터 독립 동일 분포(i.i.d.) 샘플링된다.
+- 학습기의 목표는 가설 공간 $\mathcal{H}$에서 함수를 선택해 **위험(Risk)** 을 최소화:
+  $$R(h) = \mathbb{E}_{(x,y)\sim\mathcal{D}}[\ell(h(x), y)]$$
+  하지만 $\mathcal{D}$를 모르는 탓에 **경험 위험(Empirical Risk)** 
+  $$\hat{R}_S(h) = \frac{1}{n}\sum_{i=1}^{n} \ell(h(x_i), y_i)$$
+  을 최소화하거나 정규화된 변형(RERM)을 사용한다.
 
-{{< cite page="/publications/preprint" view="citation" >}}
+### 2.2 귀납적 추론
+- **No Free Lunch 정리**에 따라 임의의 분포를 가정하면 어떤 학습 알고리즘도 항상 우수할 수 없다.
+- 따라서 도메인 지식을 반영한 **편향(bias)** 을 설계하고, 데이터를 통해 **가중치(weight)** 를 조정한다.
 
-You can also use the default view by omitting the view parameter:
+---
 
-{{< cite page="/publications/conference-paper" >}}
+## 3. 학습의 한계와 일반화
 
-## Video
+- **VC 차원**: 가설 공간의 표현력을 측정하며, 일반화 오차에 상한을 제공.
+- **Bias-Variance Trade-off**: 모델 복잡도가 높을수록 분산이 증가, 간단할수록 편향이 커진다.
+- **과적합(Overfitting)**: 훈련 오차는 작지만 보지 못한 데이터에서 성능 하락. 해결: 정규화, 조기 종료, 교차 검증.
+- **PAC 학습**: 일정한 확률(Probably)로 원하는 정확도(Approximately Correct)에 도달하는 학습 가능성 정의.
 
-Teach your course by sharing videos with your students. Choose from one of the following approaches:
+---
 
-**Youtube**:
+## 4. 기하학적 관점과 최근접 이웃
 
-    {{</* youtube D2vj0WcvH5c */>}}
+### 4.1 거리 기반 학습
+- 데이터 포인트를 고차원 공간의 벡터로 보고, **거리(metric)** 로 유사성을 측정.
+- $k$-최근접 이웃(k-NN) 분류: 예측 시 가장 가까운 k개의 레이블을 다수결로 결정.
+- $k$-NN 회귀: 인접 샘플의 평균 또는 가중 평균으로 예측.
 
-{{< youtube D2vj0WcvH5c >}}
+### 4.2 특성
+- 훈련 시간이 거의 없고(저장만), 예측 시 계산량이 많다.
+- 거리 척도 선택이 중요: 유클리드, 맨해튼, 코사인 등.
+- 차원의 저주: 차원이 커질수록 모든 점 사이 거리가 비슷해져 분류력이 약해진다 → 차원 축소, 가중 거리 필요.
 
-**Bilibili**:
+### 4.3 커널과 매니폴드
+- 국소 구조를 반영하기 위해 **커널 함수**로 비선형 거리를 정의할 수 있다.
+- 매니폴드 가정: 고차원 데이터가 실제로는 저차원 곡면 위에 놓여 있다고 보고 근접도 계산.
 
-    {{</* bilibili BV1WV4y1r7DF */>}}
+---
 
+## 5. 결정 트리 학습(Decision Tree)
 
-**Video file**
+### 5.1 기본 구조
+- 질문(속성 분할)을 연속적으로 수행해 리프 노드에서 예측.
+- 분할 기준: 정보 이득(Information Gain), 지니 지수(Gini Index), 카이제곱 등.
 
-Videos may be added to a page by either placing them in your `assets/media/` media library or in your [page's folder](https://gohugo.io/content-management/page-bundles/), and then embedding them with the _video_ shortcode:
+### 5.2 학습 절차 (ID3/C4.5/CART)
+1. 최적 속성을 선택해 데이터 분할.
+2. 하위 노드에 대해 재귀적으로 반복.
+3. 리프 노드가 순수(Pure)하거나 최소 데이터 수 이하가 되면 중지.
+- **연속형 속성**은 임계값을 이용한 이진 분할로 처리.
 
-    {{</* video src="my_video.mp4" controls="yes" */>}}
+### 5.3 가지치기(Pruning)
+- 사전 가지치기: 깊이 제한, 최소 샘플 수 제한 등.
+- 사후 가지치기: 완전 트리 학습 후 검증 오차가 커지는 분기를 제거(예: Reduced Error Pruning).
 
-## Podcast
+### 5.4 장점·단점
+- 해석 용이, 특성 스케일링 불필요, 비선형 관계에 강함.
+- 데이터 분할에 민감하고, 과적합 위험 높음 → 앙상블(Random Forest, Gradient Boosting)로 개선.
 
-You can add a podcast or music to a page by placing the MP3 file in the page's folder or the media library folder and then embedding the audio on your page with the _audio_ shortcode:
+---
 
-    {{</* audio src="ambient-piano.mp3" */>}}
+## 6. 퍼셉트론(Perceptron)
 
-Try it out:
+### 6.1 선형 분리 모델
+- 입력 $x$에 대해 가중치 $w$와 편향 $b$를 학습하여 $\text{sign}(w^\top x + b)$ 로 이진 분류.
+- 퍼셉트론 규칙: 오분류된 샘플에 대해 $w \leftarrow w + \eta yx$, $b \leftarrow b + \eta y$.
+- **퍼셉트론 수렴 정리**: 데이터가 선형적으로 분리 가능하면 유한 번의 업데이트 후 수렴.
 
-{{< audio src="ambient-piano.mp3" >}}
+### 6.2 한계
+- XOR 같은 비선형 문제를 해결할 수 없음 → 커널 퍼셉트론, 다층 퍼셉트론(신경망)으로 확장.
+- 학습률 $\eta$ 선택, 데이터 순서에 따른 민감성 존재.
 
-## Test students
+---
 
-Provide a simple yet fun self-assessment by revealing the solutions to challenges with the `spoiler` shortcode:
+## 7. 실무에서 마주치는 이슈
 
-```markdown
-{{</* spoiler text="👉 Click to view the solution" */>}}
-You found me!
-{{</* /spoiler */>}}
-```
+- **데이터 전처리**: 결측치 처리, 이상치 탐지, 정규화/표준화, 범주형 인코딩.
+- **평가 전략**: 훈련/검증/테스트 분할, K-겹 교차 검증, 시간 순서 고려(시계열의 경우).
+- **정규화와 규제**: L1은 희소성 유도, L2는 가중치 분산 감소. 드롭아웃, 배치 정규화 등 신경망 규제.
+- **하이퍼파라미터 탐색**: Grid, Random, Bayesian Optimization.
+- **모델 해석**: SHAP, LIME, Feature Importance.
 
-renders as
+---
 
-{{< spoiler text="👉 Click to view the solution" >}} You found me 🎉 {{< /spoiler >}}
+## 8. 이진 분류를 넘어
 
-## Math
+- **다중 분류**: One-vs-Rest, One-vs-One, 소프트맥스 회귀(다항 로지스틱).
+- **다중 라벨 분류**: 한 샘플에 여러 라벨 가능 → 베이즈 체인, 시그모이드 출력.
+- **회귀 문제**: 연속값 예측 → 선형 회귀, 회귀 트리, Gaussian Process.
+- **불균형 데이터**: 가중치 조정, SMOTE, 이익 기반 손실 함수.
+- **구조적 출력**: 순차 라벨링(HMM, CRF), 이미지 분할(U-Net 등).
 
-Hugo Blox Builder supports a Markdown extension for $\LaTeX$ math. Enable math by setting the `math: true` option in your page's front matter, or enable math for your entire site by toggling math in your `config/_default/params.yaml` file:
+---
 
-```yaml
-features:
-  math:
-    enable: true
-```
+## 9. 선형 모델(Linear Models)
 
-To render _inline_ or _block_ math, wrap your LaTeX math with `$...$` or `$$...$$`, respectively.
+### 9.1 선형 회귀(Linear Regression)
+- 목적: $y \approx w^\top x + b$. 최소제곱(Ordinary Least Squares)으로 해석 가능.
+- 정규화: Ridge(L2), Lasso(L1), Elastic Net.
 
-Example **math block**:
+### 9.2 로지스틱 회귀(Logistic Regression)
+- 이진 분류에서 **시그모이드**로 확률 추정:
+  $$P(y=1|x) = \sigma(w^\top x + b) = \frac{1}{1 + e^{-(w^\top x + b)}}$$
+- 로그 우도 최대화 또는 교차 엔트로피 손실 최소화로 학습.
+- 결정경계가 선형이라는 한계 → 커널 기법, 다항 특성 확장으로 비선형 모델링.
 
-```latex
-$$
-\gamma_{n} = \frac{ \left | \left (\mathbf x_{n} - \mathbf x_{n-1} \right )^T \left [\nabla F (\mathbf x_{n}) - \nabla F (\mathbf x_{n-1}) \right ] \right |}{\left \|\nabla F(\mathbf{x}_{n}) - \nabla F(\mathbf{x}_{n-1}) \right \|^2}
-$$
-```
+### 9.3 소프트맥스 회귀(다항 로지스틱)
+- $K$개 클래스에 대해 $\mathrm{softmax}(z)_k = \frac{e^{z_k}}{\sum_j e^{z_j}}$.
+- 교차 엔트로피 손실로 학습하며, 확률적 경사 하강법(SGD)과 잘 결합.
 
-renders as
+### 9.4 선형 모델의 장단점
+- 장점: 설명 가능, 학습 속도 빠름, 고차원 희소 데이터에 강함.
+- 단점: 복잡한 비선형 관계 표현 한계. 커널 방법(Kernel Trick), 다층 신경망으로 확장 가능.
 
-$$\gamma_{n} = \frac{ \left | \left (\mathbf x_{n} - \mathbf x_{n-1} \right )^T \left [\nabla F (\mathbf x_{n}) - \nabla F (\mathbf x_{n-1}) \right ] \right |}{\left \|\nabla F(\mathbf{x}_{n}) - \nabla F(\mathbf{x}_{n-1}) \right \|^2}$$
+---
 
-Example **inline math** `$\nabla F(\mathbf{x}_{n})$` renders as $\nabla F(\mathbf{x}_{n})$.
+## 10. 참고 학습 플로우
 
-Example **multi-line math** using the math linebreak (`\\`):
-
-```latex
-$$f(k;p_{0}^{*}) = \begin{cases}p_{0}^{*} & \text{if }k=1, \\
-1-p_{0}^{*} & \text{if }k=0.\end{cases}$$
-```
-
-renders as
-
-$$
-f(k;p_{0}^{*}) = \begin{cases}p_{0}^{*} & \text{if }k=1, \\
-1-p_{0}^{*} & \text{if }k=0.\end{cases}
-$$
-
-## Code
-
-Hugo Blox Builder utilises Hugo's Markdown extension for highlighting code syntax. The code theme can be selected in the `config/_default/params.yaml` file.
-
-
-    ```python
-    import pandas as pd
-    data = pd.read_csv("data.csv")
-    data.head()
-    ```
-
-renders as
-
-```python
-import pandas as pd
-data = pd.read_csv("data.csv")
-data.head()
-```
-
-## Inline Images
-
-```go
-{{</* icon name="python" */>}} Python
-```
-
-renders as
-
-{{< icon name="python" >}} Python
-
-## Did you find this page helpful? Consider sharing it 🙌
+1. 문제 정의 및 데이터 이해 (도메인 지식 정리).
+2. 데이터 정제·탐색적 분석 → 특징 공학.
+3. 기본 모델 구축(선형, 결정트리, k-NN 등)으로 벤치마크.
+4. 검증 전략 설정 후 하이퍼파라미터 탐색.
+5. 성능/설명력/운용비용을 평가해 최종 모델 선정.
+6. 배포 후 모니터링, 데이터 드리프트 대응, 주기적 재학습.
